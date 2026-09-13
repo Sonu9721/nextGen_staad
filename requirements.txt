@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+python-multipart
+pydantic>=2
+pydantic-settings>=2
+psutil>=5.9
+numpy>=2.0,<3

@@ -1,0 +1,36 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Local / debug
+*.log
+.env
+.env.local
+runtime/
+.pytest_cache/
+.ruff_cache/
+tmp/
+*.zip
+*.pem
+*.key
+.env.*
+!.env.example
+
+# MCP / Cursor (if present)
+mcps/

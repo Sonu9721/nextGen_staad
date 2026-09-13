@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="2" failures="0" skipped="0" tests="2" time="1.700" timestamp="2026-09-13T20:00:56.739336+05:30" hostname="DESKTOP-FJ0CM4V"><testcase classname="" name="tests.test_api" time="0.000"><error message="collection failure">ImportError while importing test module 'C:\Users\user\Desktop\staad\staad-report-extractor\tests\test_api.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Python314\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_api.py:18: in &lt;module&gt;
+    import app.main as main_module
+E   ModuleNotFoundError: No module named 'app.main'; 'app' is not a package</error></testcase><testcase classname="" name="tests.test_inhouse_api" time="0.000"><error message="collection failure">ImportError while importing test module 'C:\Users\user\Desktop\staad\staad-report-extractor\tests\test_inhouse_api.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Python314\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_inhouse_api.py:7: in &lt;module&gt;
+    from app.core.config import Settings
+E   ModuleNotFoundError: No module named 'app.core'; 'app' is not a package</error></testcase></testsuite></testsuites>

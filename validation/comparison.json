@@ -1,0 +1,4093 @@
+{
+  "sample1": {
+    "metrics": [
+      {
+        "metric": "properties.bending_moment.major",
+        "reference": 3.610405,
+        "candidate": 3.617743,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.007337999999999845,
+        "absolute_difference": 0.007337999999999845,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.915927,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 3.6104085157158288
+      },
+      {
+        "metric": "properties.bending_moment.minor.max",
+        "reference": 0.111442,
+        "candidate": 0.111442,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 40,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 23.622002,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 42,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.11144170835998421
+      },
+      {
+        "metric": "properties.bending_moment.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.915927,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 1.8330011591214778e-16
+      },
+      {
+        "metric": "properties.shear_force.major",
+        "reference": 3.790454,
+        "candidate": 3.790456,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 1.9999999998354667e-06,
+        "absolute_difference": 1.9999999998354667e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 3.7904555700764013
+      },
+      {
+        "metric": "properties.shear_force.minor.max_on_mullions",
+        "reference": 0.006211,
+        "candidate": 0.006211,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 28,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.006211402334553822
+      },
+      {
+        "metric": "properties.shear_force.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_at_reference_point": 3.997474168021908e-07
+      },
+      {
+        "metric": "properties.axial_force",
+        "reference": 2.333159,
+        "candidate": 2.333159,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 11,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 11,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 2.3331593306750067
+      },
+      {
+        "metric": "properties.displacement",
+        "reference": 51.836027,
+        "candidate": 51.899914,
+        "value_status": "difference",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.06388700000000114,
+        "absolute_difference": 0.06388700000000114,
+        "tolerance": 0.051836027,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 17,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 17,
+          "station": 0.815,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 51.89990837152394
+      },
+      {
+        "metric": "properties.mullion.bending_moment.major",
+        "reference": 3.610405,
+        "candidate": 3.617743,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.007337999999999845,
+        "absolute_difference": 0.007337999999999845,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.915927,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 3.6104085157158288
+      },
+      {
+        "metric": "properties.mullion.bending_moment.minor.max",
+        "reference": 0.007374,
+        "candidate": 0.007374,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 1,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 0.0,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 28,
+          "location": "member-maximum",
+          "load_case": 1,
+          "station": 0.0,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.007373933315512392
+      },
+      {
+        "metric": "properties.mullion.bending_moment.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.915927,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 1.8330011591214778e-16
+      },
+      {
+        "metric": "properties.mullion.shear_force.major",
+        "reference": 3.790454,
+        "candidate": 3.790456,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 1.9999999998354667e-06,
+        "absolute_difference": 1.9999999998354667e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 3.7904555700764013
+      },
+      {
+        "metric": "properties.mullion.shear_force.minor.max_on_mullions",
+        "reference": 0.006211,
+        "candidate": 0.006211,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 28,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.006211402334553822
+      },
+      {
+        "metric": "properties.mullion.shear_force.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_at_reference_point": 3.997474168021908e-07
+      },
+      {
+        "metric": "properties.mullion.axial_force",
+        "reference": 2.333159,
+        "candidate": 2.333159,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 11,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 11,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 2.3331593306750067
+      },
+      {
+        "metric": "properties.mullion.displacement",
+        "reference": 51.836027,
+        "candidate": 51.899914,
+        "value_status": "difference",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.06388700000000114,
+        "absolute_difference": 0.06388700000000114,
+        "tolerance": 0.051836027,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 17,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 17,
+          "station": 0.815,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 51.89990837152394
+      },
+      {
+        "metric": "properties.stack.bending_moment.major",
+        "reference": 0.1728,
+        "candidate": 0.1728,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 45,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 23.621994,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 45,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.17279999999868342
+      },
+      {
+        "metric": "properties.stack.shear_force.major",
+        "reference": 0.432,
+        "candidate": 0.432,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 45,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 43,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.4320000000000005
+      },
+      {
+        "metric": "properties.stack.displacement",
+        "reference": 4.021377,
+        "candidate": 4.021268,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00010900000000013677,
+        "absolute_difference": 0.00010900000000013677,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 2,
+          "node_id": 24
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "node_id": 24
+        },
+        "candidate_at_reference_point": 4.021267480735688
+      },
+      {
+        "metric": "properties.head.bending_moment.major",
+        "reference": 0.0864,
+        "candidate": 0.0864,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 55,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 23.622002,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 55,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.08639999999952461
+      },
+      {
+        "metric": "properties.head.shear_force.major",
+        "reference": 0.216,
+        "candidate": 0.216,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 55,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 56,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.21599999999999994
+      },
+      {
+        "metric": "properties.head.displacement",
+        "reference": 4.874561,
+        "candidate": 4.874405,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.0001559999999996009,
+        "absolute_difference": 0.0001559999999996009,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 2,
+          "node_id": 20
+        },
+        "candidate_location": {
+          "load_case": 2,
+          "node_id": 20
+        },
+        "candidate_at_reference_point": 4.874404737657547
+      },
+      {
+        "metric": "properties.sill.bending_moment.major",
+        "reference": 0.064342,
+        "candidate": 0.064243,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -9.900000000000186e-05,
+        "absolute_difference": 9.900000000000186e-05,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 37,
+          "location": "member-maximum",
+          "load_case": 2,
+          "station": 47.244003,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 38,
+          "location": "member-maximum",
+          "load_case": 2,
+          "station": 1.2,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.06424215201809969
+      },
+      {
+        "metric": "properties.sill.shear_force.major",
+        "reference": 0.269618,
+        "candidate": 0.269536,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -8.20000000000265e-05,
+        "absolute_difference": 8.20000000000265e-05,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 37,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 39,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.2695356486375334
+      },
+      {
+        "metric": "properties.sill.displacement",
+        "reference": 0.101476,
+        "candidate": 0.10212,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0006440000000000057,
+        "absolute_difference": 0.0006440000000000057,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 39,
+          "station": 23.621994,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 39,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.10212017428057424
+      },
+      {
+        "metric": "properties.transom.bending_moment.major",
+        "reference": 0.1728,
+        "candidate": 0.1728,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 42,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 23.621994,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 52,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.17279999999868487
+      },
+      {
+        "metric": "properties.transom.shear_force.major",
+        "reference": 0.432,
+        "candidate": 0.432,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 42,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 52,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.4320000000000028
+      },
+      {
+        "metric": "properties.transom.displacement",
+        "reference": 0.239753,
+        "candidate": 0.240815,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0010620000000000074,
+        "absolute_difference": 0.0010620000000000074,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 53,
+          "station": 23.622002,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 53,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.2408151608250222
+      }
+    ],
+    "counts": {
+      "pass": 26,
+      "difference": 2,
+      "missing": 0
+    },
+    "all_values_within_tolerance": false,
+    "reference_file": "examples/sample1/output.txt"
+  },
+  "sample2": {
+    "metrics": [
+      {
+        "metric": "properties.bending_moment.major",
+        "reference": 6.788116,
+        "candidate": 6.804171,
+        "value_status": "difference",
+        "location_status": "reference_station_reproduced_true_extremum_differs",
+        "difference": 0.016055000000000597,
+        "absolute_difference": 0.016055000000000597,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 44,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 44,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.925899,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 6.788121065888572
+      },
+      {
+        "metric": "properties.bending_moment.minor.max",
+        "reference": 0.169346,
+        "candidate": 0.169346,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 74,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 29.527504,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 74,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 0.75,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.16934641931247632
+      },
+      {
+        "metric": "properties.bending_moment.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 44,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 44,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.925899,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 3.667364339055524e-16
+      },
+      {
+        "metric": "properties.shear_force.major",
+        "reference": 7.308753,
+        "candidate": 7.308757,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 3.9999999996709334e-06,
+        "absolute_difference": 3.9999999996709334e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 51,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 51,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 7.308757118531478
+      },
+      {
+        "metric": "properties.shear_force.minor.max_on_mullions",
+        "reference": 0.010513,
+        "candidate": 0.010513,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 55,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 55,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.010512797520145618
+      },
+      {
+        "metric": "properties.shear_force.minor.at_major_governing_point",
+        "reference": 3e-06,
+        "candidate": 3e-06,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 51,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_location": {
+          "member_id": 51,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_at_reference_point": 2.8162774409245804e-06
+      },
+      {
+        "metric": "properties.axial_force",
+        "reference": 3.421368,
+        "candidate": 3.421368,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 47,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 47,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 3.4213680528665456
+      },
+      {
+        "metric": "properties.displacement",
+        "reference": 97.399002,
+        "candidate": 97.527675,
+        "value_status": "difference",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.12867300000000625,
+        "absolute_difference": 0.12867300000000625,
+        "tolerance": 0.097399002,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 44,
+          "station": 42.782064,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 44,
+          "station": 1.086667,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 97.52768942305357
+      },
+      {
+        "metric": "properties.mullion.bending_moment.major",
+        "reference": 6.788116,
+        "candidate": 6.804171,
+        "value_status": "difference",
+        "location_status": "reference_station_reproduced_true_extremum_differs",
+        "difference": 0.016055000000000597,
+        "absolute_difference": 0.016055000000000597,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 44,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 44,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.925899,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 6.788121065888572
+      },
+      {
+        "metric": "properties.mullion.bending_moment.minor.max",
+        "reference": 0.012508,
+        "candidate": 0.012508,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 55,
+          "location": "member-maximum",
+          "load_case": 1,
+          "station": 0.0,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 55,
+          "location": "member-maximum",
+          "load_case": 1,
+          "station": 0.0,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.012508037553359842
+      },
+      {
+        "metric": "properties.mullion.bending_moment.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 44,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 44,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.925899,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 3.667364339055524e-16
+      },
+      {
+        "metric": "properties.mullion.shear_force.major",
+        "reference": 7.308753,
+        "candidate": 7.308757,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 3.9999999996709334e-06,
+        "absolute_difference": 3.9999999996709334e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 51,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 51,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 7.308757118531478
+      },
+      {
+        "metric": "properties.mullion.shear_force.minor.max_on_mullions",
+        "reference": 0.010513,
+        "candidate": 0.010513,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 55,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 55,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.010512797520145618
+      },
+      {
+        "metric": "properties.mullion.shear_force.minor.at_major_governing_point",
+        "reference": 3e-06,
+        "candidate": 3e-06,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 51,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_location": {
+          "member_id": 51,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_at_reference_point": 2.8162774409245804e-06
+      },
+      {
+        "metric": "properties.mullion.axial_force",
+        "reference": 3.421368,
+        "candidate": 3.421368,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 47,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 47,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 3.4213680528665456
+      },
+      {
+        "metric": "properties.mullion.displacement",
+        "reference": 97.399002,
+        "candidate": 97.527675,
+        "value_status": "difference",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.12867300000000625,
+        "absolute_difference": 0.12867300000000625,
+        "tolerance": 0.097399002,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 44,
+          "station": 42.782064,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 44,
+          "station": 1.086667,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 97.52768942305357
+      },
+      {
+        "metric": "properties.stack.bending_moment.major",
+        "reference": 0.5046,
+        "candidate": 0.5046,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 92,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 29.527504,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 92,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.75,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.5045999999974495
+      },
+      {
+        "metric": "properties.stack.shear_force.major",
+        "reference": 1.010251,
+        "candidate": 1.01025,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -9.999999999177334e-07,
+        "absolute_difference": 9.999999999177334e-07,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 92,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 92,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 1.010250000000002
+      },
+      {
+        "metric": "properties.stack.displacement",
+        "reference": 8.163775,
+        "candidate": 8.163382,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.0003929999999989775,
+        "absolute_difference": 0.0003929999999989775,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 2,
+          "node_id": 44
+        },
+        "candidate_location": {
+          "load_case": 2,
+          "node_id": 44
+        },
+        "candidate_at_reference_point": 8.16338163935997
+      },
+      {
+        "metric": "properties.head.bending_moment.major",
+        "reference": 0.253125,
+        "candidate": 0.253125,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 104,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 29.527504,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 104,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.75,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.25312499999868004
+      },
+      {
+        "metric": "properties.head.shear_force.major",
+        "reference": 0.506249,
+        "candidate": 0.50625,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 1.0000000000287557e-06,
+        "absolute_difference": 1.0000000000287557e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 105,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 105,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.5062499999999996
+      },
+      {
+        "metric": "properties.head.displacement",
+        "reference": 9.383644,
+        "candidate": 9.38318,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00046400000000090813,
+        "absolute_difference": 0.00046400000000090813,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 2,
+          "node_id": 50
+        },
+        "candidate_location": {
+          "load_case": 2,
+          "node_id": 50
+        },
+        "candidate_at_reference_point": 9.383180073586624
+      },
+      {
+        "metric": "properties.sill.bending_moment.major",
+        "reference": 0.201294,
+        "candidate": 0.201065,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00022900000000000698,
+        "absolute_difference": 0.00022900000000000698,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 68,
+          "location": "member-maximum",
+          "load_case": 2,
+          "station": 59.055008,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 68,
+          "location": "member-maximum",
+          "load_case": 2,
+          "station": 1.5,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.2010632730809009
+      },
+      {
+        "metric": "properties.sill.shear_force.major",
+        "reference": 0.638196,
+        "candidate": 0.638043,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00015299999999995872,
+        "absolute_difference": 0.00015299999999995872,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 69,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 69,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.6380432071124669
+      },
+      {
+        "metric": "properties.sill.displacement",
+        "reference": 0.186179,
+        "candidate": 0.187527,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.001347999999999988,
+        "absolute_difference": 0.001347999999999988,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 69,
+          "station": 29.527496,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 69,
+          "station": 0.75,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.18752676546336056
+      },
+      {
+        "metric": "properties.transom.bending_moment.major",
+        "reference": 0.5046,
+        "candidate": 0.5046,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 86,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 29.527504,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 75,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.75,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.5045999999974491
+      },
+      {
+        "metric": "properties.transom.shear_force.major",
+        "reference": 1.010251,
+        "candidate": 1.01025,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -9.999999999177334e-07,
+        "absolute_difference": 9.999999999177334e-07,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 99,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 75,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 1.010249999999998
+      },
+      {
+        "metric": "properties.transom.displacement",
+        "reference": 1.166007,
+        "candidate": 1.171142,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.00513499999999989,
+        "absolute_difference": 0.00513499999999989,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 98,
+          "station": 29.527504,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 98,
+          "station": 0.75,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 1.1711420240155235
+      }
+    ],
+    "counts": {
+      "pass": 24,
+      "difference": 4,
+      "missing": 0
+    },
+    "all_values_within_tolerance": false,
+    "reference_file": "examples/sample2/output.txt"
+  },
+  "sample3": {
+    "metrics": [
+      {
+        "metric": "properties.bending_moment.major",
+        "reference": 5.103029,
+        "candidate": 5.103044,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 1.4999999999432134e-05,
+        "absolute_difference": 1.4999999999432134e-05,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 20,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 20,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.815611,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 5.103043202203098
+      },
+      {
+        "metric": "properties.bending_moment.minor.max",
+        "reference": 0.125722,
+        "candidate": 0.125722,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 39,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 23.622002,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 40,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.125721708359984
+      },
+      {
+        "metric": "properties.bending_moment.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 20,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 20,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.815611,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 2.494670211105401e-16
+      },
+      {
+        "metric": "properties.shear_force.major",
+        "reference": 5.772826,
+        "candidate": 5.772834,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 7.999999999341867e-06,
+        "absolute_difference": 7.999999999341867e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 18,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 18,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 5.77283403583887
+      },
+      {
+        "metric": "properties.shear_force.minor.max_on_mullions",
+        "reference": 0.006396,
+        "candidate": 0.006396,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.006395528762866679
+      },
+      {
+        "metric": "properties.shear_force.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 18,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_location": {
+          "member_id": 18,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_at_reference_point": 8.350203183064985e-22
+      },
+      {
+        "metric": "properties.axial_force",
+        "reference": 2.386544,
+        "candidate": 2.386545,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 9.999999996956888e-07,
+        "absolute_difference": 9.999999996956888e-07,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 14,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 14,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 2.3865448661858215
+      },
+      {
+        "metric": "properties.displacement",
+        "reference": 71.384957,
+        "candidate": 71.488369,
+        "value_status": "difference",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.10341200000000583,
+        "absolute_difference": 0.10341200000000583,
+        "tolerance": 0.071384957,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 20,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 20,
+          "station": 0.815,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 71.48836399475879
+      },
+      {
+        "metric": "properties.mullion.bending_moment.major",
+        "reference": 5.103029,
+        "candidate": 5.103044,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 1.4999999999432134e-05,
+        "absolute_difference": 1.4999999999432134e-05,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 20,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 20,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.815611,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 5.103043202203098
+      },
+      {
+        "metric": "properties.mullion.bending_moment.minor.max",
+        "reference": 0.007591,
+        "candidate": 0.007591,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 1,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 0.0,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 25,
+          "location": "member-maximum",
+          "load_case": 1,
+          "station": 0.0,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.007591211326199052
+      },
+      {
+        "metric": "properties.mullion.bending_moment.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 20,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 20,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.815611,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 2.494670211105401e-16
+      },
+      {
+        "metric": "properties.mullion.shear_force.major",
+        "reference": 5.772826,
+        "candidate": 5.772834,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 7.999999999341867e-06,
+        "absolute_difference": 7.999999999341867e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 18,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 18,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 5.77283403583887
+      },
+      {
+        "metric": "properties.mullion.shear_force.minor.max_on_mullions",
+        "reference": 0.006396,
+        "candidate": 0.006396,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.006395528762866679
+      },
+      {
+        "metric": "properties.mullion.shear_force.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 18,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_location": {
+          "member_id": 18,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_at_reference_point": 8.350203183064985e-22
+      },
+      {
+        "metric": "properties.mullion.axial_force",
+        "reference": 2.386544,
+        "candidate": 2.386545,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 9.999999996956888e-07,
+        "absolute_difference": 9.999999996956888e-07,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 14,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 14,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 2.3865448661858215
+      },
+      {
+        "metric": "properties.mullion.displacement",
+        "reference": 71.384957,
+        "candidate": 71.488369,
+        "value_status": "difference",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.10341200000000583,
+        "absolute_difference": 0.10341200000000583,
+        "tolerance": 0.071384957,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 20,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 20,
+          "station": 0.815,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 71.48836399475879
+      },
+      {
+        "metric": "properties.stack.bending_moment.major",
+        "reference": 0.2736,
+        "candidate": 0.2736,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 41,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 23.622002,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 42,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.27359999999849294
+      },
+      {
+        "metric": "properties.stack.shear_force.major",
+        "reference": 0.684,
+        "candidate": 0.684,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 41,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 42,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.6839999999999975
+      },
+      {
+        "metric": "properties.stack.displacement",
+        "reference": 5.904642,
+        "candidate": 5.904456,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00018600000000024153,
+        "absolute_difference": 0.00018600000000024153,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 2,
+          "node_id": 23
+        },
+        "candidate_location": {
+          "load_case": 2,
+          "node_id": 23
+        },
+        "candidate_at_reference_point": 5.9044560865710265
+      },
+      {
+        "metric": "properties.head.bending_moment.major",
+        "reference": 0.1368,
+        "candidate": 0.1368,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 53,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 23.622002,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 54,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.1367999999992471
+      },
+      {
+        "metric": "properties.head.shear_force.major",
+        "reference": 0.342,
+        "candidate": 0.342,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 53,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 54,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.3420000000000002
+      },
+      {
+        "metric": "properties.head.displacement",
+        "reference": 4.218952,
+        "candidate": 4.218799,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00015300000000006975,
+        "absolute_difference": 0.00015300000000006975,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 2,
+          "node_id": 26
+        },
+        "candidate_location": {
+          "load_case": 2,
+          "node_id": 26
+        },
+        "candidate_at_reference_point": 4.218798918277126
+      },
+      {
+        "metric": "properties.sill.bending_moment.major",
+        "reference": 0.125719,
+        "candidate": 0.125528,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00019099999999999673,
+        "absolute_difference": 0.00019099999999999673,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 37,
+          "location": "member-maximum",
+          "load_case": 2,
+          "station": 47.244003,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 37,
+          "location": "member-maximum",
+          "load_case": 2,
+          "station": 1.2,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.12552698577874724
+      },
+      {
+        "metric": "properties.sill.shear_force.major",
+        "reference": 0.446766,
+        "candidate": 0.446607,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00015900000000002024,
+        "absolute_difference": 0.00015900000000002024,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 37,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 37,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.4466066863361374
+      },
+      {
+        "metric": "properties.sill.displacement",
+        "reference": 0.102696,
+        "candidate": 0.103292,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0005959999999999993,
+        "absolute_difference": 0.0005959999999999993,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 37,
+          "station": 23.622002,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 38,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.10329225790287666
+      },
+      {
+        "metric": "properties.transom.bending_moment.major",
+        "reference": 0.2736,
+        "candidate": 0.2736,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 44,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 23.622002,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 47,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.2735999999984923
+      },
+      {
+        "metric": "properties.transom.shear_force.major",
+        "reference": 0.684,
+        "candidate": 0.684,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 39,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 48,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.6839999999999926
+      },
+      {
+        "metric": "properties.transom.displacement",
+        "reference": 20.754282,
+        "candidate": 20.754198,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -8.400000000108321e-05,
+        "absolute_difference": 8.400000000108321e-05,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 48,
+          "station": 3.937,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 48,
+          "station": 0.1,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 20.754201317721332
+      }
+    ],
+    "counts": {
+      "pass": 26,
+      "difference": 2,
+      "missing": 0
+    },
+    "all_values_within_tolerance": false,
+    "reference_file": "examples/sample3/output.txt"
+  },
+  "sample4": {
+    "metrics": [
+      {
+        "metric": "properties.bending_moment.major",
+        "reference": 2.459953,
+        "candidate": 2.459953,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 40,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 41.338497,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 40,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 1.05,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 2.459949065536929
+      },
+      {
+        "metric": "properties.bending_moment.minor.max",
+        "reference": 0.02844,
+        "candidate": 0.02844,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 40,
+          "location": "member-maximum",
+          "load_case": 1,
+          "station": 41.338497,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 41,
+          "location": "member-maximum",
+          "load_case": 1,
+          "station": 1.05,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.028439963109998048
+      },
+      {
+        "metric": "properties.bending_moment.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 40,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 41.338497,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 40,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 1.05,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 4.372455689802683e-17
+      },
+      {
+        "metric": "properties.shear_force.major",
+        "reference": 2.820235,
+        "candidate": 2.820234,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -9.999999996956888e-07,
+        "absolute_difference": 9.999999996956888e-07,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 42,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 40,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 2.8202343750000067
+      },
+      {
+        "metric": "properties.shear_force.minor.max_on_mullions",
+        "reference": 0.007081,
+        "candidate": 0.006706,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00037499999999999947,
+        "absolute_difference": 0.00037499999999999947,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 11,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 11,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.0067057884624118005
+      },
+      {
+        "metric": "properties.shear_force.minor.at_major_governing_point",
+        "reference": 0.155057,
+        "candidate": 0.155057,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 42,
+          "location": "end",
+          "station": 1.0
+        },
+        "candidate_location": {
+          "member_id": 40,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_at_reference_point": 0.1550566653308377
+      },
+      {
+        "metric": "properties.axial_force",
+        "reference": 0.310861,
+        "candidate": 0.310701,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00015999999999999348,
+        "absolute_difference": 0.00015999999999999348,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 21,
+          "location": "start",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 23,
+          "location": "start",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.31070141633585047
+      },
+      {
+        "metric": "properties.displacement",
+        "reference": 17.431915,
+        "candidate": 17.431458,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00045700000000081786,
+        "absolute_difference": 0.00045700000000081786,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 2,
+          "member_id": 41,
+          "station": 20.669249,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 2,
+          "member_id": 41,
+          "station": 0.525,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 17.431458260041286
+      },
+      {
+        "metric": "casement.profiles.interlock.bm.max",
+        "reference": 0.540914,
+        "candidate": 0.540914,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 22,
+          "station": 32.480251,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 24,
+          "station": 0.825,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": 0.5409140624975721
+      },
+      {
+        "metric": "casement.profiles.interlock.bm.min",
+        "reference": -0.540914,
+        "candidate": -0.540914,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 22,
+          "station": 32.480251,
+          "location": "member-minimum",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 24,
+          "station": 0.825,
+          "location": "member-minimum",
+          "load_case": 2
+        },
+        "candidate_at_reference_point": -0.5409140624975721
+      },
+      {
+        "metric": "casement.profiles.interlock.sf.max",
+        "reference": 1.033594,
+        "candidate": 1.033594,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 22,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 22,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 1.0335937499999963
+      },
+      {
+        "metric": "casement.profiles.interlock.sf.min",
+        "reference": -1.033594,
+        "candidate": -1.033594,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 22,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 22,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": -1.0335937499999963
+      },
+      {
+        "metric": "casement.profiles.interlock.af.max",
+        "reference": 0.201867,
+        "candidate": 0.202027,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.00016000000000002124,
+        "absolute_difference": 0.00016000000000002124,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 22,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 24,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": 0.2020266927483117
+      },
+      {
+        "metric": "casement.profiles.interlock.af.min",
+        "reference": -0.123342,
+        "candidate": -0.123502,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00016000000000000736,
+        "absolute_difference": 0.00016000000000000736,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 22,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 24,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": -0.12350193742831173
+      },
+      {
+        "metric": "casement.profiles.interlock.df.max",
+        "reference": 0.349378,
+        "candidate": 0.35133,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0019519999999999538,
+        "absolute_difference": 0.0019519999999999538,
+        "tolerance": 0.05,
+        "reference_location": {
+          "member_id": 22,
+          "station": 32.480251,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 24,
+          "station": 0.825,
+          "load_case": 3
+        },
+        "candidate_at_reference_point": 0.35133006381980747
+      },
+      {
+        "metric": "casement.profiles.interlock.df.min",
+        "reference": 0.0,
+        "candidate": 0.000134,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.000134,
+        "absolute_difference": 0.000134,
+        "tolerance": 0.05,
+        "reference_location": {
+          "member_id": 22,
+          "station": 5.413375,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 22,
+          "station": 0.825,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 4.087391889550774e-05
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.bm.max",
+        "reference": 0.106313,
+        "candidate": 0.106313,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 23,
+          "station": 17.716499,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 23,
+          "station": 0.45,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": 0.10631249999932564
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.bm.min",
+        "reference": -0.106313,
+        "candidate": -0.106313,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 23,
+          "station": 17.716499,
+          "location": "member-minimum",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 23,
+          "station": 0.45,
+          "location": "member-minimum",
+          "load_case": 2
+        },
+        "candidate_at_reference_point": -0.10631249999932564
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.sf.max",
+        "reference": 0.354375,
+        "candidate": 0.354375,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 23,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 21,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.354375
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.sf.min",
+        "reference": -0.354375,
+        "candidate": -0.354375,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 23,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 21,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": -0.354375
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.af.max",
+        "reference": 0.310861,
+        "candidate": 0.310701,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00015999999999999348,
+        "absolute_difference": 0.00015999999999999348,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 21,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 23,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": 0.31070141633585047
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.af.min",
+        "reference": -0.268029,
+        "candidate": -0.26787,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.00015900000000002024,
+        "absolute_difference": 0.00015900000000002024,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 21,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 23,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": -0.2678697316158505
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.df.max",
+        "reference": 0.020112,
+        "candidate": 0.0202,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 8.79999999999978e-05,
+        "absolute_difference": 8.79999999999978e-05,
+        "tolerance": 0.05,
+        "reference_location": {
+          "member_id": 21,
+          "station": 17.716499,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 21,
+          "station": 0.45,
+          "load_case": 3
+        },
+        "candidate_at_reference_point": 0.020199653790927904
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.df.min",
+        "reference": 0.0,
+        "candidate": 4e-05,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 4e-05,
+        "absolute_difference": 4e-05,
+        "tolerance": 0.05,
+        "reference_location": {
+          "member_id": 21,
+          "station": 2.95275,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 21,
+          "station": 0.45,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 1.2160835373870056e-05
+      },
+      {
+        "metric": "casement.profiles.horizontal.bm.max",
+        "reference": 2.459953,
+        "candidate": 2.459953,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 40,
+          "station": 41.338497,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 40,
+          "station": 1.05,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": 2.459949065536929
+      },
+      {
+        "metric": "casement.profiles.horizontal.bm.min",
+        "reference": -2.459953,
+        "candidate": -2.459953,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 40,
+          "station": 41.338497,
+          "location": "member-minimum",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 40,
+          "station": 1.05,
+          "location": "member-minimum",
+          "load_case": 2
+        },
+        "candidate_at_reference_point": -2.459949065536929
+      },
+      {
+        "metric": "casement.profiles.horizontal.sf.max",
+        "reference": 2.820235,
+        "candidate": 2.820234,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -9.999999996956888e-07,
+        "absolute_difference": 9.999999996956888e-07,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 42,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 40,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 2.8202343750000067
+      },
+      {
+        "metric": "casement.profiles.horizontal.sf.min",
+        "reference": -2.820235,
+        "candidate": -2.820234,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 9.999999996956888e-07,
+        "absolute_difference": 9.999999996956888e-07,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 42,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 40,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": -2.8202343750000067
+      },
+      {
+        "metric": "casement.profiles.horizontal.af.max",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 40,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 42,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 3
+        },
+        "candidate_at_reference_point": 2.3634639594982656e-07
+      },
+      {
+        "metric": "casement.profiles.horizontal.af.min",
+        "reference": -0.0,
+        "candidate": -0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 40,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 42,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 3
+        },
+        "candidate_at_reference_point": -2.3634639594982656e-07
+      },
+      {
+        "metric": "casement.profiles.horizontal.df.max",
+        "reference": 15.353767,
+        "candidate": 15.352659,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.001108000000000331,
+        "absolute_difference": 0.001108000000000331,
+        "tolerance": 0.05,
+        "reference_location": {
+          "node_id": 24,
+          "load_case": 3
+        },
+        "candidate_location": {
+          "node_id": 24,
+          "load_case": 3
+        },
+        "candidate_at_reference_point": 15.352658738834446
+      },
+      {
+        "metric": "casement.profiles.horizontal.df.min",
+        "reference": 4.5e-05,
+        "candidate": 4.5e-05,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.05,
+        "reference_location": {
+          "node_id": 6,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "node_id": 17,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 4.5098215506139085e-05
+      },
+      {
+        "metric": "casement.profiles.outer.bm.max",
+        "reference": 0.175359,
+        "candidate": 0.17522,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00013900000000000023,
+        "absolute_difference": 0.00013900000000000023,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 34,
+          "station": 2.952744,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 34,
+          "station": 0.075,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": 0.1752194928598546
+      },
+      {
+        "metric": "casement.profiles.outer.bm.min",
+        "reference": -0.175359,
+        "candidate": -0.17522,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.00013900000000000023,
+        "absolute_difference": 0.00013900000000000023,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 34,
+          "station": 2.952744,
+          "location": "member-minimum",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 34,
+          "station": 0.075,
+          "location": "member-minimum",
+          "load_case": 2
+        },
+        "candidate_at_reference_point": -0.1752194928598546
+      },
+      {
+        "metric": "casement.profiles.outer.sf.max",
+        "reference": 1.455274,
+        "candidate": 1.455729,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0004550000000000942,
+        "absolute_difference": 0.0004550000000000942,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 34,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 30,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 1.4557290452428677
+      },
+      {
+        "metric": "casement.profiles.outer.sf.min",
+        "reference": -1.455274,
+        "candidate": -1.455729,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.0004550000000000942,
+        "absolute_difference": 0.0004550000000000942,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 34,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 30,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": -1.4557290452428677
+      },
+      {
+        "metric": "casement.profiles.outer.af.max",
+        "reference": 0.081425,
+        "candidate": 0.081425,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 15,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 6,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 3
+        },
+        "candidate_at_reference_point": 0.08142489396041877
+      },
+      {
+        "metric": "casement.profiles.outer.af.min",
+        "reference": -0.077528,
+        "candidate": -0.077528,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 15,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 6,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 3
+        },
+        "candidate_at_reference_point": -0.07752833266541877
+      },
+      {
+        "metric": "casement.profiles.outer.df.max",
+        "reference": 0.000892,
+        "candidate": 0.000997,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.00010500000000000006,
+        "absolute_difference": 0.00010500000000000006,
+        "tolerance": 0.05,
+        "reference_location": {
+          "member_id": 36,
+          "station": 4.921249,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 36,
+          "station": 0.1,
+          "load_case": 3
+        },
+        "candidate_at_reference_point": 0.0009631052558019814
+      },
+      {
+        "metric": "casement.profiles.outer.df.min",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.05,
+        "reference_location": {
+          "node_id": 2,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "node_id": 2,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.0
+      }
+    ],
+    "counts": {
+      "pass": 40,
+      "difference": 0,
+      "missing": 0
+    },
+    "all_values_within_tolerance": true,
+    "reference_file": "examples/sample4/output.txt"
+  },
+  "sample5": {
+    "reference_available": false
+  },
+  "sample6": {
+    "metrics": [
+      {
+        "metric": "properties.bending_moment.major",
+        "reference": 3.197482,
+        "candidate": 3.198388,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0009060000000000734,
+        "absolute_difference": 0.0009060000000000734,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 15,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 30.905457,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 25,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.749447,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 3.1974780267302183
+      },
+      {
+        "metric": "properties.bending_moment.minor.max",
+        "reference": 0.111442,
+        "candidate": 0.111442,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 44,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 23.622002,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 46,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.11144170835998432
+      },
+      {
+        "metric": "properties.bending_moment.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 15,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 30.905457,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 25,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.749447,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 1.8615505316430428e-16
+      },
+      {
+        "metric": "properties.shear_force.major",
+        "reference": 6.843706,
+        "candidate": 6.843226,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00048000000000048004,
+        "absolute_difference": 0.00048000000000048004,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 19,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 19,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 6.843225961191792
+      },
+      {
+        "metric": "properties.shear_force.minor.max_on_mullions",
+        "reference": 0.035405,
+        "candidate": 0.035406,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 1.000000000001e-06,
+        "absolute_difference": 1.000000000001e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.03540593506174802
+      },
+      {
+        "metric": "properties.shear_force.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 19,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_location": {
+          "member_id": 19,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_at_reference_point": 1.8623873477357194e-08
+      },
+      {
+        "metric": "properties.axial_force",
+        "reference": 2.281542,
+        "candidate": 2.281542,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 12,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 22,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 2.281542033608332
+      },
+      {
+        "metric": "properties.displacement",
+        "reference": 11.793215,
+        "candidate": 11.8175,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.024285000000000778,
+        "absolute_difference": 0.024285000000000778,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 15,
+          "station": 30.905457,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 25,
+          "station": 0.785,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 11.817499134645695
+      },
+      {
+        "metric": "casement.profiles.interlock.bm.max",
+        "reference": 3.197482,
+        "candidate": 3.198388,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0009060000000000734,
+        "absolute_difference": 0.0009060000000000734,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 15,
+          "station": 30.905457,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 25,
+          "station": 0.749447,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": 3.1974780267302183
+      },
+      {
+        "metric": "casement.profiles.interlock.bm.min",
+        "reference": -3.197482,
+        "candidate": -3.198388,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.0009060000000000734,
+        "absolute_difference": 0.0009060000000000734,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 15,
+          "station": 30.905457,
+          "location": "member-minimum",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 25,
+          "station": 0.749447,
+          "location": "member-minimum",
+          "load_case": 2
+        },
+        "candidate_at_reference_point": -3.1974780267302183
+      },
+      {
+        "metric": "casement.profiles.interlock.sf.max",
+        "reference": 6.843706,
+        "candidate": 6.843226,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00048000000000048004,
+        "absolute_difference": 0.00048000000000048004,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 19,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 19,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 6.843225961191792
+      },
+      {
+        "metric": "casement.profiles.interlock.sf.min",
+        "reference": -6.843706,
+        "candidate": -6.843226,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.00048000000000048004,
+        "absolute_difference": 0.00048000000000048004,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 19,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 19,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": -6.843225961191792
+      },
+      {
+        "metric": "casement.profiles.interlock.af.max",
+        "reference": 1.647776,
+        "candidate": 1.647776,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 19,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 29,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 1.647775542668
+      },
+      {
+        "metric": "casement.profiles.interlock.af.min",
+        "reference": -1.631395,
+        "candidate": -1.631395,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 19,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 29,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": -1.631395214748
+      },
+      {
+        "metric": "casement.profiles.interlock.df.max",
+        "reference": 5.639393,
+        "candidate": 5.661796,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.02240299999999973,
+        "absolute_difference": 0.02240299999999973,
+        "tolerance": 0.05,
+        "reference_location": {
+          "member_id": 25,
+          "station": 51.509094,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 25,
+          "station": 1.308333,
+          "load_case": 3
+        },
+        "candidate_at_reference_point": 5.661795399361403
+      },
+      {
+        "metric": "casement.profiles.interlock.df.min",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.05,
+        "reference_location": {
+          "node_id": 17,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "node_id": 17,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.0
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.bm.max",
+        "reference": 2.922086,
+        "candidate": 2.922085,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -1.000000000139778e-06,
+        "absolute_difference": 1.000000000139778e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 14,
+          "station": 55.117981,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 14,
+          "station": 1.4,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": 2.9220799591686135
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.bm.min",
+        "reference": -2.922086,
+        "candidate": -2.922085,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 1.000000000139778e-06,
+        "absolute_difference": 1.000000000139778e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 14,
+          "station": 55.117981,
+          "location": "member-minimum",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 14,
+          "station": 1.4,
+          "location": "member-minimum",
+          "load_case": 2
+        },
+        "candidate_at_reference_point": -2.9220799591686135
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.sf.max",
+        "reference": 3.827205,
+        "candidate": 3.827204,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -1.000000000139778e-06,
+        "absolute_difference": 1.000000000139778e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 13,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 23,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 3.827203514175178
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.sf.min",
+        "reference": -3.827205,
+        "candidate": -3.827204,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 1.000000000139778e-06,
+        "absolute_difference": 1.000000000139778e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 13,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 23,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": -3.827203514175178
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.af.max",
+        "reference": 2.281542,
+        "candidate": 2.281542,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 12,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 22,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 2.281542033608332
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.af.min",
+        "reference": -2.162785,
+        "candidate": -2.162785,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 12,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 22,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": -2.162784656188332
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.df.max",
+        "reference": 2.924421,
+        "candidate": 2.942355,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.017933999999999894,
+        "absolute_difference": 0.017933999999999894,
+        "tolerance": 0.05,
+        "reference_location": {
+          "member_id": 22,
+          "station": 47.572085,
+          "load_case": 3
+        },
+        "candidate_location": {
+          "member_id": 12,
+          "station": 1.208333,
+          "load_case": 3
+        },
+        "candidate_at_reference_point": 2.942354768667554
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.df.min",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.05,
+        "reference_location": {
+          "node_id": 14,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "node_id": 14,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.0
+      },
+      {
+        "metric": "casement.profiles.horizontal.bm.max",
+        "reference": 0.1728,
+        "candidate": 0.1728,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 46,
+          "station": 23.621994,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 50,
+          "station": 0.6,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": 0.17279999999868306
+      },
+      {
+        "metric": "casement.profiles.horizontal.bm.min",
+        "reference": -0.1728,
+        "candidate": -0.1728,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 46,
+          "station": 23.621994,
+          "location": "member-minimum",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 50,
+          "station": 0.6,
+          "location": "member-minimum",
+          "load_case": 3
+        },
+        "candidate_at_reference_point": -0.17279999999868303
+      },
+      {
+        "metric": "casement.profiles.horizontal.sf.max",
+        "reference": 0.432,
+        "candidate": 0.432,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 46,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 50,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 3
+        },
+        "candidate_at_reference_point": 0.4319999999999999
+      },
+      {
+        "metric": "casement.profiles.horizontal.sf.min",
+        "reference": -0.432,
+        "candidate": -0.432,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 46,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 50,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": -0.43199999999999983
+      },
+      {
+        "metric": "casement.profiles.horizontal.af.max",
+        "reference": 0.042208,
+        "candidate": 0.042209,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 1.000000000001e-06,
+        "absolute_difference": 1.000000000001e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 45,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 45,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.042208653655591136
+      },
+      {
+        "metric": "casement.profiles.horizontal.af.min",
+        "reference": -0.042208,
+        "candidate": -0.042209,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -1.000000000001e-06,
+        "absolute_difference": 1.000000000001e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 45,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 45,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": -0.042208653655591136
+      },
+      {
+        "metric": "casement.profiles.horizontal.df.max",
+        "reference": 9.597253,
+        "candidate": 9.597524,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.00027099999999968816,
+        "absolute_difference": 0.00027099999999968816,
+        "tolerance": 0.05,
+        "reference_location": {
+          "node_id": 16,
+          "load_case": 3
+        },
+        "candidate_location": {
+          "node_id": 27,
+          "load_case": 3
+        },
+        "candidate_at_reference_point": 9.597523732471396
+      },
+      {
+        "metric": "casement.profiles.horizontal.df.min",
+        "reference": 0.000861,
+        "candidate": 0.000861,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.05,
+        "reference_location": {
+          "node_id": 40,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "node_id": 40,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.0008609325504613203
+      },
+      {
+        "metric": "casement.profiles.outer.bm.max",
+        "reference": 1.735271,
+        "candidate": 1.735312,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 4.099999999995774e-05,
+        "absolute_difference": 4.099999999995774e-05,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 5,
+          "station": 30.905457,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 5,
+          "station": 0.796469,
+          "location": "member-maximum",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": 1.7352644009514604
+      },
+      {
+        "metric": "casement.profiles.outer.bm.min",
+        "reference": -1.735271,
+        "candidate": -1.735312,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -4.099999999995774e-05,
+        "absolute_difference": 4.099999999995774e-05,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 5,
+          "station": 30.905457,
+          "location": "member-minimum",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 5,
+          "station": 0.796469,
+          "location": "member-minimum",
+          "load_case": 2
+        },
+        "candidate_at_reference_point": -1.7352644009514604
+      },
+      {
+        "metric": "casement.profiles.outer.sf.max",
+        "reference": 3.403289,
+        "candidate": 3.403054,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00023499999999998522,
+        "absolute_difference": 0.00023499999999998522,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 9,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 9,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 3.4030539394666612
+      },
+      {
+        "metric": "casement.profiles.outer.sf.min",
+        "reference": -3.403289,
+        "candidate": -3.403054,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.00023499999999998522,
+        "absolute_difference": 0.00023499999999998522,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 9,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 4
+        },
+        "candidate_location": {
+          "member_id": 9,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 4
+        },
+        "candidate_at_reference_point": -3.4030539394666612
+      },
+      {
+        "metric": "casement.profiles.outer.af.max",
+        "reference": 1.231569,
+        "candidate": 1.23157,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 1.000000000139778e-06,
+        "absolute_difference": 1.000000000139778e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 2,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 2,
+          "station": 1.0,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 1.231569571351666
+      },
+      {
+        "metric": "casement.profiles.outer.af.min",
+        "reference": -1.112812,
+        "candidate": -1.112812,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 2,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 2,
+          "station": 0.0,
+          "location": "start",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": -1.112812193931666
+      },
+      {
+        "metric": "casement.profiles.outer.df.max",
+        "reference": 3.180174,
+        "candidate": 3.191229,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.011054999999999815,
+        "absolute_difference": 0.011054999999999815,
+        "tolerance": 0.05,
+        "reference_location": {
+          "member_id": 5,
+          "station": 51.509094,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 5,
+          "station": 1.308333,
+          "load_case": 3
+        },
+        "candidate_at_reference_point": 3.19122786735039
+      },
+      {
+        "metric": "casement.profiles.outer.df.min",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.05,
+        "reference_location": {
+          "node_id": 3,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "node_id": 3,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.0
+      }
+    ],
+    "counts": {
+      "pass": 40,
+      "difference": 0,
+      "missing": 0
+    },
+    "all_values_within_tolerance": true,
+    "reference_file": "examples/sample6/reference.json"
+  },
+  "sample7": {
+    "metrics": [
+      {
+        "metric": "properties.bending_moment.major",
+        "reference": 5.446065,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "properties.bending_moment.minor.max",
+        "reference": 6.084174,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "properties.bending_moment.minor.at_major_governing_point",
+        "reference": 1.228058,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "properties.shear_force.major",
+        "reference": 18.327493,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "properties.shear_force.minor.max_on_mullions",
+        "reference": 1.536776,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "properties.shear_force.minor.at_major_governing_point",
+        "reference": 1.536776,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "properties.axial_force",
+        "reference": 10.593507,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "properties.displacement",
+        "reference": 1545321681715.2,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.interlock.bm.max",
+        "reference": 3.874133,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.interlock.bm.min",
+        "reference": -3.87426,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.interlock.sf.max",
+        "reference": 18.327319,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.interlock.sf.min",
+        "reference": -18.327493,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.interlock.af.max",
+        "reference": 1.955464,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.interlock.af.min",
+        "reference": -1.947274,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.interlock.df.max",
+        "reference": 33.525421,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.interlock.df.min",
+        "reference": 0.0,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.bm.max",
+        "reference": 5.445641,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.bm.min",
+        "reference": -5.446065,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.sf.max",
+        "reference": 4.54107,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.sf.min",
+        "reference": -4.542183,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.af.max",
+        "reference": 10.593507,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.af.min",
+        "reference": -10.418632,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.df.max",
+        "reference": 1545321681715.2,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.fixed_mullion.df.min",
+        "reference": 0.0,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.horizontal.bm.max",
+        "reference": 0.405,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.horizontal.bm.min",
+        "reference": -0.405,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.horizontal.sf.max",
+        "reference": 0.762,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.horizontal.sf.min",
+        "reference": -0.762,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.horizontal.af.max",
+        "reference": 1.008768,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.horizontal.af.min",
+        "reference": -1.008768,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.horizontal.df.max",
+        "reference": 1545321681715.2,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.horizontal.df.min",
+        "reference": 0.0,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.outer.bm.max",
+        "reference": 3.583415,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.outer.bm.min",
+        "reference": -3.583839,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.outer.sf.max",
+        "reference": 8.009107,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.outer.sf.min",
+        "reference": -8.009281,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.outer.af.max",
+        "reference": 1.600843,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.outer.af.min",
+        "reference": -1.514289,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.outer.df.max",
+        "reference": 1545321681715.2,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      },
+      {
+        "metric": "casement.profiles.outer.df.min",
+        "reference": 0.0,
+        "candidate": null,
+        "value_status": "missing",
+        "location_status": "unverified"
+      }
+    ],
+    "counts": {
+      "pass": 0,
+      "difference": 0,
+      "missing": 40
+    },
+    "all_values_within_tolerance": false,
+    "analysis_status": "rejected",
+    "error_code": "SINGULAR_MATRIX",
+    "message": "The structure has a mechanism or excessive ill-conditioning (scaled minimum eigenvalue -2.11e-16). Dominant movement: UY at nodes 1, 2, 3, 4, 5, 13, 14, 15, 16, 17, 25, 26, 27, 28, 29, 37, 38, 39, 40, 41. Check the intended supports and member releases; no artificial restraints were added."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "archive_name": "Sample 6.zip",
+  "archive_sha256": "6ef8b41a9e7251dfd95a62422138f8de07e3f107c8d89b3516a830700f70479c",
+  "model_entry": "Sample 6/sample_6.std",
+  "reference_entry": "Sample 6/output_6.txt",
+  "file_sha256": {
+    "sample_6.std": "2427ee90f9c438f6fc6c2931f227ef276f446c3445c1ff9e0e299c89c8040e51",
+    "output.txt": "e060a3dd9a43a9a0ffa42eb20e109b0e478576dc026d6722858b649976839876"
+  },
+  "normalization": {
+    "derived_file": "reference.json",
+    "script": "scripts/normalize_reference.py",
+    "changes": "Reconstructed JSON string quotes and key colons; numeric tokens unchanged. Original output.txt is byte-for-byte preserved. Missing characters inside source strings, including path backslashes/drive colon, were not invented."
+  }
+}

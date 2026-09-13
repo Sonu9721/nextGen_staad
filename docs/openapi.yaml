@@ -1,0 +1,1843 @@
+openapi: 3.0.3
+info:
+  title: STAAD Report Extractor API
+  version: 1.0.0
+  description: |
+    FastAPI service for uploading a STAAD `.std` model, queueing extraction work,
+    running the selected structural-analysis backend, and polling for results.
+
+    ANALYSIS_BACKEND=inhouse is the default; openstaad retains the licensed
+    Windows oracle. In-house health does not require Bentley licensing. In-house
+    station distances use metres and source units are N/METER. The analysis block
+    adds backend, solver_version, validation_status and numerical diagnostics.
+    This is a validation build; see docs/VALIDATION_RESULTS.md for differences.
+
+    Runtime architecture:
+
+    `Client → API → Queue → Worker → In-house solver or OpenSTAAD → Result`
+
+    Extraction flows (`POST /jobs` `extraction_flow`):
+
+    - `standard` (default, Sliding) — global absolute envelope under `result.properties`
+    - `fully_unitized` — same global envelope plus per-profile blocks and `result.profiles`
+    - `casement` — same standard-shaped global envelope plus a top-level signed
+      `result.casement` object (`interlock`, `central_meeting`, `fixed_mullion`,
+      `horizontal`, `outer`)
+
+    Authentication is not required. `POST /jobs` uses `multipart/form-data`.
+  contact:
+    name: STAAD Report Extractor
+
+servers:
+  - url: http://localhost:8000
+    description: Local development (default Uvicorn)
+
+tags:
+  - name: Health
+    description: Process, licensing, and STAAD readiness probes
+  - name: Jobs
+    description: Job submission, status polling, abort, and result retrieval
+
+paths:
+  /health:
+    get:
+      tags: [Health]
+      operationId: getHealth
+      summary: Run a readiness check
+      description: |
+        Select which readiness probe to run via the `check` query parameter.
+
+        - `server` — FastAPI process and worker queue readiness (always HTTP 200;
+          `healthy` may still be `false` if the worker cannot start)
+        - `license` — Bentley Connection Client / licensing readiness
+          (HTTP 200 if healthy, 503 if not)
+        - `staad` — deeper STAAD / OpenSTAAD readiness
+          (HTTP 200 if healthy, 503 if not)
+      parameters:
+        - name: check
+          in: query
+          required: false
+          description: Which readiness probe to run
+          schema:
+            $ref: "#/components/schemas/HealthCheckName"
+          example: server
+      responses:
+        "200":
+          description: Check completed (healthy for license/staad, or any server check)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponse"
+              examples:
+                server:
+                  summary: Server readiness
+                  value:
+                    check: server
+                    status: ok
+                    healthy: true
+                    checked_at: "2026-08-22T17:00:00Z"
+                    message: FastAPI server is ready.
+                    details:
+                      queue_size: 0
+                      configured_worker_count: 1
+                      effective_worker_count: 1
+                      active_worker_count: 1
+                      allow_parallel_staad: false
+                license:
+                  summary: License readiness (healthy)
+                  value:
+                    check: license
+                    status: healthy
+                    healthy: true
+                    checked_at: "2026-08-22T17:00:00Z"
+                    message: Bentley licensing and STAAD entitlement checks passed.
+                    details:
+                      desktop_api_installed: true
+                      connect_running: true
+                      connect_logged_in: true
+                      user_session_active: true
+                      eula_accepted: true
+                      license_service_installed: true
+                      has_valid_access_key: false
+                      products:
+                        - product_id: 1562
+                          product_name: STAAD.Pro
+                          status: Ok
+                          entitlement_count: 2
+                staad:
+                  summary: STAAD readiness (healthy)
+                  value:
+                    check: staad
+                    status: healthy
+                    healthy: true
+                    checked_at: "2026-08-22T17:00:00Z"
+                    message: STAAD readiness check passed.
+                    details:
+                      staad_executable: "C:\\Program Files\\Bentley\\Engineering\\STAAD.Pro CONNECT Edition\\STAAD\\Bentley.Staad.exe"
+                      current_file: null
+        "422":
+          description: Invalid `check` value
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ValidationErrorResponse"
+        "503":
+          description: License or STAAD check failed (`healthy=false`)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponse"
+              examples:
+                licenseUnhealthy:
+                  summary: License not ready
+                  value:
+                    check: license
+                    status: unhealthy
+                    healthy: false
+                    checked_at: "2026-08-22T17:00:00Z"
+                    message: Bentley Connection Client is not logged in.
+                    details:
+                      desktop_api_installed: true
+                      connect_running: true
+                      connect_logged_in: false
+                      user_session_active: false
+                      eula_accepted: true
+                      license_service_installed: true
+                      has_valid_access_key: false
+                      products: []
+                staadUnhealthy:
+                  summary: STAAD not ready
+                  value:
+                    check: staad
+                    status: unhealthy
+                    healthy: false
+                    checked_at: "2026-08-22T17:00:00Z"
+                    message: Unable to attach to STAAD.
+                    details:
+                      error_code: staad_attach_failed
+                      retryable: true
+                      attempts: 1
+                      stage: connection
+                      hint: Open STAAD manually once in this Windows session and clear any prompts.
+
+  /jobs:
+    post:
+      tags: [Jobs]
+      operationId: createJob
+      summary: Submit a STAAD extraction job
+      description: |
+        Accepts a `.std` upload, stages it under the jobs directory, and enqueues
+        work for the background worker. Returns immediately with HTTP 202; the
+        request path does **not** launch or attach to STAAD.
+
+        Poll `GET /jobs/{job_id}` for progress. Call `GET /jobs/{job_id}/result`
+        only when `result_ready` is `true`.
+
+        Set `extraction_flow=casement` for Casement signed profile envelopes. The
+        optional `generation_request` JSON may include `casement_profiles` to
+        override geometry classification.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/JobCreateRequest"
+            encoding:
+              std_file:
+                contentType: application/octet-stream
+              generation_request:
+                contentType: application/json
+      responses:
+        "202":
+          description: Job accepted and queued
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobCreateResponse"
+              example:
+                job_id: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11
+                status: queued
+                message: Job accepted.
+        "413":
+          description: Uploaded file exceeds `STAAD_API_MAX_UPLOAD_BYTES` (default 50 MB)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorDetailEnvelope"
+              example:
+                detail:
+                  error_code: file_too_large
+                  message: Upload exceeds maximum allowed size.
+                  retryable: false
+        "422":
+          description: Validation failed (file type, timeout, retries, flow, or path)
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ErrorDetailEnvelope"
+                  - $ref: "#/components/schemas/ValidationErrorResponse"
+              examples:
+                invalidInputFile:
+                  summary: Not a .std file
+                  value:
+                    detail:
+                      error_code: invalid_input_file
+                      message: Only .std file upload is supported.
+                      retryable: false
+                invalidTimeout:
+                  summary: timeout_seconds <= 0
+                  value:
+                    detail:
+                      error_code: invalid_timeout
+                      message: timeout_seconds must be > 0
+                      retryable: false
+                invalidMaxRetries:
+                  summary: max_retries < 0
+                  value:
+                    detail:
+                      error_code: invalid_max_retries
+                      message: max_retries must be >= 0
+                      retryable: false
+                invalidRetryDelay:
+                  summary: retry_delay_seconds < 1
+                  value:
+                    detail:
+                      error_code: invalid_retry_delay
+                      message: retry_delay_seconds must be >= 1
+                      retryable: false
+                invalidExtractionFlow:
+                  summary: Unknown extraction_flow
+                  value:
+                    detail:
+                      error_code: invalid_extraction_flow
+                      message: extraction_flow must be 'standard', 'fully_unitized', or 'casement'
+                      retryable: false
+                invalidStaadproPath:
+                  summary: staadpro_path is not an existing file
+                  value:
+                    detail:
+                      error_code: invalid_staadpro_path
+                      message: "STAAD executable not found: C:\\missing\\Bentley.Staad.exe"
+                      retryable: false
+
+  /jobs/{job_id}:
+    get:
+      tags: [Jobs]
+      operationId: getJobStatus
+      summary: Get job status and progress
+      description: |
+        Poll this endpoint to drive a UI progress bar.
+
+        - Continue while `status` is `queued` or `running`
+        - Stop when `status` is `succeeded`, `failed`, or `canceled`
+        - Call the result endpoint only when `result_ready` is `true`
+
+        Non-terminal jobs cap `progress_percent` below 100. Terminal jobs always
+        return 100.
+      parameters:
+        - $ref: "#/components/parameters/JobId"
+      responses:
+        "200":
+          description: Current job status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobStatusResponse"
+              examples:
+                queued:
+                  summary: Queued, not started
+                  value:
+                    job_id: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11
+                    status: queued
+                    progress_percent: 0
+                    message: Job is not started yet.
+                    attempts: 0
+                    max_attempts: 3
+                    created_at: "2026-08-22T17:00:00Z"
+                    started_at: null
+                    finished_at: null
+                    result_ready: false
+                    error: null
+                    duration_seconds: null
+                    working_directory: "C:\\STAADJobs\\3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11"
+                    cleanup_performed: false
+                running:
+                  summary: Extraction in progress
+                  value:
+                    job_id: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11
+                    status: running
+                    progress_percent: 55
+                    message: Running STAAD analysis.
+                    attempts: 1
+                    max_attempts: 3
+                    created_at: "2026-08-22T17:00:00Z"
+                    started_at: "2026-08-22T17:00:02Z"
+                    finished_at: null
+                    result_ready: false
+                    error: null
+                    duration_seconds: null
+                    working_directory: "C:\\STAADJobs\\3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11"
+                    cleanup_performed: false
+                succeeded:
+                  summary: Ready for result fetch
+                  value:
+                    job_id: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11
+                    status: succeeded
+                    progress_percent: 100
+                    message: Extraction completed.
+                    attempts: 1
+                    max_attempts: 3
+                    created_at: "2026-08-22T17:00:00Z"
+                    started_at: "2026-08-22T17:00:02Z"
+                    finished_at: "2026-08-22T17:01:15Z"
+                    result_ready: true
+                    error: null
+                    duration_seconds: 73.2
+                    working_directory: "C:\\STAADJobs\\3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11"
+                    cleanup_performed: true
+        "404":
+          description: Unknown job id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorDetailEnvelope"
+              example:
+                detail:
+                  error_code: job_not_found
+                  message: "Job not found: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11"
+                  retryable: false
+
+  /jobs/{job_id}/abort:
+    post:
+      tags: [Jobs]
+      operationId: abortJob
+      summary: Abort a queued or running job
+      description: |
+        Cancels **queued** jobs immediately, or force-stops a **running** STAAD job
+        by killing the extractor process tree and related STAAD processes so the
+        worker can advance to the next queued request.
+
+        Already-terminal jobs return their current status with an informational message.
+      parameters:
+        - $ref: "#/components/parameters/JobId"
+      responses:
+        "200":
+          description: Abort accepted, or job already terminal
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobAbortResponse"
+              examples:
+                canceledQueued:
+                  summary: Queued job canceled
+                  value:
+                    job_id: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11
+                    status: canceled
+                    message: Job canceled before execution.
+                canceledRunning:
+                  summary: Running job force-stopped
+                  value:
+                    job_id: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11
+                    status: canceled
+                    message: Job canceled during execution.
+                alreadySucceeded:
+                  summary: Already finished
+                  value:
+                    job_id: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11
+                    status: succeeded
+                    message: Job already succeeded.
+        "404":
+          description: Unknown job id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorDetailEnvelope"
+              example:
+                detail:
+                  error_code: job_not_found
+                  message: "Job not found: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11"
+                  retryable: false
+
+  /jobs/{job_id}/result:
+    get:
+      tags: [Jobs]
+      operationId: getJobResult
+      summary: Get job result or in-progress / failure payload
+      description: |
+        Response shape depends on job status:
+
+        | Status | HTTP | Body |
+        |--------|------|------|
+        | `queued` / `running` | 200 | In-progress stub |
+        | `canceled` | 200 | Canceled stub |
+        | `succeeded` | 200 | Full extraction `result` |
+        | `failed` | 500 | Failure detail envelope |
+        | unknown | 404 | `job_not_found` |
+
+        Prefer polling `GET /jobs/{job_id}` and only calling this endpoint when
+        `result_ready` is `true`.
+      parameters:
+        - $ref: "#/components/parameters/JobId"
+      responses:
+        "200":
+          description: In-progress, canceled, or succeeded payload
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/JobResultInProgress"
+                  - $ref: "#/components/schemas/JobResultCanceled"
+                  - $ref: "#/components/schemas/JobResultSucceeded"
+              examples:
+                inProgress:
+                  summary: Still running
+                  value:
+                    job_id: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11
+                    status: running
+                    message: Job in progress.
+                    working_directory: "C:\\STAADJobs\\3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11"
+                canceled:
+                  summary: Canceled before execution
+                  value:
+                    job_id: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11
+                    status: canceled
+                    message: Job canceled before execution.
+                    working_directory: "C:\\STAADJobs\\3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11"
+                    cleanup_performed: true
+                succeededStandard:
+                  summary: Succeeded (standard flow excerpt)
+                  value:
+                    job_id: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11
+                    status: succeeded
+                    duration_seconds: 73.2
+                    working_directory: "C:\\STAADJobs\\3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11"
+                    cleanup_performed: true
+                    attempts: 1
+                    max_attempts: 3
+                    result:
+                      file: "C:\\STAADJobs\\...\\model.std"
+                      analysis:
+                        load_case_mode: all
+                        load_cases: [1, 2, 3]
+                        moment_mode: internal-envelope
+                        include_combinations: true
+                      units:
+                        output:
+                          force: kN
+                          length: mm
+                          moment: kN-m
+                        staad_detected:
+                          force: KN
+                          length: MM
+                          moment: KNM
+                        file_detected:
+                          force: KN
+                          length: MM
+                          moment: KNM
+                      properties:
+                        bending_moment:
+                          unit: kN-m
+                          major:
+                            axis: MZ
+                            value: 12.5
+                            member_id: 101
+                            load_case: 3
+                          minor:
+                            axis: MY
+                            max:
+                              value: 4.2
+                              member_id: 88
+                              load_case: 2
+                            at_major_governing_point:
+                              value: 1.1
+                              member_id: 101
+                              reference_major_value: 12.5
+                              reference_major_load_case: 3
+                        shear_force:
+                          unit: kN
+                          major:
+                            axis: FY
+                            value: 8.0
+                            member_id: 101
+                            load_case: 3
+                          minor:
+                            axis: FZ
+                            max_on_mullions:
+                              value: 3.4
+                              member_id: 50
+                              load_case: 1
+                            at_major_governing_point:
+                              value: 2.1
+                              member_id: 101
+                              governing_load_case: 2
+                              reference_major_value: 8.0
+                        axial_force:
+                          unit: kN
+                          axis: FX
+                          value: -15.0
+                          member_id: 12
+                          load_case: 1
+                        displacement:
+                          unit: mm
+                          direction: Y
+                          value: 6.7
+                          node_id: 44
+                          load_case: 3
+                succeededCasement:
+                  summary: Succeeded (casement flow excerpt)
+                  value:
+                    job_id: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11
+                    status: succeeded
+                    duration_seconds: 81.4
+                    working_directory: "C:\\STAADJobs\\3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11"
+                    cleanup_performed: true
+                    attempts: 1
+                    max_attempts: 3
+                    result:
+                      file: "C:\\STAADJobs\\...\\casement.std"
+                      analysis:
+                        load_case_mode: all
+                        load_cases: [1, 2, 3, 4]
+                        moment_mode: internal-envelope
+                        include_combinations: true
+                      units:
+                        output:
+                          force: kN
+                          length: mm
+                          moment: kN-m
+                        staad_detected:
+                          force: KN
+                          length: METER
+                          moment: KN-meter
+                        file_detected:
+                          force: KN
+                          length: METER
+                          moment: KN-meter
+                      properties:
+                        bending_moment:
+                          unit: kN-m
+                          major:
+                            axis: MZ
+                            value: 4.2
+                            member_id: 16
+                            load_case: 4
+                        shear_force:
+                          unit: kN
+                          major:
+                            axis: FY
+                            value: 5.3
+                            member_id: 15
+                            load_case: 3
+                        axial_force:
+                          unit: kN
+                          axis: FX
+                          value: 2.1
+                          member_id: 11
+                          load_case: 6
+                        displacement:
+                          unit: mm
+                          direction: RESULTANT
+                          value: 15.1
+                          member_id: 16
+                          load_case: 6
+                      casement:
+                        extraction_flow: casement
+                        profiles:
+                          interlock:
+                            member_ids: [22, 26]
+                            bm:
+                              unit: kN-m
+                              max:
+                                value: 0.743
+                                member_id: 22
+                                axis: MZ
+                                load_case: 3
+                              min:
+                                value: -0.51
+                                member_id: 26
+                                axis: MZ
+                                load_case: 4
+                            sf:
+                              unit: kN
+                              max:
+                                value: 1.2
+                                member_id: 22
+                                axis: FY
+                                load_case: 3
+                              min:
+                                value: -0.8
+                                member_id: 26
+                                axis: FY
+                                load_case: 4
+                            af:
+                              unit: kN
+                              max:
+                                value: 0.4
+                                member_id: 22
+                                axis: FX
+                                load_case: 3
+                              min:
+                                value: -1.1
+                                member_id: 26
+                                axis: FX
+                                load_case: 4
+                            df:
+                              unit: mm
+                              max:
+                                value: 12.4
+                                member_id: 22
+                                direction: RESULTANT
+                                load_case: 3
+                              min:
+                                value: 0.0
+                                member_id: 26
+                                direction: RESULTANT
+                                load_case: 1
+                          central_meeting:
+                            member_ids: [24]
+                            bm:
+                              unit: kN-m
+                              max: null
+                              min: null
+                            sf:
+                              unit: kN
+                              max: null
+                              min: null
+                            af:
+                              unit: kN
+                              max: null
+                              min: null
+                            df:
+                              unit: mm
+                              max: null
+                              min: null
+                          fixed_mullion:
+                            member_ids: [21, 23, 25]
+                            bm:
+                              unit: kN-m
+                              max: null
+                              min: null
+                            sf:
+                              unit: kN
+                              max: null
+                              min: null
+                            af:
+                              unit: kN
+                              max: null
+                              min: null
+                            df:
+                              unit: mm
+                              max: null
+                              min: null
+                          horizontal:
+                            member_ids: [47, 48, 49, 50]
+                            bm:
+                              unit: kN-m
+                              max: null
+                              min: null
+                            sf:
+                              unit: kN
+                              max: null
+                              min: null
+                            af:
+                              unit: kN
+                              max: null
+                              min: null
+                            df:
+                              unit: mm
+                              max: null
+                              min: null
+                          outer:
+                            member_ids: [1, 2]
+                            bm:
+                              unit: kN-m
+                              max: null
+                              min: null
+                            sf:
+                              unit: kN
+                              max: null
+                              min: null
+                            af:
+                              unit: kN
+                              max: null
+                              min: null
+                            df:
+                              unit: mm
+                              max: null
+                              min: null
+        "404":
+          description: Unknown job id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorDetailEnvelope"
+              example:
+                detail:
+                  error_code: job_not_found
+                  message: "Job not found: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11"
+                  retryable: false
+        "500":
+          description: Job failed (detail carries failure fields)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JobResultFailedDetailEnvelope"
+              example:
+                detail:
+                  job_id: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11
+                  status: failed
+                  error: Unable to attach to STAAD.
+                  error_code: staad_attach_failed
+                  retryable: true
+                  stage: connection
+                  hint: Open STAAD manually once in this Windows session.
+                  details:
+                    error_code: staad_attach_failed
+                    retryable: true
+                    attempts: 2
+                    stage: connection
+                  cleanup_performed: true
+                  duration_seconds: 45.1
+                  working_directory: "C:\\STAADJobs\\3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11"
+                  attempts: 2
+
+components:
+  parameters:
+    JobId:
+      name: job_id
+      in: path
+      required: true
+      description: Job identifier returned by `POST /jobs`
+      schema:
+        type: string
+        format: uuid
+      example: 3f8c2a1e-9b4d-4e6a-8c1f-2a7b9d0e5f11
+
+  schemas:
+    # ---------------------------------------------------------------------------
+    # Enums / shared primitives
+    # ---------------------------------------------------------------------------
+    JobStatus:
+      type: string
+      description: Job lifecycle state
+      enum: [queued, running, succeeded, failed, canceled]
+
+    HealthCheckName:
+      type: string
+      description: Readiness probe selector for `GET /health`
+      enum: [server, license, staad]
+      default: server
+
+    ExtractionFlow:
+      type: string
+      description: |
+        Extraction mode for `POST /jobs`.
+
+        - `standard` — Sliding; global absolute envelope only
+        - `fully_unitized` — global envelope plus per-profile `properties.*` and `profiles`
+        - `casement` — standard-shaped global envelope plus signed `result.casement`
+
+        Accepted aliases (normalized server-side):
+        `unitized`, `fullyunitized`, and hyphenated forms map to `fully_unitized`.
+        Hyphenated `casement` forms map to `casement`.
+      enum: [standard, fully_unitized, casement]
+      default: standard
+
+    # ---------------------------------------------------------------------------
+    # Error envelopes
+    # ---------------------------------------------------------------------------
+    ApiErrorCode:
+      type: string
+      description: Machine-readable error code
+      examples:
+        - job_not_found
+        - file_too_large
+        - invalid_input_file
+        - invalid_timeout
+        - invalid_max_retries
+        - invalid_retry_delay
+        - invalid_extraction_flow
+        - invalid_staadpro_path
+        - staad_attach_failed
+        - job_failed
+
+    ErrorBody:
+      type: object
+      description: Common application error object returned inside `detail`
+      required: [error_code, message]
+      properties:
+        error_code:
+          $ref: "#/components/schemas/ApiErrorCode"
+        message:
+          type: string
+          description: Human-readable error summary
+        retryable:
+          type: boolean
+          description: Whether the client may safely retry the same operation
+          default: false
+
+    ErrorDetailEnvelope:
+      type: object
+      description: FastAPI `HTTPException` wrapper used by most handler errors
+      required: [detail]
+      properties:
+        detail:
+          $ref: "#/components/schemas/ErrorBody"
+
+    ValidationErrorItem:
+      type: object
+      description: Starlette / Pydantic validation error entry
+      required: [loc, msg, type]
+      properties:
+        loc:
+          type: array
+          items:
+            oneOf:
+              - type: string
+              - type: integer
+          description: Location of the invalid field
+        msg:
+          type: string
+        type:
+          type: string
+        input:
+          description: Rejected input value (when available)
+        ctx:
+          type: object
+          additionalProperties: true
+
+    ValidationErrorResponse:
+      type: object
+      description: Framework validation failure (HTTP 422)
+      required: [detail]
+      properties:
+        detail:
+          type: array
+          items:
+            $ref: "#/components/schemas/ValidationErrorItem"
+
+    ApiError:
+      type: object
+      description: |
+        Structured failure attached to job status (and sanitized for API clients).
+        `last_stderr_excerpt` is always stripped to `null` in HTTP responses.
+      required: [error_code, message]
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
+        retryable:
+          type: boolean
+          default: false
+        attempts:
+          type: integer
+          minimum: 0
+          default: 0
+        stage:
+          type: string
+          nullable: true
+          description: Failure stage, e.g. `connection` or `execution`
+        hint:
+          type: string
+          nullable: true
+          description: Optional remediation guidance for operators
+        details:
+          type: object
+          nullable: true
+          additionalProperties: true
+          description: |
+            Sanitized subset of error metadata. Typical safe keys:
+            `error_code`, `retryable`, `attempts`, `stage`, `hint`.
+        last_stderr_excerpt:
+          type: string
+          nullable: true
+          description: Always `null` in public API responses (stripped server-side)
+
+    # ---------------------------------------------------------------------------
+    # Health
+    # ---------------------------------------------------------------------------
+    HealthResponse:
+      type: object
+      description: Readiness check result
+      required: [check, status, healthy, checked_at, message]
+      properties:
+        check:
+          $ref: "#/components/schemas/HealthCheckName"
+        status:
+          type: string
+          description: Short status token (`ok`, `healthy`, `unhealthy`, `error`, …)
+          example: ok
+        healthy:
+          type: boolean
+          description: Overall pass/fail for the selected check
+        checked_at:
+          type: string
+          format: date-time
+          description: UTC timestamp when the check ran
+        message:
+          type: string
+          description: Human-readable summary
+        details:
+          description: Check-specific payload (shape depends on `check`)
+          nullable: true
+          oneOf:
+            - $ref: "#/components/schemas/ServerHealthDetails"
+            - $ref: "#/components/schemas/LicenseHealthDetails"
+            - $ref: "#/components/schemas/StaadHealthDetails"
+            - $ref: "#/components/schemas/HealthFailureDetails"
+
+    ServerHealthDetails:
+      type: object
+      description: "`check=server` details"
+      properties:
+        queue_size:
+          type: integer
+          nullable: true
+          description: Current in-memory job queue depth
+        configured_worker_count:
+          type: integer
+          nullable: true
+          description: Value of `STAAD_WORKER_COUNT`
+        effective_worker_count:
+          type: integer
+          nullable: true
+          description: Workers actually started (respects `ALLOW_PARALLEL_STAAD`)
+        active_worker_count:
+          type: integer
+          nullable: true
+          description: Worker tasks that have not finished
+        allow_parallel_staad:
+          type: boolean
+          nullable: true
+          description: Value of `ALLOW_PARALLEL_STAAD`
+
+    LicenseProductDetail:
+      type: object
+      properties:
+        product_id:
+          type: integer
+          description: Bentley product id (e.g. 1562 for STAAD.Pro)
+        product_name:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+          description: License status string (e.g. `Ok`, `Trial`)
+        entitlement_count:
+          type: integer
+          nullable: true
+
+    LicenseHealthDetails:
+      type: object
+      description: "`check=license` success details"
+      properties:
+        desktop_api_installed:
+          type: boolean
+        connect_running:
+          type: boolean
+        connect_logged_in:
+          type: boolean
+        user_session_active:
+          type: boolean
+        eula_accepted:
+          type: boolean
+        license_service_installed:
+          type: boolean
+        has_valid_access_key:
+          type: boolean
+        products:
+          type: array
+          items:
+            $ref: "#/components/schemas/LicenseProductDetail"
+
+    StaadHealthDetails:
+      type: object
+      description: "`check=staad` success details"
+      properties:
+        staad_executable:
+          type: string
+          nullable: true
+          description: Resolved STAAD executable path
+        current_file:
+          type: string
+          nullable: true
+          description: Currently open STAAD model path, if any
+
+    HealthFailureDetails:
+      type: object
+      description: Failure / error details for license or STAAD checks
+      properties:
+        error_code:
+          type: string
+        retryable:
+          type: boolean
+        attempts:
+          type: integer
+        stage:
+          type: string
+        hint:
+          type: string
+        exception_type:
+          type: string
+        message:
+          type: string
+
+    # ---------------------------------------------------------------------------
+    # Job create (multipart)
+    # ---------------------------------------------------------------------------
+    JobCreateRequest:
+      type: object
+      required: [std_file]
+      properties:
+        std_file:
+          type: string
+          format: binary
+          description: Required STAAD model upload. Filename must end with `.std`.
+        staadpro_path:
+          type: string
+          nullable: true
+          description: |
+            Optional legacy absolute path to the STAAD executable. Accepted for
+            backward compatibility; if provided, the path must exist as a file.
+          example: "C:\\Program Files\\Bentley\\Engineering\\STAAD.Pro CONNECT Edition\\STAAD\\Bentley.Staad.exe"
+        timeout_seconds:
+          type: integer
+          description: Per-attempt STAAD/extraction timeout in seconds. Must be `> 0`.
+          default: 180
+          exclusiveMinimum: 0
+          example: 180
+        max_retries:
+          type: integer
+          description: |
+            Number of retries after the first attempt. Total attempts =
+            `max_retries + 1`. Must be `>= 0`. Default from `STAAD_API_MAX_RETRIES`.
+          default: 2
+          minimum: 0
+          example: 2
+        retry_delay_seconds:
+          type: integer
+          description: |
+            Delay between attempts in seconds. Must be `>= 1`. Default from
+            `STAAD_API_RETRY_DELAY_SECONDS`.
+          default: 20
+          minimum: 1
+          example: 20
+        extraction_flow:
+          type: string
+          description: |
+            Extraction mode. Prefer `standard`, `fully_unitized`, or `casement`.
+            Aliases `unitized` / `fullyunitized` (and hyphen forms) are accepted for unitized.
+            Hyphenated `casement` maps to `casement`.
+          default: standard
+          example: standard
+        generation_request:
+          type: string
+          format: binary
+          description: |
+            Optional JSON file. For Fully Unitized: panel geometry and optional flow
+            override. For Casement: optional flow override and `casement_profiles`
+            member-id map. See `GenerationRequest`.
+
+    GenerationRequest:
+      type: object
+      description: |
+        Optional JSON uploaded as `generation_request` on `POST /jobs`.
+        Parsed by the extractor (not validated as a FastAPI/Pydantic model).
+      properties:
+        panels:
+          type: array
+          description: Panel height segments used for head/sill/transom/stack classification
+          items:
+            $ref: "#/components/schemas/GenerationRequestPanel"
+        flowType:
+          type: string
+          description: Flow override (camelCase). May force `fully_unitized` or `casement`.
+        flow_type:
+          type: string
+          description: Flow override (snake_case alias of `flowType`)
+        extractionFlow:
+          type: string
+          description: Flow override (camelCase alias)
+        extraction_flow:
+          type: string
+          description: Flow override (snake_case alias)
+        casement_profiles:
+          allOf:
+            - $ref: "#/components/schemas/CasementProfileMemberMap"
+          description: |
+            Optional Casement member-id map (snake_case). When present with at least
+            one valid id, overrides geometry-based classification. Unknown member
+            ids are dropped. Duplicate ids are kept on the first matching profile
+            (`interlock`, then `central_meeting`, `fixed_mullion`, `horizontal`, `outer`).
+        casementProfiles:
+          allOf:
+            - $ref: "#/components/schemas/CasementProfileMemberMap"
+          description: Optional Casement member-id map (camelCase alias of `casement_profiles`)
+      example:
+        extraction_flow: casement
+        casement_profiles:
+          interlock: [22, 26]
+          central_meeting: [24]
+          fixed_mullion: [21, 23, 25]
+          horizontal: [47, 48, 49, 50]
+          outer: [1, 2, 3]
+
+    GenerationRequestPanel:
+      type: object
+      required: [segments]
+      properties:
+        segments:
+          type: array
+          description: Ordered height segments (numeric) composing one panel
+          items:
+            type: number
+          minItems: 1
+          example: [1200, 1800, 900]
+
+    JobCreateResponse:
+      type: object
+      required: [job_id, status, message]
+      properties:
+        job_id:
+          type: string
+          format: uuid
+          description: Unique job identifier for status / result / abort calls
+        status:
+          allOf:
+            - $ref: "#/components/schemas/JobStatus"
+          description: Always `queued` on successful acceptance
+          example: queued
+        message:
+          type: string
+          default: Job accepted.
+
+    # ---------------------------------------------------------------------------
+    # Job status / abort
+    # ---------------------------------------------------------------------------
+    JobStatusResponse:
+      type: object
+      required:
+        - job_id
+        - status
+        - progress_percent
+        - message
+        - attempts
+        - max_attempts
+        - created_at
+        - result_ready
+        - cleanup_performed
+      properties:
+        job_id:
+          type: string
+        status:
+          $ref: "#/components/schemas/JobStatus"
+        progress_percent:
+          type: integer
+          minimum: 0
+          maximum: 100
+          description: |
+            UI progress value. Non-terminal jobs are capped below 100;
+            terminal jobs always return 100.
+        message:
+          type: string
+          description: User-facing status text for display next to a progress bar
+        attempts:
+          type: integer
+          minimum: 0
+          description: Completed / in-flight attempt count
+        max_attempts:
+          type: integer
+          minimum: 0
+          description: "`max_retries + 1` from job submission"
+        created_at:
+          type: string
+          format: date-time
+        started_at:
+          type: string
+          format: date-time
+          nullable: true
+        finished_at:
+          type: string
+          format: date-time
+          nullable: true
+        result_ready:
+          type: boolean
+          description: "`true` only when `status` is `succeeded`"
+        error:
+          allOf:
+            - $ref: "#/components/schemas/ApiError"
+          nullable: true
+          description: Present when the job failed (sanitized)
+        duration_seconds:
+          type: number
+          format: float
+          nullable: true
+          description: Wall-clock duration once finished
+        working_directory:
+          type: string
+          nullable: true
+          description: Job working folder path on the API host
+        cleanup_performed:
+          type: boolean
+          description: Whether post-job cleanup has run
+
+    JobAbortResponse:
+      type: object
+      required: [job_id, status, message]
+      properties:
+        job_id:
+          type: string
+        status:
+          $ref: "#/components/schemas/JobStatus"
+        message:
+          type: string
+          description: Outcome message (`Job canceled before execution.` or `Job already {status}.`)
+
+    # ---------------------------------------------------------------------------
+    # Job result response variants
+    # ---------------------------------------------------------------------------
+    JobResultInProgress:
+      type: object
+      description: Returned while status is `queued` or `running`
+      required: [job_id, status, message]
+      properties:
+        job_id:
+          type: string
+        status:
+          type: string
+          enum: [queued, running]
+        message:
+          type: string
+          example: Job in progress.
+        working_directory:
+          type: string
+          nullable: true
+
+    JobResultCanceled:
+      type: object
+      description: Returned when status is `canceled`
+      required: [job_id, status, message]
+      properties:
+        job_id:
+          type: string
+        status:
+          type: string
+          enum: [canceled]
+        message:
+          type: string
+          example: Job canceled before execution.
+        working_directory:
+          type: string
+          nullable: true
+        cleanup_performed:
+          type: boolean
+
+    JobResultSucceeded:
+      type: object
+      description: Successful extraction response
+      required: [job_id, status, result]
+      properties:
+        job_id:
+          type: string
+        status:
+          type: string
+          enum: [succeeded]
+        duration_seconds:
+          type: number
+          format: float
+          nullable: true
+        working_directory:
+          type: string
+          nullable: true
+        cleanup_performed:
+          type: boolean
+        attempts:
+          type: integer
+        max_attempts:
+          type: integer
+        result:
+          $ref: "#/components/schemas/ExtractionResult"
+
+    JobResultFailed:
+      type: object
+      description: Body placed under `detail` when result fetch returns HTTP 500
+      required: [job_id, status, error, error_code]
+      properties:
+        job_id:
+          type: string
+        status:
+          type: string
+          enum: [failed]
+        error:
+          type: string
+          description: Human-readable failure message
+        error_code:
+          type: string
+        retryable:
+          type: boolean
+        stage:
+          type: string
+          nullable: true
+        hint:
+          type: string
+          nullable: true
+        details:
+          type: object
+          nullable: true
+          additionalProperties: true
+        cleanup_performed:
+          type: boolean
+        duration_seconds:
+          type: number
+          format: float
+          nullable: true
+        working_directory:
+          type: string
+          nullable: true
+        attempts:
+          type: integer
+
+    JobResultFailedDetailEnvelope:
+      type: object
+      required: [detail]
+      properties:
+        detail:
+          $ref: "#/components/schemas/JobResultFailed"
+
+    # ---------------------------------------------------------------------------
+    # Extraction result payload (succeeded job `result` field)
+    # ---------------------------------------------------------------------------
+    ExtractionResult:
+      type: object
+      description: |
+        Extractor output embedded as `result` on a succeeded job.
+        Built by `staad-max-extractor/extractor.py` (not a Pydantic response model).
+      required: [file, analysis, units, properties]
+      properties:
+        file:
+          type: string
+          description: Absolute path of the processed `.std` on the API host
+        analysis:
+          $ref: "#/components/schemas/AnalysisSettings"
+        units:
+          $ref: "#/components/schemas/UnitsBlock"
+        properties:
+          $ref: "#/components/schemas/PropertiesBlock"
+        profiles:
+          allOf:
+            - $ref: "#/components/schemas/ProfilesBlock"
+          description: Present only for `extraction_flow=fully_unitized`
+        casement:
+          allOf:
+            - $ref: "#/components/schemas/CasementBlock"
+          description: |
+            Present only for `extraction_flow=casement`. Not included for
+            `standard` or `fully_unitized` responses. Sliding/standard `properties`
+            remain absolute magnitudes; Casement profile metrics under this object
+            are signed `max`/`min`. If Casement extraction fails after analysis,
+            this object is still returned with empty `member_ids` and null envelopes.
+
+    AnalysisSettings:
+      type: object
+      required: [load_case_mode, load_cases, moment_mode, include_combinations]
+      properties:
+        load_case_mode:
+          type: string
+          description: How load cases were selected (e.g. `all`)
+          example: all
+        load_cases:
+          type: array
+          items:
+            type: integer
+          description: Load case ids included in the envelope
+        moment_mode:
+          type: string
+          description: Moment extraction mode (e.g. `internal-envelope`)
+          example: internal-envelope
+        include_combinations:
+          type: boolean
+          description: Whether combination cases were included
+
+    UnitTriplet:
+      type: object
+      required: [force, length, moment]
+      properties:
+        force:
+          type: string
+          example: kN
+        length:
+          type: string
+          example: mm
+        moment:
+          type: string
+          example: kN-m
+
+    UnitsBlock:
+      type: object
+      required: [output, staad_detected, file_detected]
+      properties:
+        output:
+          allOf:
+            - $ref: "#/components/schemas/UnitTriplet"
+          description: Units used in the returned engineering values
+        staad_detected:
+          allOf:
+            - $ref: "#/components/schemas/UnitTriplet"
+          description: Units detected from the live STAAD session
+        file_detected:
+          allOf:
+            - $ref: "#/components/schemas/UnitTriplet"
+          description: Units detected from the `.std` file text
+
+    EngineeringResult:
+      type: object
+      description: |
+        Cleaned engineering extreme / companion value. Null fields are omitted.
+        Units for the parent quantity live on the enclosing block (`unit`), not here.
+      properties:
+        value:
+          type: number
+          format: double
+        axis:
+          type: string
+          description: Force/moment axis (`MZ`, `MY`, `FY`, `FZ`, `FX`, …)
+        direction:
+          type: string
+          description: Displacement direction when applicable
+        member_id:
+          type: integer
+        member_type:
+          type: string
+        node_id:
+          type: integer
+        source:
+          type: string
+        location:
+          type: string
+        station:
+          type: number
+          format: double
+        station_unit:
+          type: string
+        load_case:
+          type: integer
+        load_case_name:
+          type: string
+        governing_end:
+          type: string
+        governing_station:
+          type: number
+          format: double
+        reference_major_value:
+          type: number
+          format: double
+          description: Companion field — major value at the governing point
+        reference_major_load_case:
+          type: integer
+          description: Companion field — major load case reference
+        governing_load_case:
+          type: integer
+          description: Companion field — governing load case for minor shear at major point
+        governing_load_case_name:
+          type: string
+
+    BendingMomentMinor:
+      type: object
+      properties:
+        axis:
+          type: string
+          example: MY
+        max:
+          allOf:
+            - $ref: "#/components/schemas/EngineeringResult"
+          description: Maximum minor-direction My
+        at_major_governing_point:
+          allOf:
+            - $ref: "#/components/schemas/EngineeringResult"
+          description: My at the governing Mz point (includes `reference_major_*`)
+
+    BendingMomentBlock:
+      type: object
+      required: [unit, major]
+      properties:
+        unit:
+          type: string
+          example: kN-m
+        major:
+          allOf:
+            - $ref: "#/components/schemas/EngineeringResult"
+          description: Maximum major-direction Mz (`axis` typically `MZ`)
+        minor:
+          allOf:
+            - $ref: "#/components/schemas/BendingMomentMinor"
+          description: |
+            Present on global / mullion envelopes. Omitted for horizontal
+            fully-unitized profile groups (`head`, `sill`, `transom`, `stack`).
+
+    ShearForceMinor:
+      type: object
+      properties:
+        axis:
+          type: string
+          example: FZ
+        max_on_mullions:
+          allOf:
+            - $ref: "#/components/schemas/EngineeringResult"
+          description: Maximum minor-direction Fz from vertical Mullion members only
+        at_major_governing_point:
+          allOf:
+            - $ref: "#/components/schemas/EngineeringResult"
+          description: |
+            Fz at the fixed point where major Fy governs. May include
+            `governing_load_case`, `governing_load_case_name`, and `reference_major_*`.
+
+    ShearForceBlock:
+      type: object
+      required: [unit, major]
+      properties:
+        unit:
+          type: string
+          example: kN
+        major:
+          allOf:
+            - $ref: "#/components/schemas/EngineeringResult"
+          description: Maximum major-direction Fy (`axis` typically `FY`)
+        minor:
+          allOf:
+            - $ref: "#/components/schemas/ShearForceMinor"
+          description: Present on global / mullion envelopes; omitted for horizontal profile groups
+
+    AxialForceBlock:
+      type: object
+      description: |
+        Axial envelope from inner vertical members only; peripheral/outer frame
+        verticals at the assembly min/max horizontal bounds are excluded. `unit`
+        plus engineering result fields.
+      required: [unit]
+      properties:
+        unit:
+          type: string
+          example: kN
+        value:
+          type: number
+          format: double
+        axis:
+          type: string
+          example: FX
+        member_id:
+          type: integer
+        member_type:
+          type: string
+        node_id:
+          type: integer
+        source:
+          type: string
+        location:
+          type: string
+        station:
+          type: number
+          format: double
+        station_unit:
+          type: string
+        load_case:
+          type: integer
+        load_case_name:
+          type: string
+        governing_end:
+          type: string
+        governing_station:
+          type: number
+          format: double
+
+    DisplacementBlock:
+      type: object
+      description: Displacement envelope; `unit` plus engineering result fields
+      required: [unit]
+      properties:
+        unit:
+          type: string
+          example: mm
+        value:
+          type: number
+          format: double
+        direction:
+          type: string
+        member_id:
+          type: integer
+        member_type:
+          type: string
+        node_id:
+          type: integer
+        source:
+          type: string
+        location:
+          type: string
+        station:
+          type: number
+          format: double
+        station_unit:
+          type: string
+        load_case:
+          type: integer
+        load_case_name:
+          type: string
+        governing_end:
+          type: string
+        governing_station:
+          type: number
+          format: double
+
+    PropertyEnvelope:
+      type: object
+      description: Grouped engineering envelope for one member set
+      required: [bending_moment, shear_force, axial_force, displacement]
+      properties:
+        bending_moment:
+          $ref: "#/components/schemas/BendingMomentBlock"
+        shear_force:
+          $ref: "#/components/schemas/ShearForceBlock"
+        axial_force:
+          $ref: "#/components/schemas/AxialForceBlock"
+        displacement:
+          $ref: "#/components/schemas/DisplacementBlock"
+
+    PropertiesBlock:
+      allOf:
+        - $ref: "#/components/schemas/PropertyEnvelope"
+        - type: object
+          description: |
+            Top-level `properties` is always the **global** envelope across all members.
+
+            For `fully_unitized`, additional keys are included:
+            - `global` — mirror of the top-level global envelope
+            - `mullion`, `head`, `sill`, `transom`, `stack` — per-profile envelopes
+              (omitted when a group has no members). Only `mullion` includes minor axes.
+
+            For `casement`, this global envelope is unchanged (absolute magnitudes).
+            Signed per-profile envelopes live under `result.casement`, not here.
+          properties:
+            global:
+              $ref: "#/components/schemas/PropertyEnvelope"
+            mullion:
+              $ref: "#/components/schemas/PropertyEnvelope"
+            head:
+              $ref: "#/components/schemas/PropertyEnvelope"
+            sill:
+              $ref: "#/components/schemas/PropertyEnvelope"
+            transom:
+              $ref: "#/components/schemas/PropertyEnvelope"
+            stack:
+              $ref: "#/components/schemas/PropertyEnvelope"
+
+    ProfileMemberCounts:
+      type: object
+      description: Member counts per classified profile group
+      additionalProperties:
+        type: integer
+        minimum: 0
+      properties:
+        mullion:
+          type: integer
+        head:
+          type: integer
+        sill:
+          type: integer
+        transom:
+          type: integer
+        stack:
+          type: integer
+
+    ProfilesBlock:
+      type: object
+      description: Fully unitized profile metadata (`result.profiles`)
+      required: [extraction_flow, member_counts]
+      properties:
+        extraction_flow:
+          type: string
+          enum: [fully_unitized]
+        member_counts:
+          $ref: "#/components/schemas/ProfileMemberCounts"
+
+    CasementGoverningResult:
+      type: object
+      nullable: true
+      description: |
+        One signed governing sample. `null` when the profile has no samples for
+        that metric. Unlike the global `properties` envelope, values keep algebraic
+        sign (`max` is most positive, `min` is most negative). Null fields are omitted.
+      properties:
+        value:
+          type: number
+          format: double
+          description: Signed engineering value in the parent metric `unit`
+        member_id:
+          type: integer
+        node_id:
+          type: integer
+          description: Present on nodal displacement samples
+        station:
+          type: number
+          format: double
+          description: Member station (0 start / 1 end for forces; sampled station for BM/DF)
+        location:
+          type: string
+          description: "`start` / `end` for forces; `member-minimum` / `member-maximum` for BM"
+        load_case:
+          type: integer
+        load_case_name:
+          type: string
+        axis:
+          type: string
+          description: "`MZ` for BM, `FY` for SF, `FX` for AF"
+        direction:
+          type: string
+          description: Displacement direction, typically `RESULTANT`
+
+    CasementMetricEnvelope:
+      type: object
+      required: [unit, max, min]
+      description: Signed max/min envelope for one Casement metric
+      properties:
+        unit:
+          type: string
+          description: "`kN-m` for BM, `kN` for SF/AF, `mm` for DF"
+          example: kN-m
+        max:
+          $ref: "#/components/schemas/CasementGoverningResult"
+        min:
+          $ref: "#/components/schemas/CasementGoverningResult"
+
+    CasementProfileBlock:
+      type: object
+      required: [member_ids, bm, sf, af, df]
+      description: Signed envelopes for one Casement profile group
+      properties:
+        member_ids:
+          type: array
+          items:
+            type: integer
+          description: Classified STAAD member ids for this profile (disjoint across profiles)
+        bm:
+          allOf:
+            - $ref: "#/components/schemas/CasementMetricEnvelope"
+          description: Signed major-axis bending (`MZ`) from the member internal moment envelope
+        sf:
+          allOf:
+            - $ref: "#/components/schemas/CasementMetricEnvelope"
+          description: Signed major-axis shear (`FY`) from member end forces
+        af:
+          allOf:
+            - $ref: "#/components/schemas/CasementMetricEnvelope"
+          description: Signed axial force (`FX`) from member end forces
+        df:
+          allOf:
+            - $ref: "#/components/schemas/CasementMetricEnvelope"
+          description: |
+            Signed RESULTANT displacement. Vertical profiles prefer member-chord
+            intermediate deflection so shared junction motion does not dominate;
+            exclusive nodal RESULTANT is still included. `horizontal` also includes
+            absolute nodal RESULTANT at shared junctions.
+
+    CasementProfileMemberMap:
+      type: object
+      description: |
+        Optional request-supplied Casement member-id lists. Any subset of keys may
+        be present. Values are integer STAAD member ids.
+      properties:
+        interlock:
+          type: array
+          items:
+            type: integer
+        central_meeting:
+          type: array
+          items:
+            type: integer
+        fixed_mullion:
+          type: array
+          items:
+            type: integer
+        horizontal:
+          type: array
+          items:
+            type: integer
+        outer:
+          type: array
+          items:
+            type: integer
+
+    CasementProfiles:
+      type: object
+      description: |
+        Always includes all five profile keys. Geometry classification (when no
+        request map is supplied): outer frame at bounding min/max X and Y;
+        remaining interior horizontals → `horizontal`; interior verticals below the
+        transom line → `fixed_mullion`; above-transom median X-column →
+        `central_meeting`; remaining above-transom verticals → `interlock`.
+      required: [interlock, central_meeting, fixed_mullion, horizontal, outer]
+      properties:
+        interlock:
+          $ref: "#/components/schemas/CasementProfileBlock"
+        central_meeting:
+          $ref: "#/components/schemas/CasementProfileBlock"
+        fixed_mullion:
+          $ref: "#/components/schemas/CasementProfileBlock"
+        horizontal:
+          $ref: "#/components/schemas/CasementProfileBlock"
+        outer:
+          $ref: "#/components/schemas/CasementProfileBlock"
+
+    CasementBlock:
+      type: object
+      description: |
+        Casement profile envelopes (`result.casement`). Absent for `standard` and
+        `fully_unitized`. Present (possibly empty) whenever `extraction_flow=casement`.
+      required: [extraction_flow, profiles]
+      properties:
+        extraction_flow:
+          type: string
+          enum: [casement]
+        profiles:
+          $ref: "#/components/schemas/CasementProfiles"

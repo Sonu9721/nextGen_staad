@@ -1,0 +1,666 @@
+{
+  "file": "C:\\Users\\user\\Desktop\\staad\\staad-report-extractor\\examples\\sample2\\Facade_STAAD_Report.std",
+  "analysis": {
+    "load_case_mode": "all",
+    "load_cases": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "moment_mode": "internal-envelope",
+    "include_combinations": true,
+    "backend": "inhouse",
+    "solver_version": "0.3.0",
+    "validation_status": "reference_comparison_required",
+    "diagnostics": {
+      "nodes": 70,
+      "members": 105,
+      "active_dofs": 343,
+      "ignored_unloaded_rotations": [],
+      "scaled_condition_number": 15322.370643681674,
+      "minimum_scaled_eigenvalue": 0.00014683722361342482,
+      "relative_residual": 7.452014364480975e-14,
+      "componentwise_backward_error_by_case": {
+        "1": 9.828813807212627e-16,
+        "2": 1.9068244128082818e-15
+      },
+      "scaled_backward_error_by_case": {
+        "1": 7.936882916665391e-17,
+        "2": 1.0651114621783648e-16
+      },
+      "equilibrium": {
+        "1": {
+          "force_N": [
+            -2.17803206026268e-14,
+            6.116351869422942e-11,
+            -5.314179976948812e-29
+          ],
+          "moment_Nm": [
+            1.3020817538363502e-28,
+            1.602544038159637e-29,
+            -2.2737367544323206e-11
+          ],
+          "relative_force_error": 5.152206610225251e-16,
+          "relative_moment_error": 1.1419330921085559e-17
+        },
+        "2": {
+          "force_N": [
+            2.9232282139359484e-24,
+            1.3624154813065362e-29,
+            1.127773430198431e-10
+          ],
+          "moment_Nm": [
+            1.2223608791828156e-08,
+            6.893969839438796e-10,
+            -8.570184874321072e-24
+          ],
+          "relative_force_error": 2.5296382209087674e-16,
+          "relative_moment_error": 1.637288852836115e-15
+        },
+        "3": {
+          "force_N": [
+            -3.2388121623940034e-14,
+            6.070877134334296e-11,
+            1.127773430198431e-10
+          ],
+          "moment_Nm": [
+            1.2223608791828156e-08,
+            6.893969839438796e-10,
+            -9.094947017729282e-12
+          ],
+          "relative_force_error": 2.4899774314288916e-16,
+          "relative_moment_error": 1.4190759044868938e-15
+        },
+        "4": {
+          "force_N": [
+            -2.8936087975316074e-14,
+            6.161826604511589e-11,
+            -1.127773430198431e-10
+          ],
+          "moment_Nm": [
+            -1.2223608791828156e-08,
+            -6.893969839438796e-10,
+            0.0
+          ],
+          "relative_force_error": 2.498406807313029e-16,
+          "relative_moment_error": 1.4190755129274612e-15
+        }
+      },
+      "equilibrium_normalization_length_m": 16.772596698186003,
+      "floor_loads": {
+        "1": [],
+        "2": [
+          {
+            "panels": 36,
+            "area_m2": 123.83999999999993,
+            "force_N": -222912.0,
+            "direction": "GZ"
+          }
+        ]
+      },
+      "solve_seconds": 1.1920096999965608,
+      "element_theory": "Timoshenko (Euler-Bernoulli when shear areas are absent)",
+      "shear_area_rule": "Explicit AY/AZ; otherwise Cowper rectangular coefficient times AX when YD and ZD are supplied; no shear when neither is supplied."
+    }
+  },
+  "units": {
+    "output": {
+      "force": "kN",
+      "length": "mm",
+      "moment": "kN-m"
+    },
+    "staad_detected": {
+      "force": "N",
+      "length": "METER",
+      "moment": "N-meter"
+    },
+    "file_detected": {
+      "force": "KN",
+      "length": "METER",
+      "moment": "KN-meter"
+    }
+  },
+  "properties": {
+    "bending_moment": {
+      "unit": "kN-m",
+      "major": {
+        "value": 6.804171,
+        "member_id": 44,
+        "location": "member-minimum",
+        "load_case": 2,
+        "station": 0.925899,
+        "station_unit": "meter",
+        "axis": "MZ"
+      },
+      "minor": {
+        "axis": "MY",
+        "max": {
+          "value": 0.169346,
+          "member_id": 74,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 0.75,
+          "station_unit": "meter"
+        },
+        "at_major_governing_point": {
+          "value": 0.0,
+          "member_id": 44,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.925899,
+          "station_unit": "meter",
+          "reference_major_value": 6.804171,
+          "reference_major_load_case": 2
+        }
+      }
+    },
+    "shear_force": {
+      "unit": "kN",
+      "major": {
+        "value": 7.308757,
+        "member_id": 51,
+        "location": "start",
+        "station": 0.0,
+        "load_case": 2,
+        "axis": "FY",
+        "member_type": "mullion",
+        "load_case_name": "WL",
+        "governing_end": "start"
+      },
+      "minor": {
+        "axis": "FZ",
+        "max_on_mullions": {
+          "value": 0.010513,
+          "member_id": 55,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1,
+          "member_type": "mullion",
+          "load_case_name": "DL",
+          "governing_end": "start"
+        },
+        "at_major_governing_point": {
+          "value": 3e-06,
+          "member_id": 51,
+          "location": "start",
+          "station": 0.0,
+          "governing_load_case": 1,
+          "governing_load_case_name": "DL",
+          "reference_major_load_case": 2,
+          "reference_major_value": 7.308757,
+          "member_type": "mullion"
+        }
+      }
+    },
+    "axial_force": {
+      "unit": "kN",
+      "value": 3.421368,
+      "member_id": 47,
+      "location": "end",
+      "load_case": 1,
+      "axis": "FX",
+      "member_type": "inner_mullion",
+      "load_case_name": "DL",
+      "governing_end": "end"
+    },
+    "displacement": {
+      "unit": "mm",
+      "value": 97.527675,
+      "load_case": 3,
+      "direction": "RESULTANT",
+      "source": "member-span",
+      "member_id": 44,
+      "station": 1.086667,
+      "station_unit": "meter"
+    },
+    "global": {
+      "bending_moment": {
+        "unit": "kN-m",
+        "major": {
+          "value": 6.804171,
+          "member_id": 44,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.925899,
+          "station_unit": "meter",
+          "axis": "MZ"
+        },
+        "minor": {
+          "axis": "MY",
+          "max": {
+            "value": 0.169346,
+            "member_id": 74,
+            "location": "member-minimum",
+            "load_case": 1,
+            "station": 0.75,
+            "station_unit": "meter"
+          },
+          "at_major_governing_point": {
+            "value": 0.0,
+            "member_id": 44,
+            "location": "member-minimum",
+            "load_case": 2,
+            "station": 0.925899,
+            "station_unit": "meter",
+            "reference_major_value": 6.804171,
+            "reference_major_load_case": 2
+          }
+        }
+      },
+      "shear_force": {
+        "unit": "kN",
+        "major": {
+          "value": 7.308757,
+          "member_id": 51,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2,
+          "axis": "FY",
+          "member_type": "mullion",
+          "load_case_name": "WL",
+          "governing_end": "start"
+        },
+        "minor": {
+          "axis": "FZ",
+          "max_on_mullions": {
+            "value": 0.010513,
+            "member_id": 55,
+            "location": "start",
+            "station": 0.0,
+            "load_case": 1,
+            "member_type": "mullion",
+            "load_case_name": "DL",
+            "governing_end": "start"
+          },
+          "at_major_governing_point": {
+            "value": 3e-06,
+            "member_id": 51,
+            "location": "start",
+            "station": 0.0,
+            "governing_load_case": 1,
+            "governing_load_case_name": "DL",
+            "reference_major_load_case": 2,
+            "reference_major_value": 7.308757,
+            "member_type": "mullion"
+          }
+        }
+      },
+      "axial_force": {
+        "unit": "kN",
+        "value": 3.421368,
+        "member_id": 47,
+        "location": "end",
+        "load_case": 1,
+        "axis": "FX",
+        "member_type": "inner_mullion",
+        "load_case_name": "DL",
+        "governing_end": "end"
+      },
+      "displacement": {
+        "unit": "mm",
+        "value": 97.527675,
+        "load_case": 3,
+        "direction": "RESULTANT",
+        "source": "member-span",
+        "member_id": 44,
+        "station": 1.086667,
+        "station_unit": "meter"
+      }
+    },
+    "mullion": {
+      "bending_moment": {
+        "unit": "kN-m",
+        "major": {
+          "value": 6.804171,
+          "member_id": 44,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.925899,
+          "station_unit": "meter",
+          "axis": "MZ"
+        },
+        "minor": {
+          "axis": "MY",
+          "max": {
+            "value": 0.012508,
+            "member_id": 55,
+            "location": "member-maximum",
+            "load_case": 1,
+            "station": 0.0,
+            "station_unit": "meter"
+          },
+          "at_major_governing_point": {
+            "value": 0.0,
+            "member_id": 44,
+            "location": "member-minimum",
+            "load_case": 2,
+            "station": 0.925899,
+            "station_unit": "meter",
+            "reference_major_value": 6.804171,
+            "reference_major_load_case": 2
+          }
+        }
+      },
+      "shear_force": {
+        "unit": "kN",
+        "major": {
+          "value": 7.308757,
+          "member_id": 51,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2,
+          "axis": "FY",
+          "member_type": "mullion",
+          "load_case_name": "WL",
+          "governing_end": "start"
+        },
+        "minor": {
+          "axis": "FZ",
+          "max_on_mullions": {
+            "value": 0.010513,
+            "member_id": 55,
+            "location": "start",
+            "station": 0.0,
+            "load_case": 1,
+            "member_type": "mullion",
+            "load_case_name": "DL",
+            "governing_end": "start"
+          },
+          "at_major_governing_point": {
+            "value": 3e-06,
+            "member_id": 51,
+            "location": "start",
+            "station": 0.0,
+            "governing_load_case": 1,
+            "governing_load_case_name": "DL",
+            "reference_major_load_case": 2,
+            "reference_major_value": 7.308757,
+            "member_type": "mullion"
+          }
+        }
+      },
+      "axial_force": {
+        "unit": "kN",
+        "value": 3.421368,
+        "member_id": 47,
+        "location": "end",
+        "load_case": 1,
+        "axis": "FX",
+        "member_type": "inner_mullion",
+        "load_case_name": "DL",
+        "governing_end": "end"
+      },
+      "displacement": {
+        "unit": "mm",
+        "value": 97.527675,
+        "load_case": 3,
+        "direction": "RESULTANT",
+        "source": "member-span",
+        "member_id": 44,
+        "station": 1.086667,
+        "station_unit": "meter"
+      }
+    },
+    "stack": {
+      "bending_moment": {
+        "unit": "kN-m",
+        "major": {
+          "value": 0.5046,
+          "member_id": 92,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.75,
+          "station_unit": "meter",
+          "axis": "MZ"
+        }
+      },
+      "shear_force": {
+        "unit": "kN",
+        "major": {
+          "value": 1.01025,
+          "member_id": 92,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2,
+          "axis": "FY",
+          "member_type": "horizontal",
+          "load_case_name": "WL",
+          "governing_end": "start"
+        }
+      },
+      "axial_force": {
+        "unit": "kN"
+      },
+      "displacement": {
+        "unit": "mm",
+        "value": 8.163382,
+        "load_case": 2,
+        "direction": "RESULTANT",
+        "source": "node",
+        "node_id": 44
+      }
+    },
+    "head": {
+      "bending_moment": {
+        "unit": "kN-m",
+        "major": {
+          "value": 0.253125,
+          "member_id": 104,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.75,
+          "station_unit": "meter",
+          "axis": "MZ"
+        }
+      },
+      "shear_force": {
+        "unit": "kN",
+        "major": {
+          "value": 0.50625,
+          "member_id": 105,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2,
+          "axis": "FY",
+          "member_type": "horizontal",
+          "load_case_name": "WL",
+          "governing_end": "end"
+        }
+      },
+      "axial_force": {
+        "unit": "kN"
+      },
+      "displacement": {
+        "unit": "mm",
+        "value": 9.38318,
+        "load_case": 2,
+        "direction": "RESULTANT",
+        "source": "node",
+        "node_id": 50
+      }
+    },
+    "sill": {
+      "bending_moment": {
+        "unit": "kN-m",
+        "major": {
+          "value": 0.201065,
+          "member_id": 68,
+          "location": "member-maximum",
+          "load_case": 2,
+          "station": 1.5,
+          "station_unit": "meter",
+          "axis": "MZ"
+        }
+      },
+      "shear_force": {
+        "unit": "kN",
+        "major": {
+          "value": 0.638043,
+          "member_id": 69,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2,
+          "axis": "FY",
+          "member_type": "horizontal",
+          "load_case_name": "WL",
+          "governing_end": "start"
+        }
+      },
+      "axial_force": {
+        "unit": "kN"
+      },
+      "displacement": {
+        "unit": "mm",
+        "value": 0.187527,
+        "load_case": 3,
+        "direction": "RESULTANT",
+        "source": "member-span",
+        "member_id": 69,
+        "station": 0.75,
+        "station_unit": "meter"
+      }
+    },
+    "transom": {
+      "bending_moment": {
+        "unit": "kN-m",
+        "major": {
+          "value": 0.5046,
+          "member_id": 75,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.75,
+          "station_unit": "meter",
+          "axis": "MZ"
+        }
+      },
+      "shear_force": {
+        "unit": "kN",
+        "major": {
+          "value": 1.01025,
+          "member_id": 75,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2,
+          "axis": "FY",
+          "member_type": "horizontal",
+          "load_case_name": "WL",
+          "governing_end": "start"
+        }
+      },
+      "axial_force": {
+        "unit": "kN"
+      },
+      "displacement": {
+        "unit": "mm",
+        "value": 1.171142,
+        "load_case": 3,
+        "direction": "RESULTANT",
+        "source": "member-span",
+        "member_id": 98,
+        "station": 0.75,
+        "station_unit": "meter"
+      }
+    }
+  },
+  "profiles": {
+    "extraction_flow": "fully_unitized",
+    "member_counts": {
+      "mullion": 63,
+      "stack": 12,
+      "head": 6,
+      "sill": 6,
+      "transom": 18
+    }
+  },
+  "physical_response": {
+    "forces": {
+      "FX": {
+        "value": 3.421368052866546,
+        "signed_value": -3.421368052866546,
+        "member_id": 47,
+        "load_case": 1,
+        "station": 3.2600000000000002,
+        "station_unit": "m",
+        "station_side": "left"
+      },
+      "FY": {
+        "value": 7.308757118531478,
+        "signed_value": 7.308757118531478,
+        "member_id": 51,
+        "load_case": 2,
+        "station": 0.0,
+        "station_unit": "m",
+        "station_side": "right"
+      },
+      "FZ": {
+        "value": 1.1018404515000002,
+        "signed_value": 1.1018404515000002,
+        "member_id": 74,
+        "load_case": 1,
+        "station": 1.5,
+        "station_unit": "m",
+        "station_side": "left"
+      },
+      "MX": {
+        "value": 0.6437419101205448,
+        "signed_value": 0.6437419101205448,
+        "member_id": 93,
+        "load_case": 2,
+        "station": 0.0,
+        "station_unit": "m",
+        "station_side": "right"
+      },
+      "MY": {
+        "value": 0.1693464193124999,
+        "signed_value": -0.1693464193124999,
+        "member_id": 74,
+        "load_case": 3,
+        "station": 0.75,
+        "station_unit": "m",
+        "station_side": "left"
+      },
+      "MZ": {
+        "value": 6.804171202285273,
+        "signed_value": -6.804171202285273,
+        "member_id": 44,
+        "load_case": 2,
+        "station": 0.9258989733606403,
+        "station_unit": "m",
+        "station_side": "interior"
+      }
+    },
+    "displacement": {
+      "absolute": {
+        "value": 97.95299109668917,
+        "signed_value": 97.95299109668917,
+        "member_id": 44,
+        "load_case": 3,
+        "station": 0.9617329383262855,
+        "station_unit": "m"
+      },
+      "chord_relative": {
+        "value": 49.616638276319385,
+        "signed_value": 49.616638276319385,
+        "member_id": 44,
+        "load_case": 3,
+        "station": 1.500267365330916,
+        "station_unit": "m"
+      }
+    },
+    "units": {
+      "force": "kN",
+      "moment": "kN-m",
+      "displacement": "mm",
+      "station": "m"
+    },
+    "load_cases": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "scope": "All members; local force axes; resultant translations including shear; continuous polynomial extrema with both sides of point loads.",
+    "legacy_contract": "properties and casement retain the original extraction definitions and station sampling."
+  }
+}

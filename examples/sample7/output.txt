@@ -1,0 +1,555 @@
+{
+    "job_id": "44e8cf13-c4cd-438a-ab02-9a81764e4aec",
+    "status": "succeeded",
+    "duration_seconds": 84.76500000000124,
+    "working_directory": "C:\\STAADJobs\\job_44e8cf13-c4cd-438a-ab02-9a81764e4aec",
+    "cleanup_performed": true,
+    "result": {
+        "file": "C:\\STAADJobs\\job_44e8cf13-c4cd-438a-ab02-9a81764e4aec\\sample_7.std",
+        "analysis": {
+            "load_case_mode": "all",
+            "load_cases": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+            ],
+            "moment_mode": "internal-envelope",
+            "include_combinations": true
+        },
+        "units": {
+            "output": {
+                "force": "kN",
+                "length": "mm",
+                "moment": "kN-m"
+            },
+            "staad_detected": {
+                "force": "KIP",
+                "length": "IN",
+                "moment": "KIP-in"
+            },
+            "file_detected": {
+                "force": "KN",
+                "length": "METER",
+                "moment": "KN-meter"
+            }
+        },
+        "properties": {
+            "bending_moment": {
+                "unit": "kN-m",
+                "major": {
+                    "value": 5.446065,
+                    "member_id": 24,
+                    "location": "member-minimum",
+                    "load_case": 3,
+                    "station": 55.774172,
+                    "station_unit": "in",
+                    "axis": "MZ"
+                },
+                "minor": {
+                    "axis": "MY",
+                    "max": {
+                        "value": 6.084174,
+                        "member_id": 46,
+                        "location": "member-maximum",
+                        "load_case": 1,
+                        "station": 62.991997,
+                        "station_unit": "in"
+                    },
+                    "at_major_governing_point": {
+                        "value": 1.228058,
+                        "member_id": 24,
+                        "location": "member-minimum",
+                        "load_case": 3,
+                        "station": 55.774172,
+                        "station_unit": "in",
+                        "reference_major_value": 5.446065,
+                        "reference_major_load_case": 3
+                    }
+                }
+            },
+            "shear_force": {
+                "unit": "kN",
+                "major": {
+                    "value": 18.327493,
+                    "member_id": 21,
+                    "location": "start",
+                    "station": 0.0,
+                    "load_case": 4,
+                    "axis": "FY",
+                    "member_type": "mullion",
+                    "governing_end": "start"
+                },
+                "minor": {
+                    "axis": "FZ",
+                    "max_on_mullions": {
+                        "value": 1.536776,
+                        "member_id": 10,
+                        "location": "start",
+                        "station": 0.0,
+                        "load_case": 5,
+                        "member_type": "mullion",
+                        "load_case_name": "VERTICAL_FIN_REACTION_DL_PLUS_WLX",
+                        "governing_end": "start"
+                    },
+                    "at_major_governing_point": {
+                        "value": 1.536776,
+                        "member_id": 21,
+                        "location": "start",
+                        "station": 0.0,
+                        "governing_load_case": 5,
+                        "governing_load_case_name": "VERTICAL_FIN_REACTION_DL_PLUS_WLX",
+                        "reference_major_load_case": 4,
+                        "reference_major_value": 18.327493,
+                        "member_type": "mullion"
+                    }
+                }
+            },
+            "axial_force": {
+                "unit": "kN",
+                "value": 10.593507,
+                "member_id": 24,
+                "location": "end",
+                "load_case": 1,
+                "axis": "FX",
+                "member_type": "inner_mullion",
+                "load_case_name": "DL",
+                "governing_end": "end"
+            },
+            "displacement": {
+                "unit": "mm",
+                "value": 1545321681715.2,
+                "load_case": 1,
+                "direction": "RESULTANT",
+                "source": "node",
+                "node_id": 1
+            }
+        },
+        "casement": {
+            "extraction_flow": "casement",
+            "profiles": {
+                "interlock": {
+                    "member_ids": [
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31,
+                        32,
+                        33
+                    ],
+                    "bm": {
+                        "unit": "kN-m",
+                        "max": {
+                            "value": 3.874133,
+                            "member_id": 17,
+                            "station": 32.086555,
+                            "location": "member-maximum",
+                            "load_case": 4,
+                            "axis": "MZ"
+                        },
+                        "min": {
+                            "value": -3.87426,
+                            "member_id": 17,
+                            "station": 32.086555,
+                            "location": "member-minimum",
+                            "load_case": 3,
+                            "axis": "MZ"
+                        }
+                    },
+                    "sf": {
+                        "unit": "kN",
+                        "max": {
+                            "value": 18.327319,
+                            "member_id": 21,
+                            "station": 0.0,
+                            "location": "start",
+                            "load_case": 2,
+                            "load_case_name": "WL",
+                            "axis": "FY"
+                        },
+                        "min": {
+                            "value": -18.327493,
+                            "member_id": 21,
+                            "station": 0.0,
+                            "location": "start",
+                            "load_case": 4,
+                            "axis": "FY"
+                        }
+                    },
+                    "af": {
+                        "unit": "kN",
+                        "max": {
+                            "value": 1.955464,
+                            "member_id": 32,
+                            "station": 1.0,
+                            "location": "end",
+                            "load_case": 1,
+                            "load_case_name": "DL",
+                            "axis": "FX"
+                        },
+                        "min": {
+                            "value": -1.947274,
+                            "member_id": 32,
+                            "station": 0.0,
+                            "location": "start",
+                            "load_case": 1,
+                            "load_case_name": "DL",
+                            "axis": "FX"
+                        }
+                    },
+                    "df": {
+                        "unit": "mm",
+                        "max": {
+                            "value": 33.525421,
+                            "member_id": 28,
+                            "station": 64.173111,
+                            "load_case": 6,
+                            "direction": "RESULTANT"
+                        },
+                        "min": {
+                            "value": 0.0,
+                            "node_id": 19,
+                            "load_case": 1,
+                            "load_case_name": "DL",
+                            "direction": "RESULTANT"
+                        }
+                    }
+                },
+                "central_meeting": {
+                    "member_ids": [],
+                    "bm": {
+                        "unit": "kN-m",
+                        "max": null,
+                        "min": null
+                    },
+                    "sf": {
+                        "unit": "kN",
+                        "max": null,
+                        "min": null
+                    },
+                    "af": {
+                        "unit": "kN",
+                        "max": null,
+                        "min": null
+                    },
+                    "df": {
+                        "unit": "mm",
+                        "max": null,
+                        "min": null
+                    }
+                },
+                "fixed_mullion": {
+                    "member_ids": [
+                        12,
+                        13,
+                        14,
+                        15,
+                        23,
+                        24,
+                        25,
+                        26
+                    ],
+                    "bm": {
+                        "unit": "kN-m",
+                        "max": {
+                            "value": 5.445641,
+                            "member_id": 24,
+                            "station": 55.774172,
+                            "location": "member-maximum",
+                            "load_case": 4,
+                            "axis": "MZ"
+                        },
+                        "min": {
+                            "value": -5.446065,
+                            "member_id": 24,
+                            "station": 55.774172,
+                            "location": "member-minimum",
+                            "load_case": 3,
+                            "axis": "MZ"
+                        }
+                    },
+                    "sf": {
+                        "unit": "kN",
+                        "max": {
+                            "value": 4.54107,
+                            "member_id": 14,
+                            "station": 1.0,
+                            "location": "end",
+                            "load_case": 2,
+                            "load_case_name": "WL",
+                            "axis": "FY"
+                        },
+                        "min": {
+                            "value": -4.542183,
+                            "member_id": 14,
+                            "station": 1.0,
+                            "location": "end",
+                            "load_case": 4,
+                            "axis": "FY"
+                        }
+                    },
+                    "af": {
+                        "unit": "kN",
+                        "max": {
+                            "value": 10.593507,
+                            "member_id": 24,
+                            "station": 1.0,
+                            "location": "end",
+                            "load_case": 1,
+                            "load_case_name": "DL",
+                            "axis": "FX"
+                        },
+                        "min": {
+                            "value": -10.418632,
+                            "member_id": 24,
+                            "station": 0.0,
+                            "location": "start",
+                            "load_case": 1,
+                            "load_case_name": "DL",
+                            "axis": "FX"
+                        }
+                    },
+                    "df": {
+                        "unit": "mm",
+                        "max": {
+                            "value": 1545321681715.2,
+                            "node_id": 16,
+                            "load_case": 1,
+                            "load_case_name": "DL",
+                            "direction": "RESULTANT"
+                        },
+                        "min": {
+                            "value": 0.0,
+                            "node_id": 16,
+                            "load_case": 2,
+                            "load_case_name": "WL",
+                            "direction": "RESULTANT"
+                        }
+                    }
+                },
+                "horizontal": {
+                    "member_ids": [
+                        48,
+                        49,
+                        50,
+                        51,
+                        52,
+                        53,
+                        54,
+                        55,
+                        56,
+                        57,
+                        58,
+                        59,
+                        60,
+                        61,
+                        62,
+                        63,
+                        64,
+                        65
+                    ],
+                    "bm": {
+                        "unit": "kN-m",
+                        "max": {
+                            "value": 0.405,
+                            "member_id": 64,
+                            "station": 31.495998,
+                            "location": "member-maximum",
+                            "load_case": 4,
+                            "axis": "MZ"
+                        },
+                        "min": {
+                            "value": -0.405,
+                            "member_id": 64,
+                            "station": 31.495998,
+                            "location": "member-minimum",
+                            "load_case": 2,
+                            "load_case_name": "WL",
+                            "axis": "MZ"
+                        }
+                    },
+                    "sf": {
+                        "unit": "kN",
+                        "max": {
+                            "value": 0.762,
+                            "member_id": 64,
+                            "station": 1.0,
+                            "location": "end",
+                            "load_case": 2,
+                            "load_case_name": "WL",
+                            "axis": "FY"
+                        },
+                        "min": {
+                            "value": -0.762,
+                            "member_id": 64,
+                            "station": 1.0,
+                            "location": "end",
+                            "load_case": 4,
+                            "axis": "FY"
+                        }
+                    },
+                    "af": {
+                        "unit": "kN",
+                        "max": {
+                            "value": 1.008768,
+                            "member_id": 50,
+                            "station": 1.0,
+                            "location": "end",
+                            "load_case": 1,
+                            "load_case_name": "DL",
+                            "axis": "FX"
+                        },
+                        "min": {
+                            "value": -1.008768,
+                            "member_id": 50,
+                            "station": 0.0,
+                            "location": "start",
+                            "load_case": 1,
+                            "load_case_name": "DL",
+                            "axis": "FX"
+                        }
+                    },
+                    "df": {
+                        "unit": "mm",
+                        "max": {
+                            "value": 1545321681715.2,
+                            "node_id": 2,
+                            "load_case": 1,
+                            "load_case_name": "DL",
+                            "direction": "RESULTANT"
+                        },
+                        "min": {
+                            "value": 0.0,
+                            "member_id": 48,
+                            "station": 3.937,
+                            "load_case": 1,
+                            "load_case_name": "DL",
+                            "direction": "RESULTANT"
+                        }
+                    }
+                },
+                "outer": {
+                    "member_ids": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        34,
+                        35,
+                        36,
+                        37,
+                        38,
+                        39,
+                        40,
+                        41,
+                        42,
+                        43,
+                        44,
+                        45,
+                        46,
+                        47,
+                        66,
+                        67,
+                        68
+                    ],
+                    "bm": {
+                        "unit": "kN-m",
+                        "max": {
+                            "value": 3.583415,
+                            "member_id": 35,
+                            "station": 55.774172,
+                            "location": "member-maximum",
+                            "load_case": 4,
+                            "axis": "MZ"
+                        },
+                        "min": {
+                            "value": -3.583839,
+                            "member_id": 35,
+                            "station": 55.774172,
+                            "location": "member-minimum",
+                            "load_case": 3,
+                            "axis": "MZ"
+                        }
+                    },
+                    "sf": {
+                        "unit": "kN",
+                        "max": {
+                            "value": 8.009107,
+                            "member_id": 10,
+                            "station": 0.0,
+                            "location": "start",
+                            "load_case": 2,
+                            "load_case_name": "WL",
+                            "axis": "FY"
+                        },
+                        "min": {
+                            "value": -8.009281,
+                            "member_id": 10,
+                            "station": 0.0,
+                            "location": "start",
+                            "load_case": 4,
+                            "axis": "FY"
+                        }
+                    },
+                    "af": {
+                        "unit": "kN",
+                        "max": {
+                            "value": 1.600843,
+                            "member_id": 1,
+                            "station": 0.0,
+                            "location": "start",
+                            "load_case": 1,
+                            "load_case_name": "DL",
+                            "axis": "FX"
+                        },
+                        "min": {
+                            "value": -1.514289,
+                            "member_id": 1,
+                            "station": 1.0,
+                            "location": "end",
+                            "load_case": 1,
+                            "load_case_name": "DL",
+                            "axis": "FX"
+                        }
+                    },
+                    "df": {
+                        "unit": "mm",
+                        "max": {
+                            "value": 1545321681715.2,
+                            "node_id": 1,
+                            "load_case": 1,
+                            "load_case_name": "DL",
+                            "direction": "RESULTANT"
+                        },
+                        "min": {
+                            "value": 0.0,
+                            "node_id": 7,
+                            "load_case": 1,
+                            "load_case_name": "DL",
+                            "direction": "RESULTANT"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "attempts": 1,
+    "max_attempts": 3
+}

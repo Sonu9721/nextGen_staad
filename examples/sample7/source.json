@@ -1,0 +1,10 @@
+{
+  "archive_name": "Sample 6.zip",
+  "archive_sha256": "6ef8b41a9e7251dfd95a62422138f8de07e3f107c8d89b3516a830700f70479c",
+  "model_entry": "Sample 6/sample_7.std",
+  "reference_entry": "Sample 6/output_7.txt",
+  "file_sha256": {
+    "sample_7.std": "6d131c831dfe483d514dfdcf4758b6e7233486830e146f8c6d0ba95506fce490",
+    "output.txt": "0e47209c992e74ba68ee85286b79d2d88c859ba3f6fa5f783a813f5f01a65fca"
+  }
+}

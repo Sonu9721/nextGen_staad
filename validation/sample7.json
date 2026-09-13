@@ -1,0 +1,293 @@
+{
+  "metrics": [
+    {
+      "metric": "properties.bending_moment.major",
+      "reference": 5.446065,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "properties.bending_moment.minor.max",
+      "reference": 6.084174,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "properties.bending_moment.minor.at_major_governing_point",
+      "reference": 1.228058,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "properties.shear_force.major",
+      "reference": 18.327493,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "properties.shear_force.minor.max_on_mullions",
+      "reference": 1.536776,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "properties.shear_force.minor.at_major_governing_point",
+      "reference": 1.536776,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "properties.axial_force",
+      "reference": 10.593507,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "properties.displacement",
+      "reference": 1545321681715.2,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.interlock.bm.max",
+      "reference": 3.874133,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.interlock.bm.min",
+      "reference": -3.87426,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.interlock.sf.max",
+      "reference": 18.327319,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.interlock.sf.min",
+      "reference": -18.327493,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.interlock.af.max",
+      "reference": 1.955464,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.interlock.af.min",
+      "reference": -1.947274,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.interlock.df.max",
+      "reference": 33.525421,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.interlock.df.min",
+      "reference": 0.0,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.fixed_mullion.bm.max",
+      "reference": 5.445641,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.fixed_mullion.bm.min",
+      "reference": -5.446065,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.fixed_mullion.sf.max",
+      "reference": 4.54107,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.fixed_mullion.sf.min",
+      "reference": -4.542183,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.fixed_mullion.af.max",
+      "reference": 10.593507,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.fixed_mullion.af.min",
+      "reference": -10.418632,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.fixed_mullion.df.max",
+      "reference": 1545321681715.2,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.fixed_mullion.df.min",
+      "reference": 0.0,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.horizontal.bm.max",
+      "reference": 0.405,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.horizontal.bm.min",
+      "reference": -0.405,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.horizontal.sf.max",
+      "reference": 0.762,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.horizontal.sf.min",
+      "reference": -0.762,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.horizontal.af.max",
+      "reference": 1.008768,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.horizontal.af.min",
+      "reference": -1.008768,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.horizontal.df.max",
+      "reference": 1545321681715.2,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.horizontal.df.min",
+      "reference": 0.0,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.outer.bm.max",
+      "reference": 3.583415,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.outer.bm.min",
+      "reference": -3.583839,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.outer.sf.max",
+      "reference": 8.009107,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.outer.sf.min",
+      "reference": -8.009281,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.outer.af.max",
+      "reference": 1.600843,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.outer.af.min",
+      "reference": -1.514289,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.outer.df.max",
+      "reference": 1545321681715.2,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    },
+    {
+      "metric": "casement.profiles.outer.df.min",
+      "reference": 0.0,
+      "candidate": null,
+      "value_status": "missing",
+      "location_status": "unverified"
+    }
+  ],
+  "counts": {
+    "pass": 0,
+    "difference": 0,
+    "missing": 40
+  },
+  "all_values_within_tolerance": false,
+  "analysis_status": "rejected",
+  "error_code": "SINGULAR_MATRIX",
+  "message": "The structure has a mechanism or excessive ill-conditioning (scaled minimum eigenvalue -2.11e-16). Dominant movement: UY at nodes 1, 2, 3, 4, 5, 13, 14, 15, 16, 17, 25, 26, 27, 28, 29, 37, 38, 39, 40, 41. Check the intended supports and member releases; no artificial restraints were added."
+}

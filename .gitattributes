@@ -1,0 +1,7 @@
+# Preserve published source and reference bytes across operating systems.
+# This also keeps recorded source SHA-256 values reproducible after checkout.
+* -text
+*.pdf binary
+*.png binary
+*.jpg binary
+*.zip binary
