@@ -1,6 +1,6 @@
 # Mini STAAD implementation and industry user guide
 
-Version 0.3.0 | Prepared 13 September 2026
+Solver version 0.3.0 | Updated 15 September 2026 | Sample 7 revision r1
 
 Repository: [Sonu9721/nextGen_staad](https://github.com/Sonu9721/nextGen_staad)
 
@@ -10,10 +10,10 @@ Mini STAAD is a working linear elastic frame analysis and reporting application.
 
 | Release evidence | Current result |
 |---|---|
-| Automated tests | 234 passed and one licensed OpenSTAAD oracle test skipped |
-| Real HTTP workflow groups | 14 passed |
-| Original supplied models | Seven preserved models plus a small instructional cantilever |
-| Models completing structural analysis | Samples 1 through 6 |
+| Automated tests | 244 passed and one licensed OpenSTAAD oracle test skipped |
+| Real HTTP workflow groups | 15 passed |
+| Available models | Seven preserved originals, one approved Sample 7 revision and a cantilever tutorial |
+| Models completing structural analysis | Samples 1 through 6 and the approved Sample 7 revision |
 | Evaluated reference entries | 156 of 164 within unchanged tolerances |
 | Remaining evaluated differences | Eight entries in Samples 1 through 3 |
 | Missing reference dataset | Sample 5 |
@@ -71,7 +71,7 @@ The solver and interface were developed and checked in stages. The first stage i
 
 ### 1.3 What was preserved
 
-Original sample models and reference outputs are retained. Sample 6 also has a separately normalized JSON reference because its supplied text lost JSON quotes and colons. No numerical reference values were edited to make a comparison pass. The original Sample 7 support and release statements remain unchanged. No artificial restraints were inserted to make an unstable model solve.
+Original sample models and reference outputs are retained. Sample 6 also has a separately normalized JSON reference because its supplied text lost JSON quotes and colons. No numerical reference values were edited to make a comparison pass. The original Sample 7 support and release statements remain unchanged. The approved axial-connected revision is supplied separately; no support restraints were added.
 
 The delivered code does not include a visual model editor, a NextGen model generator, a section database or design-code capacity checks. Uploading or editing a supported STD file is the current route to defining a model. Geometry displayed in the interface is undeformed geometry; there is no displacement-animation or bending-diagram viewer in this release.
 
@@ -457,7 +457,7 @@ The preserved model has 48 nodes, 68 members, primary cases 1, 2 and 5, and comb
 
 The user's stated policy is retained: pinned supports resist gravity and wind; other supports resist wind only. The original file already implements that policy. Its pinned nodes are 7, 11, 19, 23, 31, 35, 43 and 47. The other twelve supports restrain global X and Z while allowing global Y translation.
 
-### 11.3 The unresolved gravity load path
+### 11.3 Why the original model fails
 
 Nodes 1 through 5, 13 through 17, 25 through 29 and 37 through 41 form a lower assembly. No node in that assembly has a vertical support. Local axial releases at the starts of members 5, 16, 27 and 38 disconnect its vertical force path to the pinned supports above.
 
@@ -465,16 +465,28 @@ A direct verification moves all 20 lower nodes together vertically. The resultin
 
 The application reports SINGULAR_MATRIX with the affected nodes, keeps the original geometry available and returns no analysis result. The supplied reference file is attached as evidence but is not substituted for a computed solution. Its 40 values remain unverified.
 
-### 11.4 How the issue should be resolved
+### 11.4 The approved revision and how to run it
 
-1. Inspect the actual lower-to-upper connection details.
-2. Decide whether the starts of members 5, 16, 27 and 38 physically transmit axial force.
-3. If they do, an engineer can assess changing those releases from FX MY MZ to MY MZ in a separate revised model.
-4. If they do not, identify the actual missing gravity support or another valid load path.
-5. Have the revised connection/support assumptions checked before accepting a solution.
-6. Rerun stability, equilibrium, displacement and independent comparison checks using the revised model.
+On 15 September 2026 the user approved axial-force transfer at the starts of members 5, 16, 27 and 38. A separate model, `examples/revisions/sample7/sample_7_axial_connected.std`, removes only FX from those four START release lines. MY/MZ, all supports, the other four axial releases, geometry, properties and loads remain unchanged. The original file is retained for provenance and the mechanism check.
 
-No such physical connection change has been authorized or applied in the delivered original. The earlier support-policy confirmation alone does not establish axial continuity at a released joint.
+1. In the application select **07R Sample 7 - Approved revision**. The original remains under **07 Sample 7 - Original**.
+2. Wait for completion and verify 48 nodes, 68 members, 20 supports and all six cases.
+3. Review the physical response and export JSON with the revision identity.
+4. Run `python scripts/validate_sample7_revision.py` to reproduce detailed reactions and checks in `validation/sample7-revision-check.json`. Support reactions use global axes, kN and kN-m.
+5. Check project-specific serviceability, connection capacity and the applicability of linear small-displacement theory. Obtain an independent calculation for this exact revised model before treating it as reference-validated.
+
+| Revised quantity | Result |
+|---|---:|
+| Total dead-load reaction at eight pins | 26.159769123 kN upward |
+| Lower gravity transferred through four connections | 11.994596768 kN upward |
+| Vertical reaction at each other support | Zero in every case |
+| Maximum absolute MZ | 5.448586033 kN-m |
+| Absolute resultant displacement | 121.328821773 mm |
+| Member chord-relative resultant | 50.826810234 mm |
+
+All six cases solve and balance. Released start MY/MZ remain zero. Wind reaches both support groups. The other twelve supports are free vertically; their horizontal restraints act in every case, so small horizontal dead-load reactions can arise through frame coupling. They are not case-selective supports.
+
+The original 40 reference entries do not apply to a model with changed releases and remain outside the revised model's verification. A stable calculation is not a capacity or serviceability pass; the movement values above require assessment against the actual project criteria.
 
 <!-- pagebreak -->
 
@@ -618,7 +630,7 @@ Before a shared service is deployed, an implementation plan should cover authent
 
 ### 15.1 Layers of evidence
 
-The 234 passing tests include independent mathematical checks, invariance checks, parser failures, input validation, solver recovery, profile contracts and application behavior. One licensed oracle test is skipped because no live licensed comparison was enabled. The 14 real HTTP groups exercise actual server workflows, including rejection of Sample 7. They are separate from the pytest count and should not be added as if every group were a numerical benchmark.
+The 244 passing tests include independent mathematical checks, invariance checks, parser failures, input validation, solver recovery, profile contracts and application behavior. One licensed oracle test is skipped because no live licensed comparison was enabled. The 15 real HTTP groups exercise actual server workflows, including rejection of original Sample 7 and successful analysis of its approved revision. They are separate from the pytest count and should not be added as if every group were a numerical benchmark.
 
 Closed-form beams check axial response, torsion, bending, reactions and deflection. Virtual-work references independently integrate loads. Subdivision checks compare a beam against an equivalent split model. Other tests cover local/global axes, releases, shear flexibility, linear superposition, material/load scaling, survey-coordinate invariance and continuous extrema. Concentrated moments add 43 focused cases; normalization adds eight checks.
 
@@ -632,7 +644,8 @@ Closed-form beams check axial response, torsion, bending, reactions and deflecti
 | 4 | 57 | 40 | 0 | Compared |
 | 5 | 70 | - | - | No supplied output |
 | 6 | 61 | 40 | 0 | Compared using separately normalized reference |
-| 7 | 68 | - | - | Unstable original model; 40 entries unverified |
+| 7 original | 68 | - | - | Unstable original model; 40 entries unverified |
+| 7 approved revision | 68 | - | - | Solves; no independent reference for changed releases |
 
 The tolerance is the larger of 0.1 percent of the reference magnitude and an absolute allowance of 0.01 kN, 0.01 kN-m or 0.05 mm for the applicable quantity. These are the project's established comparison thresholds, not code-prescribed design limits. All comparison entries and governing-location assessments are preserved in `validation/comparison.json`.
 
@@ -656,7 +669,7 @@ Each underlying difference appears in both global and mullion reporting, produci
 .\.venv\Scripts\python.exe scripts/retest_e2e.py
 ```
 
-The reference validator's `--strict` option intentionally exits with failure while differences, unavailable references or rejected models remain. That is a release-evidence signal, not a reason to loosen tolerances. HTTP workflow success for Sample 7 means it was correctly rejected with a useful diagnostic, not that its structural analysis succeeded.
+The reference validator's `--strict` option intentionally exits with failure while differences, unavailable references or rejected models remain. That is a release-evidence signal, not a reason to loosen tolerances. The original Sample 7 HTTP check expects rejection. The separate approved revision check expects successful analysis of all six cases; neither check establishes reference equivalence.
 
 ### 15.5 What additional validation is needed
 
@@ -710,7 +723,7 @@ Do not select a more favorable result definition, suppress a mechanism or increa
 1. **Define the pilot family.** Choose a narrow class of facade or casement frames and list the allowed geometry, section, connection and load conventions.
 2. **Agree the engineering basis.** Establish the source of loads, effective properties, serviceability definitions and independent checks.
 3. **Build a benchmark set.** Include normal cases, extreme supported cases and invalid models that should fail. Keep original input and reference provenance.
-4. **Resolve gaps.** Review the eight current differences, obtain missing reference coverage and clarify the original Sample 7 load path before using it as a valid benchmark.
+4. **Resolve gaps.** Review the eight current differences, obtain missing reference coverage and obtain an independent benchmark for the approved Sample 7 revision.
 5. **Run in parallel with the established process.** Compare the same quantities without replacing the organization's existing approval workflow prematurely.
 6. **Review evidence independently.** Decide which limited uses have adequate numerical and engineering support.
 7. **Control releases.** Pin code and dependencies, rerun the evidence set after changes and record reviewer acceptance.
@@ -721,7 +734,7 @@ Track how many real project models fall entirely within the supported subset, ho
 
 ### 17.3 Prioritized future work
 
-**First, close validation gaps.** Obtain full licensed reference databases, confirm extrusion shear areas, expand independent coverage and complete the Sample 7 connection review. Document which model families are qualified by that evidence.
+**First, close validation gaps.** Obtain full licensed reference databases, confirm extrusion shear areas, expand independent coverage and complete independent reference and serviceability checks for the approved Sample 7 revision. Document which model families are qualified by that evidence.
 
 **Next, improve engineering usability.** Potential additions include full case-specific reaction and member-result exports, force diagrams, deformed-shape visualization, explicit local-axis graphics, more transparent profile mapping and a dedicated model editor. These are proposed features, not hidden capabilities in the current interface.
 
@@ -765,7 +778,7 @@ Track how many real project models fall entirely within the supported subset, ho
 6. Update supported features, limitations, version metadata and evidence together.
 7. Review the change and publish a traceable release with its exact model and dependency assumptions.
 
-The test evidence shipped with v0.3.0 records the retest performed before this documentation publication. New tutorial and publication checks are recorded separately; their existence does not retroactively change the 234-test count. Archived v0.2 reports are historical and should not be mistaken for the latest scope.
+Current evidence records the September 15 retest after the approved model revision. The September 13 baseline is preserved under validation/history/2026-09-13. Tutorial and documentation checks remain separate from automated software-test totals. Archived v0.2 reports are historical.
 
 ### 18.3 Publication contents
 
@@ -813,4 +826,4 @@ The following primary sources were checked while preparing the guide. Their desc
 3. [Bentley joint and section displacement distinction](https://bentleysystems.service-now.com/community?id=kb_article_view&sysparm_article=KB0112641) explains the role of shear deformation in the two reporting methods.
 4. [Kennedy, Hansen and Martins on Timoshenko beam theory](https://public.websites.umich.edu/~mdolaboratory/pdf/Kennedy2011a.pdf) discusses shear correction, including Cowper's rectangular isotropic coefficient.
 
-The core release conclusions remain specific: supported linear frame analysis is implemented and tested; all Sample 6 reference entries pass within tolerance; eight evaluated earlier entries differ; Sample 5 lacks a reference; and the original Sample 7 requires a confirmed physical gravity load path before it can yield a valid analysis.
+The core release conclusions remain specific: supported linear frame analysis is implemented and tested; all Sample 6 reference entries pass within tolerance; eight evaluated earlier entries differ; Sample 5 lacks a reference; the original Sample 7 remains unchanged and unstable; and its approved axial-connected revision solves all six cases while awaiting independent reference and project serviceability checks.

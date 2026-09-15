@@ -32,8 +32,8 @@ def client(settings, monkeypatch):
         yield client
 
 
-def wait_job(client, jid):
-    deadline = time.monotonic() + 20
+def wait_job(client, jid, timeout=20):
+    deadline = time.monotonic() + timeout
     while time.monotonic() < deadline:
         data = client.get("/jobs/" + jid).json()
         if data["status"] in {"succeeded", "failed", "canceled"}:
@@ -122,6 +122,25 @@ def test_timeout_terminates_only_owned_worker(settings):
     with pytest.raises(ExtractorExecutionError) as exc:
         run_inhouse(settings=settings, std_file_path=SAMPLE, timeout_seconds=0.001)
     assert exc.value.error_code == "timeout"
+
+
+def test_approved_sample7_example_runs_without_replacing_original(client):
+    original = ROOT / "examples/sample7/sample_7.std"
+    revised = ROOT / "examples/revisions/sample7/sample_7_axial_connected.std"
+    assert client.get("/examples/sample7").content == original.read_bytes()
+    response = client.get("/examples/sample7-revised")
+    assert response.status_code == 200 and response.content == revised.read_bytes()
+    submitted = client.post("/jobs", files={"std_file": (revised.name, response.content)},
+                            data={"extraction_flow": "casement"})
+    jid = submitted.json()["job_id"]
+    assert wait_job(client, jid, timeout=120)["status"] == "succeeded"
+    result = client.get(f"/jobs/{jid}/result").json()["result"]
+    assert result["analysis"]["load_cases"] == [1, 2, 3, 4, 5, 6]
+    assert result["physical_response"]["displacement"]["absolute"]["value"] > 0
+    geometry = client.get(f"/jobs/{jid}/model").json()
+    assert len(geometry["nodes"]) == 48 and len(geometry["members"]) == 68
+    assert geometry["supports"]["1"] == [0, 2]
+    assert geometry["supports"]["7"] == [0, 1, 2]
 
 
 def test_running_abort_returns_without_touching_staad(client):

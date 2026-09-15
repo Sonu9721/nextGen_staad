@@ -36,7 +36,7 @@ The compatibility adapter uses endpoint translations/rotations and an Euler-Bern
 
 Reference JSON contains envelopes rather than a complete member/nodal result database. Numerical equilibrium and analytical tests provide additional evidence, but cannot prove full STAAD equivalence. Sample 5 has no reference. Units for in-house stations are metres, while reference stations use inches. End-force station 0/1 is an end identifier.
 
-Sample 6 uses a separately normalized reference.json because its original output.txt lost all JSON quotes and colons. Numeric values are unchanged and the raw file is preserved. Sample 7 has an unrestrained lower assembly and is rejected pending confirmation of its intended support conditions; see SAMPLE_6_7_VALIDATION.md.
+Sample 6 uses a separately normalized reference.json because its original output.txt lost all JSON quotes and colons. Numeric values are unchanged and the raw file is preserved. Original Sample 7 has an unrestrained lower assembly and remains rejected. The user-approved separate revision removes four start FX releases and solves all six cases; it has no independent reference and is excluded from these original-reference counts. Run scripts/validate_sample7_revision.py and see SAMPLE_6_7_VALIDATION.md.
 
 See `KNOWN_LIMITATIONS.md` and `INHOUSE_SOLVER_ARCHITECTURE.md` for scope and assumptions.
 

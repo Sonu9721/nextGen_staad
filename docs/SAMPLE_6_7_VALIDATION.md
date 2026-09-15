@@ -6,6 +6,7 @@ Both models from `Sample 6.zip` are included in the software and its example men
 |---|---:|---:|---|
 | Sample 6 | 44 | 61 | Analysis succeeds; all 40 supplied value comparisons pass the unchanged tolerances. |
 | Sample 7 | 48 | 68 | Loaded vertical mechanism; analysis rejected. Its 40 supplied reference entries remain unverified. |
+| Sample 7 approved revision | 48 | 68 | Four start FX releases removed on 15 September 2026. All six cases/combinations solve; no independent reference for this changed model. |
 
 The original archive's SHA-256 is `6ef8b41a9e7251dfd95a62422138f8de07e3f107c8d89b3516a830700f70479c`.
 
@@ -37,7 +38,38 @@ The test `tests/test_sample7_stability.py` constructs this rigid displacement mo
 
 The solver reports `SINGULAR_MATRIX` with the affected nodes, returns no analysis result, and keeps undeformed geometry available for review after failed-job file cleanup. It does not insert artificial springs, suppress the mode or use the supplied output as a result.
 
-**Required model clarification:** can the four start joints physically transmit axial force, or is a separate pinned support missing from the lower assembly? Replacing `FX MY MZ` with `MY MZ` at those four joints would change the load path and requires confirmation of the actual connection. No such change has been applied to the attached model.
+**Approved resolution, 15 September 2026:** the user approved axial-force transfer at the four start connections. The separate revision `examples/revisions/sample7/sample_7_axial_connected.std` changes only members 5, 16, 27 and 38 from `START FX MY MZ` to `START MY MZ`. The original remains unchanged. The other four axial releases, all bending releases, supports, geometry, properties and loading are preserved.
+
+## Running the approved revision
+
+1. Start the application and select **07R Sample 7 - Approved revision**. The original remains available under **07 Sample 7 - Original** and still reports its mechanism.
+2. Wait for analysis to complete. The revision contains 48 nodes, 68 members, 20 supports and cases 1 through 6. A local retest took roughly 29 seconds; actual runtime depends on the machine.
+3. Read the physical-response cards and export the result JSON. Keep the revision identity with the result; the original reference output is not a matching reference for a changed model.
+4. For reproducible case-specific support reactions, run `python scripts/validate_sample7_revision.py`. Results are saved in `validation/sample7-revised.json`; reactions and checks are in `validation/sample7-revision-check.json`. Reaction force units are kN, moments are kN-m, and support axes are global.
+
+The solver remains version 0.3.0; this is model revision `sample7-axial-connected-r1`. Provenance and both model hashes are in the revision's `source.json`.
+
+| Check or quantity | Revised result |
+|---|---:|
+| Selected cases and combinations | 1, 2, 3, 4, 5, 6 |
+| Dead-load reaction at all eight pins | 26.159769123 kN upward |
+| Lower-assembly gravity carried through four restored connections | 11.994596768 kN upward |
+| Vertical reactions at the twelve X/Z-only supports | 0 in every case |
+| Maximum normalized global force imbalance | 2.53e-14 |
+| Maximum normalized global moment imbalance | 4.57e-15 |
+| Maximum absolute local MZ | 5.448586033 kN-m; member 24, case 3 |
+| Maximum absolute local FY | 18.326965297 kN; member 32, case 4 |
+| Maximum absolute local FX | 6.441838081 kN; member 17, case 6 |
+| Absolute resultant displacement | 121.328821773 mm; member 24, case 6 |
+| Member chord-relative resultant displacement | 50.826810234 mm; member 24, case 6 |
+
+The lower assembly is suspended through these connections: negative local start FX values denote the end actions on the upward-oriented members, while the opposite actions support the lower assembly. MY/MZ remain released at these starts and recover zero end moment. The separate axial releases on members 8, 19, 30 and 41 also recover zero axial end action.
+
+"Wind-only" describes restraint directions: the twelve other supports cannot carry vertical force. Their horizontal restraints act in every load case, so small horizontal reactions can also arise under dead load through frame coupling; they are not case-selective supports. Wind reaches both support groups.
+
+The 121.329 mm absolute movement and 50.827 mm member-relative movement are calculated responses, not acceptance limits. Check the appropriate displacement definition, project serviceability limit and applicability of linear small-displacement theory before using this model for design. Connection capacity and code compliance have not been assessed. Numerical stability and equilibrium do not establish those checks.
+
+The original 40 reference entries remain blocked for the original model. They are neither reused nor counted as passes for the revision. An independent calculation of this exact revised model is still needed for reference validation.
 
 ## Solver additions
 

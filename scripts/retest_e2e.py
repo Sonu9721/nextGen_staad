@@ -133,8 +133,15 @@ def main():
                 ("sample5", "casement"),
                 ("sample6", "casement"),
                 ("sample7", "casement"),
+                ("sample7-revised", "casement"),
             ]:
-                content = client.get(f"/examples/{name}").content
+                example = client.get(f"/examples/{name}")
+                assert example.status_code == 200
+                content = example.content
+                if name == "sample7-revised":
+                    assert content == (
+                        ROOT / "examples/revisions/sample7/sample_7_axial_connected.std"
+                    ).read_bytes()
                 jid = submit(content, name + ".std", flow)
                 pending = client.get(f"/jobs/{jid}/result").json()
                 assert pending["status"] in (
@@ -169,7 +176,7 @@ def main():
                 json.dumps(data, allow_nan=False)
                 assert data["analysis"]["solver_version"] == "0.3.0"
                 assert data["analysis"]["load_cases"] == (
-                    [1, 2, 3, 4, 5, 6] if name == "sample7" else [1, 2, 3, 4]
+                    [1, 2, 3, 4, 5, 6] if name == "sample7-revised" else [1, 2, 3, 4]
                 )
                 assert (
                     data["physical_response"]["load_cases"]
@@ -185,6 +192,13 @@ def main():
                 )
                 if flow == "casement":
                     assert len(data["casement"]["profiles"]) == 5
+                if name == "sample7-revised":
+                    expected = json.loads((ROOT / "validation/sample7-revised.json").read_text())
+                    for key in ["properties", "casement", "physical_response"]:
+                        assert data[key] == expected[key], key
+                    assert len(geometry["nodes"]) == 48 and len(geometry["supports"]) == 20
+                    assert geometry["supports"]["1"] == [0, 2]
+                    assert geometry["supports"]["7"] == [0, 1, 2]
                 report["samples"][name] = dict(
                     duration_seconds=wrapper["duration_seconds"],
                     nodes=len(geometry["nodes"]),

@@ -35,6 +35,12 @@ def main():
     assert e2e.get("solver_version") == __version__, (
         "HTTP evidence is from a different build"
     )
+    revision = json.loads((ROOT / "validation/sample7-revision-check.json").read_text())
+    revision_path = ROOT / "examples/revisions/sample7/sample_7_axial_connected.std"
+    assert revision["status"] == "pass" and revision["solver_version"] == __version__
+    assert revision["revision_sha256"] == hashlib.sha256(revision_path.read_bytes()).hexdigest()
+    assert set(revision["cases"]) == {str(i) for i in range(1, 7)}
+    assert "sample7-revised" in e2e["samples"], "Revision HTTP evidence is missing"
     target = ROOT.parent / f"MiniSTAAD_v{__version__}_Retested.zip"
     ignored = {
         ".venv",
@@ -100,7 +106,7 @@ def main():
         )
         archive.writestr(
             "MiniSTAAD/START_HERE.txt",
-            f"Mini STAAD v{__version__} — retested validation build\n\n1. Install Python 3.10 or newer.\n2. Double-click Start MiniSTAAD.bat. First setup downloads dependencies.\n3. Open http://127.0.0.1:8000.\n\n{passed} automated tests and {len(e2e['checks'])} HTTP workflow groups passed; {skipped} licensed oracle test skipped. {differences} evaluated reference entries remain outside tolerance. Models rejected pending support review: {', '.join(blocked) or 'none'}. Rejection of an unstable model is a successful software check, not a successful structural analysis. Read staad-report-extractor/docs/SAMPLE_6_7_VALIDATION.md.\n\nThe new archive's two models and original references are included unchanged. Sample 6 also has a separate normalized reference.json. Physical-response cards include shear and continuous peaks. Legacy integration fields and profile tables retain the original reporting definitions. This package does not claim universal accuracy or STAAD.Pro certification.\n",
+            f"Mini STAAD v{__version__} - retested validation build\n\n1. Install Python 3.10 or newer.\n2. Double-click Start MiniSTAAD.bat. First setup downloads dependencies.\n3. Open http://127.0.0.1:8000.\n4. Select 07R Sample 7 - Approved revision for the approved axial-connected model.\n\n{passed} automated tests and {len(e2e['checks'])} HTTP workflow groups passed; {skipped} licensed oracle test skipped. {differences} evaluated reference entries remain outside tolerance. Original models rejected: {', '.join(blocked) or 'none'}. The separate Sample 7 revision solves all six cases with unchanged supports; it has no independent reference and requires project serviceability review. Read staad-report-extractor/docs/SAMPLE_6_7_VALIDATION.md.\n\nOriginal models and reference files are included unchanged. Sample 6 also has a separate normalized reference.json. Physical-response cards include shear and continuous peaks. Legacy integration fields and profile tables retain the original reporting definitions. This package does not claim universal accuracy or STAAD.Pro certification.\n",
         )
         count += 2
     with zipfile.ZipFile(target) as archive:
