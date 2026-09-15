@@ -1,6 +1,7 @@
 """Quantitative reference comparison; deviations and ties are never hidden."""
 
 from dataclasses import dataclass
+
 import numpy as np
 
 
@@ -66,11 +67,19 @@ def reference_point_value(path, point, solver, source_length):
         index = ("FX", "FY", "FZ", "MX", "MY", "MZ").index(axis)
         value = float(member.end_forces[6 * end + index] / 1000)
     else:
-        from .units import LENGTH_M, ALIASES
+        from .units import ALIASES, LENGTH_M
 
-        unit = point.get("station_unit", source_length).upper()
+        if point.get("station") is None:
+            return None
+        unit = str(point.get("station_unit") or source_length).upper()
         unit = ALIASES.get(unit, unit)
-        x = float(point.get("station", 0)) * LENGTH_M[unit]
+        if unit not in LENGTH_M:
+            return None
+        x = float(point["station"]) * LENGTH_M[unit]
+        if not np.isfinite(x):
+            return None
+        if x < -1e-8 or x > member.element.length + 1e-8:
+            return None
         x = min(max(0, x), member.element.length)
         if displacement:
             value = float(
@@ -123,6 +132,11 @@ def compare(reference, candidate, solver=None, tolerances=None):
                 candidate=value,
                 difference=difference,
                 absolute_difference=abs(difference),
+                relative_difference=(
+                    abs(difference) / abs(expected["value"])
+                    if abs(expected["value"]) > 1e-8
+                    else None
+                ),
                 tolerance=limit,
                 value_status="pass" if abs(difference) <= limit else "difference",
                 reference_location={
@@ -136,6 +150,12 @@ def compare(reference, candidate, solver=None, tolerances=None):
                         "station_unit",
                         "load_case",
                         "location",
+                        "axis",
+                        "direction",
+                        "source",
+                        "member_type",
+                        "load_case_name",
+                        "governing_load_case",
                     }
                 },
                 candidate_location={
@@ -149,16 +169,64 @@ def compare(reference, candidate, solver=None, tolerances=None):
                         "station_unit",
                         "load_case",
                         "location",
+                        "axis",
+                        "direction",
+                        "source",
+                        "member_type",
+                        "load_case_name",
+                        "governing_load_case",
                     }
                 },
             )
             keys = ("member_id", "node_id", "load_case", "location")
             same = all(expected.get(k) == got.get(k) for k in keys)
             row["location_status"] = "same_ids" if same else "different_ids"
+            # Metadata equality and numerical equivalence are different checks.
+            row["metadata_differences"] = {
+                key: {"reference": expected.get(key), "candidate": got.get(key)}
+                for key in (
+                    "member_id",
+                    "node_id",
+                    "load_case",
+                    "governing_load_case",
+                    "location",
+                    "axis",
+                    "direction",
+                    "source",
+                    "member_type",
+                )
+                if expected.get(key) != got.get(key)
+            }
+            from .units import ALIASES, LENGTH_M
+
+            def station_m(point):
+                if point.get("station") is None or not point.get("station_unit"):
+                    return None  # Legacy endpoint stations may be end flags 0/1.
+                unit = point["station_unit"].upper()
+                unit = ALIASES.get(unit, unit)
+                return (
+                    float(point["station"]) * LENGTH_M[unit]
+                    if unit in LENGTH_M
+                    else None
+                )
+
+            reference_station, candidate_station = station_m(expected), station_m(got)
+            row["reference_station_m"] = reference_station
+            row["candidate_station_m"] = candidate_station
+            if reference_station is not None and candidate_station is not None:
+                row["station_difference_m"] = candidate_station - reference_station
             if solver is not None:
                 evaluated = reference_point_value(path, expected, solver, length)
                 row["candidate_at_reference_point"] = evaluated
                 if evaluated is not None:
+                    row["reference_point_absolute_difference"] = abs(
+                        evaluated - expected["value"]
+                    )
+                    row["reference_point_status"] = (
+                        "pass"
+                        if abs(evaluated - expected["value"]) <= limit
+                        else "difference"
+                    )
                     if abs(evaluated - value) <= limit:
                         row["location_status"] = "equivalent_within_tolerance"
                     elif ("bending_moment" in path or ".bm." in path) and abs(

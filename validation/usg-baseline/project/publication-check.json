@@ -1,0 +1,70 @@
+{
+  "status": "pass",
+  "checked_at": "2026-09-13T15:40:02.678128+00:00",
+  "solver_version": "0.3.0",
+  "scope": "Documentation publication and tutorial checks; earlier full software retest is unchanged.",
+  "existing_software_evidence": {
+    "passed": 234,
+    "skipped": 1,
+    "http_workflow_groups": 14,
+    "full_suite_rerun_for_documentation_only_change": false
+  },
+  "tested_source_files_unchanged": 35,
+  "source_hash_evidence": "validation/package-smoke.json",
+  "tutorial": {
+    "primary": {
+      "status": "pass",
+      "selected_cases": [
+        1
+      ],
+      "moment_kNm": 4.000000000000002,
+      "displacement_mm": 2.666666666666668
+    },
+    "combined": {
+      "status": "pass",
+      "selected_cases": [
+        1,
+        2
+      ],
+      "moment_kNm": 8.000000000000004,
+      "displacement_mm": 5.333333333333336
+    }
+  },
+  "documented_python_example": {
+    "status": "pass",
+    "reaction_N_Nm": [
+      0.0,
+      1000.0,
+      0.0,
+      0.0,
+      0.0,
+      4000.0000000000014
+    ],
+    "tip_rotation_rad": [
+      0.0,
+      0.0,
+      -0.0010000000000000007
+    ]
+  },
+  "original_sample_file_sha256": {
+    "examples/sample6/sample_6.std": "2427ee90f9c438f6fc6c2931f227ef276f446c3445c1ff9e0e299c89c8040e51",
+    "examples/sample6/output.txt": "e060a3dd9a43a9a0ffa42eb20e109b0e478576dc026d6722858b649976839876",
+    "examples/sample7/sample_7.std": "6d131c831dfe483d514dfdcf4758b6e7233486830e146f8c6d0ba95506fce490",
+    "examples/sample7/output.txt": "0e47209c992e74ba68ee85286b79d2d88c859ba3f6fa5f783a813f5f01a65fca"
+  },
+  "publication_inventory": {
+    "files_checked_before_evidence_record": 119,
+    "staged_bytes_match_working_files": true,
+    "common_credential_patterns_found": false,
+    "runtime_and_private_environment_files_excluded": true
+  },
+  "guide": {
+    "pdf": "docs/Mini_STAAD_Implementation_and_Industry_Guide.pdf",
+    "pages": 26,
+    "chapter_bookmarks": 19,
+    "visual_review": "All 26 pages rendered and visually reviewed; revised pages rechecked.",
+    "text_bounds": "pass",
+    "sha256": "c28ed13a55c131422e8679b017e5a90d6133d135c09c04faf426ab25e628a22f",
+    "editable_source": "docs/INDUSTRY_AND_USER_GUIDE.md"
+  }
+}

@@ -1,0 +1,1320 @@
+{
+  "baseline_commit": "37e95e804df51d79d5a6343977ac80b7abdd8fe0",
+  "source_sha256": "8bbc7adafd234fbef831b27ae5cedd8bc898832f93e1997826369b20a5b9de94",
+  "standard": {
+    "metrics": [
+      {
+        "metric": "properties.bending_moment.major",
+        "reference": 3.539295,
+        "candidate": 3.547253,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.00795799999999991,
+        "absolute_difference": 0.00795799999999991,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.92011,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 3.5392983061039223
+      },
+      {
+        "metric": "properties.bending_moment.minor.max",
+        "reference": 0.11173,
+        "candidate": 0.11173,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 40,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 23.622002,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 40,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.11172952947598304
+      },
+      {
+        "metric": "properties.bending_moment.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.92011,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 1.8071583520353993e-16
+      },
+      {
+        "metric": "properties.shear_force.major",
+        "reference": 3.796476,
+        "candidate": 3.796479,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 2.9999999999752447e-06,
+        "absolute_difference": 2.9999999999752447e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 3.7964788113736465
+      },
+      {
+        "metric": "properties.shear_force.minor.max_on_mullions",
+        "reference": 0.005675,
+        "candidate": 0.005675,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.005674796952692642
+      },
+      {
+        "metric": "properties.shear_force.minor.at_major_governing_point",
+        "reference": 1e-06,
+        "candidate": 1e-06,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_at_reference_point": 6.460340278897709e-07
+      },
+      {
+        "metric": "properties.axial_force",
+        "reference": 2.332851,
+        "candidate": 2.332851,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 11,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 11,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 2.332851201576054
+      },
+      {
+        "metric": "properties.displacement",
+        "reference": 31.987816,
+        "candidate": 32.030124,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.04230800000000201,
+        "absolute_difference": 0.04230800000000201,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 17,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 17,
+          "station": 0.815,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 32.030120863886296
+      },
+      {
+        "metric": "properties.mullion.bending_moment.major",
+        "reference": 3.539295,
+        "candidate": 3.547253,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.00795799999999991,
+        "absolute_difference": 0.00795799999999991,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.92011,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 3.5392983061039223
+      },
+      {
+        "metric": "properties.mullion.bending_moment.minor.max",
+        "reference": 0.006739,
+        "candidate": 0.006739,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 1,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 0.0,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 1,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 0.0,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.006738593176207572
+      },
+      {
+        "metric": "properties.mullion.bending_moment.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.92011,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 1.8071583520353993e-16
+      },
+      {
+        "metric": "properties.mullion.shear_force.major",
+        "reference": 3.796476,
+        "candidate": 3.796479,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 2.9999999999752447e-06,
+        "absolute_difference": 2.9999999999752447e-06,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 3.7964788113736465
+      },
+      {
+        "metric": "properties.mullion.shear_force.minor.max_on_mullions",
+        "reference": 0.005675,
+        "candidate": 0.005675,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.005674796952692642
+      },
+      {
+        "metric": "properties.mullion.shear_force.minor.at_major_governing_point",
+        "reference": 1e-06,
+        "candidate": 1e-06,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_at_reference_point": 6.460340278897709e-07
+      },
+      {
+        "metric": "properties.mullion.axial_force",
+        "reference": 2.332851,
+        "candidate": 2.332851,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 11,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 11,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 2.332851201576054
+      },
+      {
+        "metric": "properties.mullion.displacement",
+        "reference": 31.987816,
+        "candidate": 32.030124,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.04230800000000201,
+        "absolute_difference": 0.04230800000000201,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 17,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 17,
+          "station": 0.815,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 32.030120863886296
+      },
+      {
+        "metric": "properties.stack.bending_moment.major",
+        "reference": 0.1728,
+        "candidate": 0.1728,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 45,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 23.621994,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 50,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.17279999999868326
+      },
+      {
+        "metric": "properties.stack.shear_force.major",
+        "reference": 0.432,
+        "candidate": 0.432,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 45,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 50,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.4320000000000002
+      },
+      {
+        "metric": "properties.stack.displacement",
+        "reference": 2.509251,
+        "candidate": 2.509179,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -7.199999999984996e-05,
+        "absolute_difference": 7.199999999984996e-05,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 2,
+          "node_id": 24
+        },
+        "candidate_location": {
+          "load_case": 2,
+          "node_id": 14
+        },
+        "candidate_at_reference_point": 2.509179176381137
+      },
+      {
+        "metric": "properties.head.bending_moment.major",
+        "reference": 0.0864,
+        "candidate": 0.0864,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 55,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 23.622002,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 57,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.08639999999952466
+      },
+      {
+        "metric": "properties.head.shear_force.major",
+        "reference": 0.216,
+        "candidate": 0.216,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 55,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 57,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.21599999999999997
+      },
+      {
+        "metric": "properties.head.displacement",
+        "reference": 2.982192,
+        "candidate": 2.982089,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00010299999999974219,
+        "absolute_difference": 0.00010299999999974219,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 2,
+          "node_id": 20
+        },
+        "candidate_location": {
+          "load_case": 2,
+          "node_id": 20
+        },
+        "candidate_at_reference_point": 2.9820886659115065
+      },
+      {
+        "metric": "properties.sill.bending_moment.major",
+        "reference": 0.064856,
+        "candidate": 0.064756,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00010000000000000286,
+        "absolute_difference": 0.00010000000000000286,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 37,
+          "location": "member-maximum",
+          "load_case": 2,
+          "station": 47.244003,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 39,
+          "location": "member-maximum",
+          "load_case": 2,
+          "station": 0.0,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.0647556689875793
+      },
+      {
+        "metric": "properties.sill.shear_force.major",
+        "reference": 0.270047,
+        "candidate": 0.269964,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -8.299999999999974e-05,
+        "absolute_difference": 8.299999999999974e-05,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 37,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 39,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.2699635802741227
+      },
+      {
+        "metric": "properties.sill.displacement",
+        "reference": 0.395347,
+        "candidate": 0.39903,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.003682999999999992,
+        "absolute_difference": 0.003682999999999992,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 37,
+          "station": 19.685001,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 39,
+          "station": 0.7,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.39902967998943145
+      },
+      {
+        "metric": "properties.transom.bending_moment.major",
+        "reference": 0.1728,
+        "candidate": 0.1728,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 42,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 23.621994,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 42,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.172799999998684
+      },
+      {
+        "metric": "properties.transom.shear_force.major",
+        "reference": 0.432,
+        "candidate": 0.432,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.01,
+        "reference_location": {
+          "member_id": 42,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 40,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.43200000000000144
+      },
+      {
+        "metric": "properties.transom.displacement",
+        "reference": 0.39644,
+        "candidate": 0.398179,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0017389999999999906,
+        "absolute_difference": 0.0017389999999999906,
+        "tolerance": 0.05,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 53,
+          "station": 23.622002,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 53,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.3981786110229564
+      }
+    ],
+    "counts": {
+      "pass": 28,
+      "difference": 0,
+      "missing": 0
+    },
+    "all_values_within_tolerance": true
+  },
+  "strict": {
+    "metrics": [
+      {
+        "metric": "properties.bending_moment.major",
+        "reference": 3.539295,
+        "candidate": 3.547253,
+        "value_status": "difference",
+        "location_status": "reference_station_reproduced_true_extremum_differs",
+        "difference": 0.00795799999999991,
+        "absolute_difference": 0.00795799999999991,
+        "tolerance": 0.0003539295,
+        "reference_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.92011,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 3.5392983061039223
+      },
+      {
+        "metric": "properties.bending_moment.minor.max",
+        "reference": 0.11173,
+        "candidate": 0.11173,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 2e-05,
+        "reference_location": {
+          "member_id": 40,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 23.622002,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 40,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.11172952947598304
+      },
+      {
+        "metric": "properties.bending_moment.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 2e-05,
+        "reference_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.92011,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 1.8071583520353993e-16
+      },
+      {
+        "metric": "properties.shear_force.major",
+        "reference": 3.796476,
+        "candidate": 3.796479,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 2.9999999999752447e-06,
+        "absolute_difference": 2.9999999999752447e-06,
+        "tolerance": 0.00037964760000000003,
+        "reference_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 3.7964788113736465
+      },
+      {
+        "metric": "properties.shear_force.minor.max_on_mullions",
+        "reference": 0.005675,
+        "candidate": 0.005675,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 2e-05,
+        "reference_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.005674796952692642
+      },
+      {
+        "metric": "properties.shear_force.minor.at_major_governing_point",
+        "reference": 1e-06,
+        "candidate": 1e-06,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 2e-05,
+        "reference_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_at_reference_point": 6.460340278897709e-07
+      },
+      {
+        "metric": "properties.axial_force",
+        "reference": 2.332851,
+        "candidate": 2.332851,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.0002332851,
+        "reference_location": {
+          "member_id": 11,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 11,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 2.332851201576054
+      },
+      {
+        "metric": "properties.displacement",
+        "reference": 31.987816,
+        "candidate": 32.030124,
+        "value_status": "difference",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.04230800000000201,
+        "absolute_difference": 0.04230800000000201,
+        "tolerance": 0.0031987816,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 17,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 17,
+          "station": 0.815,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 32.030120863886296
+      },
+      {
+        "metric": "properties.mullion.bending_moment.major",
+        "reference": 3.539295,
+        "candidate": 3.547253,
+        "value_status": "difference",
+        "location_status": "reference_station_reproduced_true_extremum_differs",
+        "difference": 0.00795799999999991,
+        "absolute_difference": 0.00795799999999991,
+        "tolerance": 0.0003539295,
+        "reference_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.92011,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 3.5392983061039223
+      },
+      {
+        "metric": "properties.mullion.bending_moment.minor.max",
+        "reference": 0.006739,
+        "candidate": 0.006739,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 2e-05,
+        "reference_location": {
+          "member_id": 1,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 0.0,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 1,
+          "location": "member-minimum",
+          "load_case": 1,
+          "station": 0.0,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.006738593176207572
+      },
+      {
+        "metric": "properties.mullion.bending_moment.minor.at_major_governing_point",
+        "reference": 0.0,
+        "candidate": 0.0,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 2e-05,
+        "reference_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 17,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.92011,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 1.8071583520353993e-16
+      },
+      {
+        "metric": "properties.mullion.shear_force.major",
+        "reference": 3.796476,
+        "candidate": 3.796479,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 2.9999999999752447e-06,
+        "absolute_difference": 2.9999999999752447e-06,
+        "tolerance": 0.00037964760000000003,
+        "reference_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 3.7964788113736465
+      },
+      {
+        "metric": "properties.mullion.shear_force.minor.max_on_mullions",
+        "reference": 0.005675,
+        "candidate": 0.005675,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 2e-05,
+        "reference_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 1,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 0.005674796952692642
+      },
+      {
+        "metric": "properties.mullion.shear_force.minor.at_major_governing_point",
+        "reference": 1e-06,
+        "candidate": 1e-06,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 2e-05,
+        "reference_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_location": {
+          "member_id": 15,
+          "location": "start",
+          "station": 0.0
+        },
+        "candidate_at_reference_point": 6.460340278897709e-07
+      },
+      {
+        "metric": "properties.mullion.axial_force",
+        "reference": 2.332851,
+        "candidate": 2.332851,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 0.0002332851,
+        "reference_location": {
+          "member_id": 11,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_location": {
+          "member_id": 11,
+          "location": "end",
+          "load_case": 1
+        },
+        "candidate_at_reference_point": 2.332851201576054
+      },
+      {
+        "metric": "properties.mullion.displacement",
+        "reference": 31.987816,
+        "candidate": 32.030124,
+        "value_status": "difference",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.04230800000000201,
+        "absolute_difference": 0.04230800000000201,
+        "tolerance": 0.0031987816,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 17,
+          "station": 32.086548,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 17,
+          "station": 0.815,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 32.030120863886296
+      },
+      {
+        "metric": "properties.stack.bending_moment.major",
+        "reference": 0.1728,
+        "candidate": 0.1728,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 2e-05,
+        "reference_location": {
+          "member_id": 45,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 23.621994,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 50,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.17279999999868326
+      },
+      {
+        "metric": "properties.stack.shear_force.major",
+        "reference": 0.432,
+        "candidate": 0.432,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 4.32e-05,
+        "reference_location": {
+          "member_id": 45,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 50,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.4320000000000002
+      },
+      {
+        "metric": "properties.stack.displacement",
+        "reference": 2.509251,
+        "candidate": 2.509179,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -7.199999999984996e-05,
+        "absolute_difference": 7.199999999984996e-05,
+        "tolerance": 0.001,
+        "reference_location": {
+          "load_case": 2,
+          "node_id": 24
+        },
+        "candidate_location": {
+          "load_case": 2,
+          "node_id": 14
+        },
+        "candidate_at_reference_point": 2.509179176381137
+      },
+      {
+        "metric": "properties.head.bending_moment.major",
+        "reference": 0.0864,
+        "candidate": 0.0864,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 2e-05,
+        "reference_location": {
+          "member_id": 55,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 23.622002,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 57,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.08639999999952466
+      },
+      {
+        "metric": "properties.head.shear_force.major",
+        "reference": 0.216,
+        "candidate": 0.216,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 2.16e-05,
+        "reference_location": {
+          "member_id": 55,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 57,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.21599999999999997
+      },
+      {
+        "metric": "properties.head.displacement",
+        "reference": 2.982192,
+        "candidate": 2.982089,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00010299999999974219,
+        "absolute_difference": 0.00010299999999974219,
+        "tolerance": 0.001,
+        "reference_location": {
+          "load_case": 2,
+          "node_id": 20
+        },
+        "candidate_location": {
+          "load_case": 2,
+          "node_id": 20
+        },
+        "candidate_at_reference_point": 2.9820886659115065
+      },
+      {
+        "metric": "properties.sill.bending_moment.major",
+        "reference": 0.064856,
+        "candidate": 0.064756,
+        "value_status": "difference",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -0.00010000000000000286,
+        "absolute_difference": 0.00010000000000000286,
+        "tolerance": 2e-05,
+        "reference_location": {
+          "member_id": 37,
+          "location": "member-maximum",
+          "load_case": 2,
+          "station": 47.244003,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 39,
+          "location": "member-maximum",
+          "load_case": 2,
+          "station": 0.0,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.0647556689875793
+      },
+      {
+        "metric": "properties.sill.shear_force.major",
+        "reference": 0.270047,
+        "candidate": 0.269964,
+        "value_status": "difference",
+        "location_status": "equivalent_within_tolerance",
+        "difference": -8.299999999999974e-05,
+        "absolute_difference": 8.299999999999974e-05,
+        "tolerance": 2.70047e-05,
+        "reference_location": {
+          "member_id": 37,
+          "location": "end",
+          "station": 1.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 39,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.2699635802741227
+      },
+      {
+        "metric": "properties.sill.displacement",
+        "reference": 0.395347,
+        "candidate": 0.39903,
+        "value_status": "difference",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.003682999999999992,
+        "absolute_difference": 0.003682999999999992,
+        "tolerance": 0.001,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 37,
+          "station": 19.685001,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 39,
+          "station": 0.7,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.39902967998943145
+      },
+      {
+        "metric": "properties.transom.bending_moment.major",
+        "reference": 0.1728,
+        "candidate": 0.1728,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 2e-05,
+        "reference_location": {
+          "member_id": 42,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 23.621994,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "member_id": 42,
+          "location": "member-minimum",
+          "load_case": 2,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.172799999998684
+      },
+      {
+        "metric": "properties.transom.shear_force.major",
+        "reference": 0.432,
+        "candidate": 0.432,
+        "value_status": "pass",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0,
+        "absolute_difference": 0.0,
+        "tolerance": 4.32e-05,
+        "reference_location": {
+          "member_id": 42,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_location": {
+          "member_id": 40,
+          "location": "start",
+          "station": 0.0,
+          "load_case": 2
+        },
+        "candidate_at_reference_point": 0.43200000000000144
+      },
+      {
+        "metric": "properties.transom.displacement",
+        "reference": 0.39644,
+        "candidate": 0.398179,
+        "value_status": "difference",
+        "location_status": "equivalent_within_tolerance",
+        "difference": 0.0017389999999999906,
+        "absolute_difference": 0.0017389999999999906,
+        "tolerance": 0.001,
+        "reference_location": {
+          "load_case": 3,
+          "member_id": 53,
+          "station": 23.622002,
+          "station_unit": "in"
+        },
+        "candidate_location": {
+          "load_case": 3,
+          "member_id": 53,
+          "station": 0.6,
+          "station_unit": "meter"
+        },
+        "candidate_at_reference_point": 0.3981786110229564
+      }
+    ],
+    "counts": {
+      "pass": 20,
+      "difference": 8,
+      "missing": 0
+    },
+    "all_values_within_tolerance": false
+  }
+}

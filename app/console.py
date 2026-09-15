@@ -1,8 +1,10 @@
 """Optional local review console; existing job endpoints remain unchanged."""
 
 from pathlib import Path
+
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse, PlainTextResponse
+
 from app.services.model_geometry import read_model_geometry
 from engine.errors import AnalysisError
 
@@ -29,6 +31,11 @@ def style():
 
 @router.get("/examples/{sample}")
 def example(sample: str):
+    if sample in {'usg1', 'usg2'}:
+        path = ROOT / 'examples/usg' / ('USG_1.std' if sample == 'usg1' else 'USG_2.std')
+        if not path.is_file():
+            raise HTTPException(404, 'Example not installed')
+        return FileResponse(path, filename=path.name, media_type='text/plain')
     if sample not in {f"sample{i}" for i in range(1, 8)}:
         raise HTTPException(404, "Example not found")
     paths = list((ROOT / "examples" / sample).glob("*.std"))
@@ -42,6 +49,11 @@ def validation():
     return PlainTextResponse(
         (ROOT / "docs/VALIDATION_RESULTS.md").read_text(encoding="utf-8")
     )
+
+
+@router.get('/usg-validation-report')
+def usg_validation():
+    return PlainTextResponse((ROOT / 'docs/USG_VALIDATION.md').read_text(encoding='utf-8'))
 
 
 @router.get("/jobs/{job_id}/model")

@@ -1,0 +1,44 @@
+{
+  "archive": "USG_1.zip",
+  "sha256": "b88f72dba1a79856b19a013fc2f4d2a96c57459d5f040e9fffbb65a39ceb0dab",
+  "files": [
+    {
+      "source": "USG_1.std",
+      "path": "examples/usg/USG_1.std",
+      "bytes": 3503,
+      "sha256": "8bbc7adafd234fbef831b27ae5cedd8bc898832f93e1997826369b20a5b9de94"
+    },
+    {
+      "source": "USG_1-results.json",
+      "path": "examples/usg/USG_1-results.json",
+      "bytes": 18276,
+      "sha256": "13ebb0b91a97e9bc9dd908ce4d92b776194bbcc97f41603a7be4f5541f1e607e"
+    },
+    {
+      "source": "USG_2.std",
+      "path": "examples/usg/USG_2.std",
+      "bytes": 3794,
+      "sha256": "29ffe31913604c49dceb74eb132bae3f6eb9e079f7e2241e5e245f7ca752f1e2"
+    },
+    {
+      "source": "USG_2-results.json",
+      "path": "examples/usg/USG_2-results.json",
+      "bytes": 18278,
+      "sha256": "50c4ee4b9a1c2d2286cb4f9731e686058b7cfc563f32d3d8e27529697d616d34"
+    },
+    {
+      "source": "USG_Prompt_Refactory.pdf",
+      "path": "docs/requirements/usg/USG_Prompt_Refactory.pdf",
+      "bytes": 761974,
+      "sha256": "636445199cb7e2bae6950ac95c6586dd1e9e8482929a11000001216026662b0d"
+    },
+    {
+      "source": "Fully_Unitized_Mini_STAAD_Enhancement_Prompt.txt",
+      "path": "docs/requirements/usg/Fully_Unitized_Mini_STAAD_Enhancement_Prompt.txt",
+      "bytes": 47998,
+      "sha256": "65652434a059c23919340fdbb5e7e8faf9edcdd7113b51d6a597fde0c3287937"
+    }
+  ],
+  "rollback_commit": "37e95e804df51d79d5a6343977ac80b7abdd8fe0",
+  "scope": "USG only; all previous September 15 changes reverted"
+}

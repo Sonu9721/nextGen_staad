@@ -11,7 +11,7 @@
     "moment_mode": "internal-envelope",
     "include_combinations": true,
     "backend": "inhouse",
-    "solver_version": "0.3.0",
+    "solver_version": "0.3.1",
     "validation_status": "reference_comparison_required",
     "diagnostics": {
       "nodes": 70,
@@ -99,9 +99,20 @@
           }
         ]
       },
-      "solve_seconds": 1.1920096999965608,
+      "solve_seconds": 1.011589300000196,
       "element_theory": "Timoshenko (Euler-Bernoulli when shear areas are absent)",
       "shear_area_rule": "Explicit AY/AZ; otherwise Cowper rectangular coefficient times AX when YD and ZD are supplied; no shear when neither is supplied."
+    },
+    "profile_classification": {
+      "method": "canonical geometry and axial/moment-released vertical splice levels",
+      "stack_levels_m": [
+        4.8,
+        9.6
+      ],
+      "bottom_m": 0.0,
+      "top_m": 14.4,
+      "assumption": "Global Y vertical; one assembly; stack horizontals coincide with released axial splice ends. Supply profile_member_ids for other role conventions.",
+      "unclassified_members": []
     }
   },
   "units": {

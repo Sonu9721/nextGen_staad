@@ -1,0 +1,52 @@
+{
+  "version": "0.3.1",
+  "status": "pass",
+  "examples": {
+    "usg1": {
+      "completed_seconds": 13.87,
+      "download_matches": [
+        "properties",
+        "profiles",
+        "physical_response"
+      ],
+      "nodes": 40,
+      "members": 57,
+      "cases": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "physical_displacement_mm": 32.18330684529381,
+      "legacy_displacement_mm": 32.030124,
+      "download_sha256": "d4a7046279bec62ccbfdf4d06941f2e3039b6dd16e2a4d3c5d9e3f8b9adcaaba"
+    },
+    "usg2": {
+      "completed_seconds": 15.24,
+      "download_matches": [
+        "properties",
+        "profiles",
+        "physical_response"
+      ],
+      "nodes": 44,
+      "members": 64,
+      "cases": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "physical_displacement_mm": 166.1689924704747,
+      "legacy_displacement_mm": 166.009154,
+      "download_sha256": "71fcd84ba5dc209c8c2cc59c4df81794c5df8ba78b1c34b4b1b7affa1a5ed381"
+    }
+  },
+  "mobile": {
+    "viewport": 420,
+    "document_width": 405,
+    "example_controls": 9,
+    "override_reset": true
+  },
+  "console_warning_error_logs": [],
+  "scope": "USG-only; no CAD or revised Sample 7 UI"
+}

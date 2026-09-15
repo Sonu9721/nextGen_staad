@@ -78,6 +78,7 @@ def main():
                 "/docs",
                 "/openapi.json",
                 "/validation-report",
+                "/usg-validation-report",
             ]:
                 response = client.get(path)
                 assert response.status_code == 200, (path, response.text)
@@ -133,6 +134,8 @@ def main():
                 ("sample5", "casement"),
                 ("sample6", "casement"),
                 ("sample7", "casement"),
+                ("usg1", "fully_unitized"),
+                ("usg2", "fully_unitized"),
             ]:
                 content = client.get(f"/examples/{name}").content
                 jid = submit(content, name + ".std", flow)
@@ -167,7 +170,7 @@ def main():
                 wrapper = client.get(f"/jobs/{jid}/result").json()
                 data = wrapper["result"]
                 json.dumps(data, allow_nan=False)
-                assert data["analysis"]["solver_version"] == "0.3.0"
+                assert data["analysis"]["solver_version"] == __version__
                 assert data["analysis"]["load_cases"] == (
                     [1, 2, 3, 4, 5, 6] if name == "sample7" else [1, 2, 3, 4]
                 )

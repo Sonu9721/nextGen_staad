@@ -1,18 +1,12 @@
 {
-  "version": "0.3.1",
   "status": "pass",
-  "dependencies": "Existing project virtual environment; no dependencies bundled",
-  "models": {
-    "USG_1": "Exact properties, profile counts and physical_response match",
-    "USG_2": "Exact properties, profile counts and physical_response match"
-  },
-  "imports_from_extracted_copy": true,
-  "archive_integrity": "pass",
-  "usg_source_files_unchanged": true,
-  "excluded": [
-    "CAD/MAAS code and dependencies",
-    "reverted Sample 7 revision"
-  ],
+  "version": "0.3.1",
+  "verified_at": "2026-09-15T07:40:45.043817+00:00",
+  "rollback_commit": "37e95e804df51d79d5a6343977ac80b7abdd8fe0",
+  "scope": "USG-only; all earlier September 15 changes reverted",
+  "tests_passed": 258,
+  "tests_skipped": 1,
+  "http_workflow_groups": 16,
   "tested_source_files_sha256": {
     "engine/adapter.py": "b95fde72688b996537d3dca3afc723e19301fc96239866f2a004368575431c56",
     "engine/comparison.py": "2000d5620de21413e91934635eb4bc08bbb69ca2e04303d9c889757a90963b68",
@@ -50,5 +44,6 @@
     "app/web/console.css": "0b5d1b4fa818c8e02dcbe128feff197a683f085024a06361176d33d3621e9cc6",
     "app/web/console.js": "5dd52f68a48ee4e5d3b4efea6f271f9be142aff817a8e961c24dd62aa9f6652f",
     "app/web/index.html": "18acec06a3217c634318a0e68db11f5247a9bc224a92f89a7a12d8daeb5da302"
-  }
+  },
+  "final_asset_check": "index.html line endings restored to LF after tests; live HTTP body verified byte-identical to final file."
 }

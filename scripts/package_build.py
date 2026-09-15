@@ -35,6 +35,16 @@ def main():
     assert e2e.get("solver_version") == __version__, (
         "HTTP evidence is from a different build"
     )
+    source_manifest = json.loads((ROOT / 'validation/usg-source-manifest.json').read_text())
+    for entry in source_manifest['files']:
+        assert hashlib.sha256((ROOT / entry['path']).read_bytes()).hexdigest() == entry['sha256']
+    assert {'usg1', 'usg2'} <= set(e2e['samples']), 'USG HTTP evidence is missing'
+    usg = json.loads((ROOT / 'validation/usg/comparison.json').read_text())['models']
+    assert all(r['solver_version'] == __version__ for r in usg.values())
+    verification = json.loads((ROOT / 'validation/usg-verification.json').read_text())
+    assert verification['status'] == 'pass' and verification['version'] == __version__
+    for name, digest in verification['tested_source_files_sha256'].items():
+        assert hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest, f'Source changed after verification: {name}'
     target = ROOT.parent / f"MiniSTAAD_v{__version__}_Retested.zip"
     ignored = {
         ".venv",
@@ -102,7 +112,9 @@ def main():
             "MiniSTAAD/START_HERE.txt",
             f"Mini STAAD v{__version__} — retested validation build\n\n1. Install Python 3.10 or newer.\n2. Double-click Start MiniSTAAD.bat. First setup downloads dependencies.\n3. Open http://127.0.0.1:8000.\n\n{passed} automated tests and {len(e2e['checks'])} HTTP workflow groups passed; {skipped} licensed oracle test skipped. {differences} evaluated reference entries remain outside tolerance. Models rejected pending support review: {', '.join(blocked) or 'none'}. Rejection of an unstable model is a successful software check, not a successful structural analysis. Read staad-report-extractor/docs/SAMPLE_6_7_VALIDATION.md.\n\nThe new archive's two models and original references are included unchanged. Sample 6 also has a separate normalized reference.json. Physical-response cards include shear and continuous peaks. Legacy integration fields and profile tables retain the original reporting definitions. This package does not claim universal accuracy or STAAD.Pro certification.\n",
         )
-        count += 2
+        archive.writestr('MiniSTAAD/USG_README.txt',
+            'USG-only release. All earlier September 15 changes, including the Sample 7 revision and CAD/MAAS work, were reverted.\n\nChoose U1 or U2 in the interface for the two original models from USG_1.zip. Both pass 28/28 existing numerical tolerance checks; eight stricter differences remain per model. Read staad-report-extractor/docs/USG_IMPLEMENTATION_REPORT.md and docs/USG_VALIDATION.md. The actual NextGen generator source was not supplied. No claim of exact STAAD equivalence is made.\n')
+        count += 3
     with zipfile.ZipFile(target) as archive:
         assert archive.testzip() is None
     digest = hashlib.sha256(target.read_bytes()).hexdigest()

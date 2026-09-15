@@ -1,14 +1,16 @@
 """Feed numerical results into the original production envelope functions."""
 
-from functools import lru_cache
 import importlib.util
 import sys
+from functools import lru_cache
 from pathlib import Path
+
 from . import __version__
 from .errors import AnalysisError, check_cancel
 from .parser import parse_std
-from .solver import solve
 from .physical import build_physical_response
+from .profiles import classify_unitized
+from .solver import solve
 
 
 @lru_cache(maxsize=1)
@@ -171,14 +173,9 @@ def build_payload(result, config, abort_check=None):
         profiles = None
         envelopes = None
         casement = None
+        classification = None
         if flow == "fully_unitized":
-            profiles = ex.classify_profile_members(
-                parsed_properties=ex.parse_member_property_lines(config.file_path),
-                member_ids=topology.member_ids,
-                member_incidences=topology.member_incidences,
-                node_coordinates=topology.node_coordinates,
-                generation_request=request,
-            )
+            profiles, classification = classify_unitized(model, request)
             envelopes = {}
             for group, members in profiles.items():
                 check_cancel(abort_check)
@@ -226,6 +223,8 @@ def build_payload(result, config, abort_check=None):
             validation_status="reference_comparison_required",
             diagnostics=result.diagnostics,
         )
+        if classification is not None:
+            payload["analysis"]["profile_classification"] = classification
         payload["physical_response"] = build_physical_response(
             result, selected, abort_check
         )
