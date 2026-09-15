@@ -4,7 +4,7 @@ Version 0.3.2. September 15, 2026. Starting revision: 09f5a7f, version 0.3.1.
 
 **Decision: the supplied STD-to-result workflow is built and works in the tested scope. The complete 71-section product request is not yet verified as finished.** The actual NextGen generator is absent and strict reference differences remain. The second audit found and fixed three additional robustness problems, rather than merely repeating the old passing tests.
 
-The previous rollback remains in force. This work uses only USG_1.zip as new input; no CAD/MAAS work or revised Sample 7 connection was restored. Original Samples 1-7 are retained solely as existing regressions. Publication of supplied documents/models remains pending the specific public-sharing approval requested previously; this delivery is local.
+The previous rollback remains in force. This work uses only USG_1.zip as new input; no CAD/MAAS work or revised Sample 7 connection was restored. Original Samples 1-7 are retained solely as existing regressions. The user has explicitly authorized publication of this complete tested build, including its supplied documents/models and reports, to Sonu9721/nextGen_staad on GitHub. The audited source revision is cca25ea.
 
 ## 1. Research, breakdown and plan
 

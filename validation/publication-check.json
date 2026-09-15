@@ -2,10 +2,13 @@
   "version": "0.3.2",
   "repository": "https://github.com/Sonu9721/nextGen_staad",
   "branch": "main",
-  "publication_status": "local_only_pending_specific_public_sharing_approval",
+  "publication_status": "authorized_by_user_for_github_publication",
   "remote_rollback_commit": "37e95e804df51d79d5a6343977ac80b7abdd8fe0",
   "verification": "validation/usg-verification.json",
   "browser": "validation/usg-browser.json",
   "reference_comparison": "validation/usg/comparison.json",
-  "scope": "USG-only; previous CAD/MAAS and Sample 7 revision remain reverted"
+  "scope": "USG-only; previous CAD/MAAS and Sample 7 revision remain reverted",
+  "audited_source_commit": "cca25eac1b5e996c258d168a0239207266554f44",
+  "publication_scope": "Complete tested USG v0.3.2 source, models, supplied reference documents, diagnostics, tests and reports",
+  "authorization": "User explicitly requested pushing this delivered build to their GitHub repository."
 }
