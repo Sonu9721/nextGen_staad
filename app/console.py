@@ -29,11 +29,6 @@ def style():
 
 @router.get("/examples/{sample}")
 def example(sample: str):
-    if sample == "sample7-revised":
-        path = ROOT / "examples/revisions/sample7/sample_7_axial_connected.std"
-        if not path.is_file():
-            raise HTTPException(404, "Example not installed")
-        return FileResponse(path, filename=path.name, media_type="text/plain")
     if sample not in {f"sample{i}" for i in range(1, 8)}:
         raise HTTPException(404, "Example not found")
     paths = list((ROOT / "examples" / sample).glob("*.std"))

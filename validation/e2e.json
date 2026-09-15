@@ -1,6 +1,6 @@
 {
   "solver_version": "0.3.0",
-  "started_at": "2026-09-15T06:12:29.082839+00:00",
+  "started_at": "2026-09-13T15:13:18.349158+00:00",
   "checks": [
     {
       "name": "Server, interface assets, documentation and UTF-8 encoding",
@@ -43,10 +43,6 @@
       "status": "pass"
     },
     {
-      "name": "sample7-revised: upload, progress, numerical analysis, geometry and result export",
-      "status": "pass"
-    },
-    {
       "name": "Repeat analysis is deterministic; profile JSON and upload basename are handled",
       "status": "pass"
     },
@@ -65,7 +61,7 @@
   ],
   "samples": {
     "sample1": {
-      "duration_seconds": 10.872773700000153,
+      "duration_seconds": 12.368443799990928,
       "nodes": 40,
       "members": 57,
       "physical_response": {
@@ -160,7 +156,7 @@
       }
     },
     "sample2": {
-      "duration_seconds": 29.34207360000005,
+      "duration_seconds": 26.31195309999748,
       "nodes": 70,
       "members": 105,
       "physical_response": {
@@ -255,7 +251,7 @@
       }
     },
     "sample3": {
-      "duration_seconds": 11.149282099999937,
+      "duration_seconds": 11.20817719999468,
       "nodes": 39,
       "members": 54,
       "physical_response": {
@@ -350,7 +346,7 @@
       }
     },
     "sample4": {
-      "duration_seconds": 8.367822100000012,
+      "duration_seconds": 8.317975400015712,
       "nodes": 52,
       "members": 57,
       "physical_response": {
@@ -445,7 +441,7 @@
       }
     },
     "sample5": {
-      "duration_seconds": 10.445988199999874,
+      "duration_seconds": 12.117121899995254,
       "nodes": 63,
       "members": 70,
       "physical_response": {
@@ -540,7 +536,7 @@
       }
     },
     "sample6": {
-      "duration_seconds": 13.110867800000051,
+      "duration_seconds": 14.04575869999826,
       "nodes": 44,
       "members": 61,
       "physical_response": {
@@ -639,105 +635,8 @@
       "reason": "The structure has a mechanism or excessive ill-conditioning (scaled minimum eigenvalue -2.11e-16). Dominant movement: UY at nodes 1, 2, 3, 4, 5, 13, 14, 15, 16, 17, 25, 26, 27, 28, 29, 37, 38, 39, 40, 41. Check the intended supports and member releases; no artificial restraints were added.",
       "nodes": 48,
       "members": 68
-    },
-    "sample7-revised": {
-      "duration_seconds": 27.24644719999992,
-      "nodes": 48,
-      "members": 68,
-      "physical_response": {
-        "forces": {
-          "FX": {
-            "value": 6.441838081184143,
-            "signed_value": -6.441838081184143,
-            "member_id": 17,
-            "load_case": 6,
-            "station": 3.2600000000000007,
-            "station_unit": "m",
-            "station_side": "left"
-          },
-          "FY": {
-            "value": 18.32696529725131,
-            "signed_value": -18.32696529725131,
-            "member_id": 32,
-            "load_case": 4,
-            "station": 0.0,
-            "station_unit": "m",
-            "station_side": "right"
-          },
-          "FZ": {
-            "value": 1.5355008459562378,
-            "signed_value": -1.5355008459562378,
-            "member_id": 10,
-            "load_case": 6,
-            "station": 0.0,
-            "station_unit": "m",
-            "station_side": "right"
-          },
-          "MX": {
-            "value": 0.6138886506374047,
-            "signed_value": 0.6138886506374047,
-            "member_id": 56,
-            "load_case": 2,
-            "station": 0.0,
-            "station_unit": "m",
-            "station_side": "right"
-          },
-          "MY": {
-            "value": 0.45854557006890495,
-            "signed_value": 0.45854557006890495,
-            "member_id": 23,
-            "load_case": 6,
-            "station": 0.0,
-            "station_unit": "m",
-            "station_side": "right"
-          },
-          "MZ": {
-            "value": 5.448586032918728,
-            "signed_value": -5.448586032918728,
-            "member_id": 24,
-            "load_case": 3,
-            "station": 1.3622163481697571,
-            "station_unit": "m",
-            "station_side": "interior"
-          }
-        },
-        "displacement": {
-          "absolute": {
-            "value": 121.32882177285055,
-            "signed_value": 121.32882177285055,
-            "member_id": 24,
-            "load_case": 6,
-            "station": 1.4422742692621564,
-            "station_unit": "m"
-          },
-          "chord_relative": {
-            "value": 50.82681023374253,
-            "signed_value": 50.82681023374253,
-            "member_id": 24,
-            "load_case": 6,
-            "station": 1.670934996952616,
-            "station_unit": "m"
-          }
-        },
-        "units": {
-          "force": "kN",
-          "moment": "kN-m",
-          "displacement": "mm",
-          "station": "m"
-        },
-        "load_cases": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
-        ],
-        "scope": "All members; local force axes; resultant translations including shear; continuous polynomial extrema with both sides of point loads.",
-        "legacy_contract": "properties and casement retain the original extraction definitions and station sampling."
-      }
     }
   },
   "status": "pass",
-  "finished_at": "2026-09-15T06:14:33.119562+00:00"
+  "finished_at": "2026-09-13T15:14:56.530579+00:00"
 }

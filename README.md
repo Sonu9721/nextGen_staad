@@ -2,9 +2,9 @@
 
 Read the [complete implementation and industry user guide](docs/INDUSTRY_AND_USER_GUIDE.md), or download the [PDF manual](docs/Mini_STAAD_Implementation_and_Industry_Guide.pdf). It covers setup, a hand calculation tutorial, facade use cases, result interpretation, API integration, testing and adoption limits.
 
-Version 0.3.0: standalone 3D frame analysis with concentrated member moments, continuous physical-response envelopes, the original job API, three extraction flows, seven original supplied models plus an approved Sample 7 revision, a local model-review interface and quantitative reference reports. STAAD.Pro is optional.
+Version 0.3.0: standalone 3D frame analysis with concentrated member moments, continuous physical-response envelopes, the original job API, three extraction flows, seven supplied models, a local model-review interface and quantitative reference reports. STAAD.Pro is optional.
 
-**Validation build:** 156 of 164 evaluated reference values meet the unchanged tolerances, including all 40 from Sample 6. Eight entries from Samples 1–3 still differ. Sample 5 has no reference. Sample 7's 40 reference entries cannot be verified because its original model has a loaded vertical mechanism; it is attached unchanged with an actionable diagnostic. The separately approved revision removes only four start FX releases and solves all six cases with unchanged supports. Select **07R Sample 7 - Approved revision**. Its peak absolute movement is 121.329 mm, requiring project-specific serviceability review; no independent reference result is supplied for the changed model. Read the [Sample 6/7 report](docs/SAMPLE_6_7_VALIDATION.md) and [validation results](docs/VALIDATION_RESULTS.md). This is not a certified STAAD replacement.
+**Validation build:** 156 of 164 evaluated reference values meet the unchanged tolerances, including all 40 from Sample 6. Eight entries from Samples 1–3 still differ. Sample 5 has no reference. Sample 7's 40 reference entries cannot be verified because its original model has a loaded vertical mechanism; it is attached unchanged with an actionable diagnostic. Read the [Sample 6/7 report](docs/SAMPLE_6_7_VALIDATION.md) and [validation results](docs/VALIDATION_RESULTS.md). This is not a certified STAAD replacement.
 
 ## Start on Windows
 
@@ -34,7 +34,7 @@ Output: kN, mm, kN-m. In-house stations: metres. Analysis backend/version/valida
 
 ANALYSIS_BACKEND=inhouse is the default. For the legacy oracle, install requirements-openstaad.txt and set ANALYSIS_BACKEND=openstaad on a licensed Windows host. In-house mode does not launch, attach to or terminate Bentley processes. Deterministic analysis/input errors are not retried. Run one API process because jobs remain in memory.
 
-Automated verification: **244 tests passed, one licensed oracle test skipped; 15 HTTP workflow groups passed.** This covers analytical solutions, reference contracts, API workflows and rejection of unstable models. See the current [build verification](docs/BUILD_VERIFICATION.md) for test totals and HTTP evidence. The [v0.2 accuracy retest report](docs/ACCURACY_RETEST_REPORT.md) is retained as historical evidence.
+Automated verification: **234 tests passed, one licensed oracle test skipped; 14 HTTP workflow groups passed.** This covers analytical solutions, reference contracts, API workflows and rejection of unstable models. See the current [build verification](docs/BUILD_VERIFICATION.md) for test totals and HTTP evidence. The [v0.2 accuracy retest report](docs/ACCURACY_RETEST_REPORT.md) is retained as historical evidence.
 
 ## Verify
 
@@ -42,7 +42,6 @@ Automated verification: **244 tests passed, one licensed oracle test skipped; 15
 .\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
 .\.venv\Scripts\python.exe -m pytest -q
 .\.venv\Scripts\python.exe scripts/validate_samples.py
-.\.venv\Scripts\python.exe scripts/validate_sample7_revision.py
 .\.venv\Scripts\python.exe scripts/retest_e2e.py
 ```
 

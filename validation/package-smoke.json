@@ -1,19 +1,19 @@
 {
   "status": "pass",
   "version": "0.3.0",
-  "model_revision": "sample7-axial-connected-r1",
   "archive_integrity": "pass",
   "imports_from_extracted_copy": true,
-  "exact_results": {
-    "sample6": "Exact properties, casement and physical_response match",
-    "sample7-revised": "Exact properties, casement and physical_response match"
-  },
-  "original_sample7_rejection": {
+  "sample6_exact_result_match": [
+    "properties",
+    "casement",
+    "physical_response"
+  ],
+  "sample7_rejection": {
     "error_code": "SINGULAR_MATRIX",
     "message": "The structure has a mechanism or excessive ill-conditioning (scaled minimum eigenvalue -2.11e-16). Dominant movement: UY at nodes 1, 2, 3, 4, 5, 13, 14, 15, 16, 17, 25, 26, 27, 28, 29, 37, 38, 39, 40, 41. Check the intended supports and member releases; no artificial restraints were added.",
     "stage": "analysis"
   },
-  "dependencies": "Installed project environment; dependencies are not bundled.",
+  "dependencies": "Installed project virtual environment; dependencies are not bundled in the ZIP.",
   "tested_source_files_sha256": {
     "engine/__init__.py": "b1b9ffa5272d7dd3d45399645c0b1e6779e4a127965a1882db465209d7d6b4f8",
     "engine/__main__.py": "ff4a9ddd7605397802656c5f05cb69b1864a8f7ba745d49509cce8d18932dc9c",
@@ -31,7 +31,7 @@
     "engine/worker.py": "0146f36829e1ca0298e6439089c0c4e5fd75ca637f082ac63825886093c3deea",
     "app/__init__.py": "82f031e170f8698989bcbbf8012561ec72418f704f9f586abb8fe6ade668c966",
     "app/config.py": "4eea0f47cdbca0ec098906cf0ff84a3ec3a2319d5601a4beae463fd204ea7d84",
-    "app/console.py": "8a1f33ce8a6c4c9bcc7457d184d329fcd932e9a4df4fc972647b7c150e7869d0",
+    "app/console.py": "49496c15daa056eddc05b847ce4a35461c215031963f3a4e95e949152a0919c0",
     "app/core/__init__.py": "714d4076c5fc204f03ce9665f8ba4e29c6982384fa21d93bd21eb01cf72fe014",
     "app/core/bootstrap.py": "0f37b88da9828d4c667097d9ee0c25fffba4156709f4757dd3e33603c3e43494",
     "app/core/config.py": "4ad929e6b8780991bf28c4c32762d8634847e822c26cfacddf76efd9521b3e94",
@@ -49,6 +49,6 @@
     "app/services/staad_runner.py": "6e2da39700ad07e0248980476d208f3978cd07dede6e369a69c9d36bb18a7719",
     "app/web/console.css": "0b5d1b4fa818c8e02dcbe128feff197a683f085024a06361176d33d3621e9cc6",
     "app/web/console.js": "5dd52f68a48ee4e5d3b4efea6f271f9be142aff817a8e961c24dd62aa9f6652f",
-    "app/web/index.html": "fd362c539b76ec967833b48a87f7b1d975d1c1e9307301cf0215cb6f3bd88222"
+    "app/web/index.html": "c84ab06e0fe40ec1ed40038783812fe0d3777d6f7d52d048b5d517cfa59a2c18"
   }
 }
