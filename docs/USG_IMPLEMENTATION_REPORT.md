@@ -1,6 +1,6 @@
 # Fully unitized USG implementation and use guide
 
-Version 0.3.1, September 15, 2026. Scope: only the six files in USG_1.zip.
+Original v0.3.1 implementation report, September 15, 2026. Scope: only the six files in USG_1.zip. For the current v0.3.2 corrections, refreshed tests and requirement status, read [USG_REAUDIT_REPORT.md](USG_REAUDIT_REPORT.md) and [USG_REQUIREMENT_AUDIT.md](USG_REQUIREMENT_AUDIT.md).
 
 The user requested a rollback of all earlier September 15 work, including the approved Sample 7 revision. Commit 37e95e8 implements that rollback and restores the September 13 source tree. The current changes are a new, USG-only implementation on that restored baseline. The CAD/MAAS extractor, its dependencies and the Sample 7 revision are excluded. Original Sample 7 remains unchanged and is used only as an existing regression fixture.
 

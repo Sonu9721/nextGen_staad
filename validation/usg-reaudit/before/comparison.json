@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-15T07:57:25.394767+00:00",
+  "generated_at": "2026-09-15T07:52:01.664427+00:00",
   "models": {
     "USG_1": {
-      "solver_version": "0.3.2",
+      "solver_version": "0.3.1",
       "source_sha256": "8bbc7adafd234fbef831b27ae5cedd8bc898832f93e1997826369b20a5b9de94",
       "nodes": 40,
       "members": 57,
@@ -92,7 +92,7 @@
             }
           ]
         },
-        "solve_seconds": 0.543741499999669,
+        "solve_seconds": 0.4900767999997697,
         "element_theory": "Timoshenko (Euler-Bernoulli when shear areas are absent)",
         "shear_area_rule": "Explicit AY/AZ; otherwise Cowper rectangular coefficient times AX when YD and ZD are supplied; no shear when neither is supplied."
       },
@@ -129,8 +129,8 @@
             "candidate_station_m": 0.92011,
             "station_difference_m": 0.1051116808,
             "candidate_at_reference_point": 3.5392983061039223,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 3.3061039221848887e-06
+            "reference_point_absolute_difference": 3.3061039221848887e-06,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.bending_moment.minor.max",
@@ -161,8 +161,8 @@
             "candidate_station_m": 0.6,
             "station_difference_m": 1.1492000000501434e-06,
             "candidate_at_reference_point": 0.11172952947598304,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 4.705240169572411e-07
+            "reference_point_absolute_difference": 4.705240169572411e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.bending_moment.minor.at_major_governing_point",
@@ -193,8 +193,8 @@
             "candidate_station_m": 0.92011,
             "station_difference_m": 0.1051116808,
             "candidate_at_reference_point": 1.8071583520353993e-16,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 1.8071583520353993e-16
+            "reference_point_absolute_difference": 1.8071583520353993e-16,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.shear_force.major",
@@ -228,8 +228,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 3.7964788113736465,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 2.811373646327553e-06
+            "reference_point_absolute_difference": 2.811373646327553e-06,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.shear_force.minor.max_on_mullions",
@@ -261,8 +261,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.005674796952692642,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 2.030473073583866e-07
+            "reference_point_absolute_difference": 2.030473073583866e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.shear_force.minor.at_major_governing_point",
@@ -292,8 +292,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 6.460340278897709e-07,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 3.539659721102291e-07
+            "reference_point_absolute_difference": 3.539659721102291e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.axial_force",
@@ -325,8 +325,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.332851201576054,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 2.015760540707845e-07
+            "reference_point_absolute_difference": 2.015760540707845e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.displacement",
@@ -359,8 +359,8 @@
             "candidate_station_m": 0.815,
             "station_difference_m": 1.6807999999590706e-06,
             "candidate_at_reference_point": 32.030120863886296,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 0.042304863886297284
+            "reference_point_absolute_difference": 0.042304863886297284,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.bending_moment.major",
@@ -393,8 +393,8 @@
             "candidate_station_m": 0.92011,
             "station_difference_m": 0.1051116808,
             "candidate_at_reference_point": 3.5392983061039223,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 3.3061039221848887e-06
+            "reference_point_absolute_difference": 3.3061039221848887e-06,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.bending_moment.minor.max",
@@ -425,8 +425,8 @@
             "candidate_station_m": 0.0,
             "station_difference_m": 0.0,
             "candidate_at_reference_point": 0.006738593176207572,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 4.0682379242804045e-07
+            "reference_point_absolute_difference": 4.0682379242804045e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.bending_moment.minor.at_major_governing_point",
@@ -457,8 +457,8 @@
             "candidate_station_m": 0.92011,
             "station_difference_m": 0.1051116808,
             "candidate_at_reference_point": 1.8071583520353993e-16,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 1.8071583520353993e-16
+            "reference_point_absolute_difference": 1.8071583520353993e-16,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.shear_force.major",
@@ -492,8 +492,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 3.7964788113736465,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 2.811373646327553e-06
+            "reference_point_absolute_difference": 2.811373646327553e-06,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.shear_force.minor.max_on_mullions",
@@ -525,8 +525,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.005674796952692642,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 2.030473073583866e-07
+            "reference_point_absolute_difference": 2.030473073583866e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.shear_force.minor.at_major_governing_point",
@@ -556,8 +556,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 6.460340278897709e-07,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 3.539659721102291e-07
+            "reference_point_absolute_difference": 3.539659721102291e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.axial_force",
@@ -589,8 +589,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.332851201576054,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 2.015760540707845e-07
+            "reference_point_absolute_difference": 2.015760540707845e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.displacement",
@@ -623,8 +623,8 @@
             "candidate_station_m": 0.815,
             "station_difference_m": 1.6807999999590706e-06,
             "candidate_at_reference_point": 32.030120863886296,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 0.042304863886297284
+            "reference_point_absolute_difference": 0.042304863886297284,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.stack.bending_moment.major",
@@ -662,8 +662,8 @@
             "candidate_station_m": 0.6,
             "station_difference_m": 1.3523999999875969e-06,
             "candidate_at_reference_point": 0.17279999999868326,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 1.3167522627810513e-12
+            "reference_point_absolute_difference": 1.3167522627810513e-12,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.stack.shear_force.major",
@@ -702,8 +702,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.4320000000000002,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 2.220446049250313e-16
+            "reference_point_absolute_difference": 2.220446049250313e-16,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.stack.displacement",
@@ -736,8 +736,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.509179176381137,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 7.182361886304278e-05
+            "reference_point_absolute_difference": 7.182361886304278e-05,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.head.bending_moment.major",
@@ -775,8 +775,8 @@
             "candidate_station_m": 0.6,
             "station_difference_m": 1.1492000000501434e-06,
             "candidate_at_reference_point": 0.08639999999952466,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 4.753419879932608e-13
+            "reference_point_absolute_difference": 4.753419879932608e-13,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.head.shear_force.major",
@@ -819,8 +819,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.21599999999999997,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 2.7755575615628914e-17
+            "reference_point_absolute_difference": 2.7755575615628914e-17,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.head.displacement",
@@ -848,8 +848,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.9820886659115065,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 0.00010333408849350079
+            "reference_point_absolute_difference": 0.00010333408849350079,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.sill.bending_moment.major",
@@ -887,8 +887,8 @@
             "candidate_station_m": 0.0,
             "station_difference_m": -1.1999976762,
             "candidate_at_reference_point": 0.0647556689875793,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 0.00010033101242069853
+            "reference_point_absolute_difference": 0.00010033101242069853,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.sill.shear_force.major",
@@ -931,8 +931,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.2699635802741227,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 8.34197258772762e-05
+            "reference_point_absolute_difference": 8.34197258772762e-05,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.sill.displacement",
@@ -970,8 +970,8 @@
             "candidate_station_m": 0.7,
             "station_difference_m": 0.2000009746,
             "candidate_at_reference_point": 0.39902967998943145,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 0.0036826799894314477
+            "reference_point_absolute_difference": 0.0036826799894314477,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.transom.bending_moment.major",
@@ -1004,8 +1004,8 @@
             "candidate_station_m": 0.6,
             "station_difference_m": 1.3523999999875969e-06,
             "candidate_at_reference_point": 0.172799999998684,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 1.3160028622394293e-12
+            "reference_point_absolute_difference": 1.3160028622394293e-12,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.transom.shear_force.major",
@@ -1044,8 +1044,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.43200000000000144,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 1.4432899320127035e-15
+            "reference_point_absolute_difference": 1.4432899320127035e-15,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.transom.displacement",
@@ -1078,8 +1078,8 @@
             "candidate_station_m": 0.6,
             "station_difference_m": 1.1492000000501434e-06,
             "candidate_at_reference_point": 0.3981786110229564,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 0.00173861102295636
+            "reference_point_absolute_difference": 0.00173861102295636,
+            "reference_point_status": "pass"
           }
         ],
         "counts": {
@@ -1122,8 +1122,8 @@
             "candidate_station_m": 0.92011,
             "station_difference_m": 0.1051116808,
             "candidate_at_reference_point": 3.5392983061039223,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 3.3061039221848887e-06,
+            "reference_point_status": "pass",
             "before": 3.547253
           },
           {
@@ -1155,8 +1155,8 @@
             "candidate_station_m": 0.6,
             "station_difference_m": 1.1492000000501434e-06,
             "candidate_at_reference_point": 0.11172952947598304,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 4.705240169572411e-07,
+            "reference_point_status": "pass",
             "before": 0.11173
           },
           {
@@ -1188,8 +1188,8 @@
             "candidate_station_m": 0.92011,
             "station_difference_m": 0.1051116808,
             "candidate_at_reference_point": 1.8071583520353993e-16,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 1.8071583520353993e-16,
+            "reference_point_status": "pass",
             "before": 0.0
           },
           {
@@ -1224,8 +1224,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 3.7964788113736465,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 2.811373646327553e-06,
+            "reference_point_status": "pass",
             "before": 3.796479
           },
           {
@@ -1258,8 +1258,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.005674796952692642,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 2.030473073583866e-07,
+            "reference_point_status": "pass",
             "before": 0.005675
           },
           {
@@ -1290,8 +1290,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 6.460340278897709e-07,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 3.539659721102291e-07,
+            "reference_point_status": "pass",
             "before": 1e-06
           },
           {
@@ -1324,8 +1324,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.332851201576054,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 2.015760540707845e-07,
+            "reference_point_status": "pass",
             "before": 2.332851
           },
           {
@@ -1359,8 +1359,8 @@
             "candidate_station_m": 0.815,
             "station_difference_m": 1.6807999999590706e-06,
             "candidate_at_reference_point": 32.030120863886296,
-            "reference_point_status": "difference",
             "reference_point_absolute_difference": 0.042304863886297284,
+            "reference_point_status": "difference",
             "before": 32.030124
           },
           {
@@ -1394,8 +1394,8 @@
             "candidate_station_m": 0.92011,
             "station_difference_m": 0.1051116808,
             "candidate_at_reference_point": 3.5392983061039223,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 3.3061039221848887e-06,
+            "reference_point_status": "pass",
             "before": 3.547253
           },
           {
@@ -1427,8 +1427,8 @@
             "candidate_station_m": 0.0,
             "station_difference_m": 0.0,
             "candidate_at_reference_point": 0.006738593176207572,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 4.0682379242804045e-07,
+            "reference_point_status": "pass",
             "before": 0.006739
           },
           {
@@ -1460,8 +1460,8 @@
             "candidate_station_m": 0.92011,
             "station_difference_m": 0.1051116808,
             "candidate_at_reference_point": 1.8071583520353993e-16,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 1.8071583520353993e-16,
+            "reference_point_status": "pass",
             "before": 0.0
           },
           {
@@ -1496,8 +1496,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 3.7964788113736465,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 2.811373646327553e-06,
+            "reference_point_status": "pass",
             "before": 3.796479
           },
           {
@@ -1530,8 +1530,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.005674796952692642,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 2.030473073583866e-07,
+            "reference_point_status": "pass",
             "before": 0.005675
           },
           {
@@ -1562,8 +1562,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 6.460340278897709e-07,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 3.539659721102291e-07,
+            "reference_point_status": "pass",
             "before": 1e-06
           },
           {
@@ -1596,8 +1596,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.332851201576054,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 2.015760540707845e-07,
+            "reference_point_status": "pass",
             "before": 2.332851
           },
           {
@@ -1631,8 +1631,8 @@
             "candidate_station_m": 0.815,
             "station_difference_m": 1.6807999999590706e-06,
             "candidate_at_reference_point": 32.030120863886296,
-            "reference_point_status": "difference",
             "reference_point_absolute_difference": 0.042304863886297284,
+            "reference_point_status": "difference",
             "before": 32.030124
           },
           {
@@ -1671,8 +1671,8 @@
             "candidate_station_m": 0.6,
             "station_difference_m": 1.3523999999875969e-06,
             "candidate_at_reference_point": 0.17279999999868326,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 1.3167522627810513e-12,
+            "reference_point_status": "pass",
             "before": 0.1728
           },
           {
@@ -1712,8 +1712,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.4320000000000002,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 2.220446049250313e-16,
+            "reference_point_status": "pass",
             "before": 0.432
           },
           {
@@ -1747,8 +1747,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.509179176381137,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 7.182361886304278e-05,
+            "reference_point_status": "pass",
             "before": 2.509179
           },
           {
@@ -1787,8 +1787,8 @@
             "candidate_station_m": 0.6,
             "station_difference_m": 1.1492000000501434e-06,
             "candidate_at_reference_point": 0.08639999999952466,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 4.753419879932608e-13,
+            "reference_point_status": "pass",
             "before": 0.0864
           },
           {
@@ -1832,8 +1832,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.21599999999999997,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 2.7755575615628914e-17,
+            "reference_point_status": "pass",
             "before": 0.216
           },
           {
@@ -1862,8 +1862,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.9820886659115065,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 0.00010333408849350079,
+            "reference_point_status": "pass",
             "before": 2.982089
           },
           {
@@ -1902,8 +1902,8 @@
             "candidate_station_m": 0.0,
             "station_difference_m": -1.1999976762,
             "candidate_at_reference_point": 0.0647556689875793,
-            "reference_point_status": "difference",
             "reference_point_absolute_difference": 0.00010033101242069853,
+            "reference_point_status": "difference",
             "before": 0.064756
           },
           {
@@ -1947,8 +1947,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.2699635802741227,
-            "reference_point_status": "difference",
             "reference_point_absolute_difference": 8.34197258772762e-05,
+            "reference_point_status": "difference",
             "before": 0.269964
           },
           {
@@ -1987,8 +1987,8 @@
             "candidate_station_m": 0.7,
             "station_difference_m": 0.2000009746,
             "candidate_at_reference_point": 0.39902967998943145,
-            "reference_point_status": "difference",
             "reference_point_absolute_difference": 0.0036826799894314477,
+            "reference_point_status": "difference",
             "before": 0.39903
           },
           {
@@ -2022,8 +2022,8 @@
             "candidate_station_m": 0.6,
             "station_difference_m": 1.3523999999875969e-06,
             "candidate_at_reference_point": 0.172799999998684,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 1.3160028622394293e-12,
+            "reference_point_status": "pass",
             "before": 0.1728
           },
           {
@@ -2063,8 +2063,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.43200000000000144,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 1.4432899320127035e-15,
+            "reference_point_status": "pass",
             "before": 0.432
           },
           {
@@ -2098,8 +2098,8 @@
             "candidate_station_m": 0.6,
             "station_difference_m": 1.1492000000501434e-06,
             "candidate_at_reference_point": 0.3981786110229564,
-            "reference_point_status": "difference",
             "reference_point_absolute_difference": 0.00173861102295636,
+            "reference_point_status": "difference",
             "before": 0.398179
           }
         ],
@@ -2120,48 +2120,10 @@
         "top_m": 14.4,
         "assumption": "Global Y vertical; one assembly; stack horizontals coincide with released axial splice ends. Supply profile_member_ids for other role conventions.",
         "unclassified_members": []
-      },
-      "timings_seconds": {
-        "parse_and_validate": 0.010642299999744864,
-        "assembly_solve_and_recovery": 0.5439505000003919,
-        "profile_and_physical_envelopes": 11.49755069999992,
-        "total_analysis": 12.052143500000057,
-        "solver_progress_boundaries": [
-          {
-            "percent": 30,
-            "message": "Assembling frame stiffness and member releases.",
-            "elapsed_seconds": 0.003993999999693187
-          },
-          {
-            "percent": 40,
-            "message": "Generating member loads and panel tributaries.",
-            "elapsed_seconds": 0.036973000000216416
-          },
-          {
-            "percent": 50,
-            "message": "Solving primary load cases with a shared stiffness matrix.",
-            "elapsed_seconds": 0.20044620000044233
-          },
-          {
-            "percent": 60,
-            "message": "Recovering forces and displacements for load case 1.",
-            "elapsed_seconds": 0.2945619000001898
-          },
-          {
-            "percent": 67,
-            "message": "Recovering forces and displacements for load case 2.",
-            "elapsed_seconds": 0.315917900000386
-          },
-          {
-            "percent": 78,
-            "message": "Structural solution complete; building result envelopes.",
-            "elapsed_seconds": 0.5437509000003047
-          }
-        ]
       }
     },
     "USG_2": {
-      "solver_version": "0.3.2",
+      "solver_version": "0.3.1",
       "source_sha256": "29ffe31913604c49dceb74eb132bae3f6eb9e079f7e2241e5e245f7ca752f1e2",
       "nodes": 44,
       "members": 64,
@@ -2251,7 +2213,7 @@
             }
           ]
         },
-        "solve_seconds": 0.6081047999996372,
+        "solve_seconds": 0.5893470000000889,
         "element_theory": "Timoshenko (Euler-Bernoulli when shear areas are absent)",
         "shear_area_rule": "Explicit AY/AZ; otherwise Cowper rectangular coefficient times AX when YD and ZD are supplied; no shear when neither is supplied."
       },
@@ -2288,8 +2250,8 @@
             "candidate_station_m": 1.620038,
             "station_difference_m": 0.03670768940000024,
             "candidate_at_reference_point": 10.04238784984744,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 3.849847439951759e-06
+            "reference_point_absolute_difference": 3.849847439951759e-06,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.bending_moment.minor.max",
@@ -2320,8 +2282,8 @@
             "candidate_station_m": 0.65,
             "station_difference_m": 1.3000000000928935e-06,
             "candidate_at_reference_point": 0.13477047717247972,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 5.228275202773247e-07
+            "reference_point_absolute_difference": 5.228275202773247e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.bending_moment.minor.at_major_governing_point",
@@ -2352,8 +2314,8 @@
             "candidate_station_m": 1.620038,
             "station_difference_m": 0.03670768940000024,
             "candidate_at_reference_point": 5.143340008227053e-16,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 5.143340008227053e-16
+            "reference_point_absolute_difference": 5.143340008227053e-16,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.shear_force.major",
@@ -2387,8 +2349,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 7.862669775296702,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 2.247032977464869e-07
+            "reference_point_absolute_difference": 2.247032977464869e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.shear_force.minor.max_on_mullions",
@@ -2420,8 +2382,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.020404475970286846,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 4.759702868471771e-07
+            "reference_point_absolute_difference": 4.759702868471771e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.shear_force.minor.at_major_governing_point",
@@ -2451,8 +2413,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.1138290743386876e-06,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 1.138290743386877e-07
+            "reference_point_absolute_difference": 1.138290743386877e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.axial_force",
@@ -2484,8 +2446,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.5584352165840003,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 2.1658400051194349e-07
+            "reference_point_absolute_difference": 2.1658400051194349e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.displacement",
@@ -2518,8 +2480,8 @@
             "candidate_station_m": 1.583333,
             "station_difference_m": 2.6386000000488963e-06,
             "candidate_at_reference_point": 166.009147288429,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 0.1445542884289921
+            "reference_point_absolute_difference": 0.1445542884289921,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.bending_moment.major",
@@ -2552,8 +2514,8 @@
             "candidate_station_m": 1.620038,
             "station_difference_m": 0.03670768940000024,
             "candidate_at_reference_point": 10.04238784984744,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 3.849847439951759e-06
+            "reference_point_absolute_difference": 3.849847439951759e-06,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.bending_moment.minor.max",
@@ -2584,8 +2546,8 @@
             "candidate_station_m": 0.0,
             "station_difference_m": 0.0,
             "candidate_at_reference_point": 0.024225435207588894,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 4.352075888940099e-07
+            "reference_point_absolute_difference": 4.352075888940099e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.bending_moment.minor.at_major_governing_point",
@@ -2616,8 +2578,8 @@
             "candidate_station_m": 1.620038,
             "station_difference_m": 0.03670768940000024,
             "candidate_at_reference_point": 5.143340008227053e-16,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 5.143340008227053e-16
+            "reference_point_absolute_difference": 5.143340008227053e-16,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.shear_force.major",
@@ -2651,8 +2613,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 7.862669775296702,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 2.247032977464869e-07
+            "reference_point_absolute_difference": 2.247032977464869e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.shear_force.minor.max_on_mullions",
@@ -2684,8 +2646,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.020404475970286846,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 4.759702868471771e-07
+            "reference_point_absolute_difference": 4.759702868471771e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.shear_force.minor.at_major_governing_point",
@@ -2715,8 +2677,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.1138290743386876e-06,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 1.138290743386877e-07
+            "reference_point_absolute_difference": 1.138290743386877e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.axial_force",
@@ -2748,8 +2710,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.5584352165840003,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 2.1658400051194349e-07
+            "reference_point_absolute_difference": 2.1658400051194349e-07,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.mullion.displacement",
@@ -2782,8 +2744,8 @@
             "candidate_station_m": 1.583333,
             "station_difference_m": 2.6386000000488963e-06,
             "candidate_at_reference_point": 166.009147288429,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 0.1445542884289921
+            "reference_point_absolute_difference": 0.1445542884289921,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.stack.bending_moment.major",
@@ -2821,8 +2783,8 @@
             "candidate_station_m": 0.65,
             "station_difference_m": 1.3000000000928935e-06,
             "candidate_at_reference_point": 0.3295499999980227,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 1.977307206857404e-12
+            "reference_point_absolute_difference": 1.977307206857404e-12,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.stack.shear_force.major",
@@ -2865,8 +2827,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.7605,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 0.0
+            "reference_point_absolute_difference": 0.0,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.stack.displacement",
@@ -2894,8 +2856,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 4.905086081841795,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 0.00017791815820444867
+            "reference_point_absolute_difference": 0.00017791815820444867,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.head.bending_moment.major",
@@ -2933,8 +2895,8 @@
             "candidate_station_m": 0.65,
             "station_difference_m": 1.3000000000928935e-06,
             "candidate_at_reference_point": 0.15262499999923954,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 7.604750162926166e-13
+            "reference_point_absolute_difference": 7.604750162926166e-13,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.head.shear_force.major",
@@ -2977,8 +2939,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.36000000000000004,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 5.551115123125783e-17
+            "reference_point_absolute_difference": 5.551115123125783e-17,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.head.displacement",
@@ -3011,8 +2973,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 12.253554290843494,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 0.00016070915650523432
+            "reference_point_absolute_difference": 0.00016070915650523432,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.sill.bending_moment.major",
@@ -3045,8 +3007,8 @@
             "candidate_station_m": 1.3,
             "station_difference_m": 2.600000000185787e-06,
             "candidate_at_reference_point": 0.1230477142643781,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 0.0001912857356218961
+            "reference_point_absolute_difference": 0.0001912857356218961,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.sill.shear_force.major",
@@ -3080,8 +3042,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.4749030377017509,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 0.00014596229824909157
+            "reference_point_absolute_difference": 0.00014596229824909157,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.sill.displacement",
@@ -3119,8 +3081,8 @@
             "candidate_station_m": 0.758333,
             "station_difference_m": 0.21666740819999997,
             "candidate_at_reference_point": 0.2665248025980313,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 0.0052028025980312975
+            "reference_point_absolute_difference": 0.0052028025980312975,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.transom.bending_moment.major",
@@ -3158,8 +3120,8 @@
             "candidate_station_m": 0.65,
             "station_difference_m": 1.3000000000928935e-06,
             "candidate_at_reference_point": 0.3295499999980189,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 1.9810819651411293e-12
+            "reference_point_absolute_difference": 1.9810819651411293e-12,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.transom.shear_force.major",
@@ -3202,8 +3164,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.7604999999999941,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 5.88418203051333e-15
+            "reference_point_absolute_difference": 5.88418203051333e-15,
+            "reference_point_status": "pass"
           },
           {
             "metric": "properties.transom.displacement",
@@ -3236,8 +3198,8 @@
             "candidate_station_m": 0.65,
             "station_difference_m": 1.3000000000928935e-06,
             "candidate_at_reference_point": 0.5365812430200521,
-            "reference_point_status": "pass",
-            "reference_point_absolute_difference": 0.002342243020052037
+            "reference_point_absolute_difference": 0.002342243020052037,
+            "reference_point_status": "pass"
           }
         ],
         "counts": {
@@ -3280,8 +3242,8 @@
             "candidate_station_m": 1.620038,
             "station_difference_m": 0.03670768940000024,
             "candidate_at_reference_point": 10.04238784984744,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 3.849847439951759e-06,
+            "reference_point_status": "pass",
             "before": 10.043964
           },
           {
@@ -3313,8 +3275,8 @@
             "candidate_station_m": 0.65,
             "station_difference_m": 1.3000000000928935e-06,
             "candidate_at_reference_point": 0.13477047717247972,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 5.228275202773247e-07,
+            "reference_point_status": "pass",
             "before": 0.13477
           },
           {
@@ -3346,8 +3308,8 @@
             "candidate_station_m": 1.620038,
             "station_difference_m": 0.03670768940000024,
             "candidate_at_reference_point": 5.143340008227053e-16,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 5.143340008227053e-16,
+            "reference_point_status": "pass",
             "before": 0.0
           },
           {
@@ -3382,8 +3344,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 7.862669775296702,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 2.247032977464869e-07,
+            "reference_point_status": "pass",
             "before": 7.86267
           },
           {
@@ -3416,8 +3378,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.020404475970286846,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 4.759702868471771e-07,
+            "reference_point_status": "pass",
             "before": 0.020404
           },
           {
@@ -3448,8 +3410,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.1138290743386876e-06,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 1.138290743386877e-07,
+            "reference_point_status": "pass",
             "before": 2e-06
           },
           {
@@ -3482,8 +3444,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.5584352165840003,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 2.1658400051194349e-07,
+            "reference_point_status": "pass",
             "before": 2.558435
           },
           {
@@ -3517,8 +3479,8 @@
             "candidate_station_m": 1.583333,
             "station_difference_m": 2.6386000000488963e-06,
             "candidate_at_reference_point": 166.009147288429,
-            "reference_point_status": "difference",
             "reference_point_absolute_difference": 0.1445542884289921,
+            "reference_point_status": "difference",
             "before": 166.009154
           },
           {
@@ -3552,8 +3514,8 @@
             "candidate_station_m": 1.620038,
             "station_difference_m": 0.03670768940000024,
             "candidate_at_reference_point": 10.04238784984744,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 3.849847439951759e-06,
+            "reference_point_status": "pass",
             "before": 10.043964
           },
           {
@@ -3585,8 +3547,8 @@
             "candidate_station_m": 0.0,
             "station_difference_m": 0.0,
             "candidate_at_reference_point": 0.024225435207588894,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 4.352075888940099e-07,
+            "reference_point_status": "pass",
             "before": 0.024225
           },
           {
@@ -3618,8 +3580,8 @@
             "candidate_station_m": 1.620038,
             "station_difference_m": 0.03670768940000024,
             "candidate_at_reference_point": 5.143340008227053e-16,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 5.143340008227053e-16,
+            "reference_point_status": "pass",
             "before": 0.0
           },
           {
@@ -3654,8 +3616,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 7.862669775296702,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 2.247032977464869e-07,
+            "reference_point_status": "pass",
             "before": 7.86267
           },
           {
@@ -3688,8 +3650,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.020404475970286846,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 4.759702868471771e-07,
+            "reference_point_status": "pass",
             "before": 0.020404
           },
           {
@@ -3720,8 +3682,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.1138290743386876e-06,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 1.138290743386877e-07,
+            "reference_point_status": "pass",
             "before": 2e-06
           },
           {
@@ -3754,8 +3716,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 2.5584352165840003,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 2.1658400051194349e-07,
+            "reference_point_status": "pass",
             "before": 2.558435
           },
           {
@@ -3789,8 +3751,8 @@
             "candidate_station_m": 1.583333,
             "station_difference_m": 2.6386000000488963e-06,
             "candidate_at_reference_point": 166.009147288429,
-            "reference_point_status": "difference",
             "reference_point_absolute_difference": 0.1445542884289921,
+            "reference_point_status": "difference",
             "before": 166.009154
           },
           {
@@ -3829,8 +3791,8 @@
             "candidate_station_m": 0.65,
             "station_difference_m": 1.3000000000928935e-06,
             "candidate_at_reference_point": 0.3295499999980227,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 1.977307206857404e-12,
+            "reference_point_status": "pass",
             "before": 0.32955
           },
           {
@@ -3874,8 +3836,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.7605,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 0.0,
+            "reference_point_status": "pass",
             "before": 0.7605
           },
           {
@@ -3904,8 +3866,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 4.905086081841795,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 0.00017791815820444867,
+            "reference_point_status": "pass",
             "before": 4.905086
           },
           {
@@ -3944,8 +3906,8 @@
             "candidate_station_m": 0.65,
             "station_difference_m": 1.3000000000928935e-06,
             "candidate_at_reference_point": 0.15262499999923954,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 7.604750162926166e-13,
+            "reference_point_status": "pass",
             "before": 0.152625
           },
           {
@@ -3989,8 +3951,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.36000000000000004,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 5.551115123125783e-17,
+            "reference_point_status": "pass",
             "before": 0.36
           },
           {
@@ -4024,8 +3986,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 12.253554290843494,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 0.00016070915650523432,
+            "reference_point_status": "pass",
             "before": 12.253554
           },
           {
@@ -4059,8 +4021,8 @@
             "candidate_station_m": 1.3,
             "station_difference_m": 2.600000000185787e-06,
             "candidate_at_reference_point": 0.1230477142643781,
-            "reference_point_status": "difference",
             "reference_point_absolute_difference": 0.0001912857356218961,
+            "reference_point_status": "difference",
             "before": 0.123049
           },
           {
@@ -4095,8 +4057,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.4749030377017509,
-            "reference_point_status": "difference",
             "reference_point_absolute_difference": 0.00014596229824909157,
+            "reference_point_status": "difference",
             "before": 0.474903
           },
           {
@@ -4135,8 +4097,8 @@
             "candidate_station_m": 0.758333,
             "station_difference_m": 0.21666740819999997,
             "candidate_at_reference_point": 0.2665248025980313,
-            "reference_point_status": "difference",
             "reference_point_absolute_difference": 0.0052028025980312975,
+            "reference_point_status": "difference",
             "before": 0.266525
           },
           {
@@ -4175,8 +4137,8 @@
             "candidate_station_m": 0.65,
             "station_difference_m": 1.3000000000928935e-06,
             "candidate_at_reference_point": 0.3295499999980189,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 1.9810819651411293e-12,
+            "reference_point_status": "pass",
             "before": 0.32955
           },
           {
@@ -4220,8 +4182,8 @@
             "reference_station_m": null,
             "candidate_station_m": null,
             "candidate_at_reference_point": 0.7604999999999941,
-            "reference_point_status": "pass",
             "reference_point_absolute_difference": 5.88418203051333e-15,
+            "reference_point_status": "pass",
             "before": 0.7605
           },
           {
@@ -4255,8 +4217,8 @@
             "candidate_station_m": 0.65,
             "station_difference_m": 1.3000000000928935e-06,
             "candidate_at_reference_point": 0.5365812430200521,
-            "reference_point_status": "difference",
             "reference_point_absolute_difference": 0.002342243020052037,
+            "reference_point_status": "difference",
             "before": 0.536581
           }
         ],
@@ -4277,44 +4239,6 @@
         "top_m": 15.8,
         "assumption": "Global Y vertical; one assembly; stack horizontals coincide with released axial splice ends. Supply profile_member_ids for other role conventions.",
         "unclassified_members": []
-      },
-      "timings_seconds": {
-        "parse_and_validate": 0.005941200000052049,
-        "assembly_solve_and_recovery": 0.6122887000001356,
-        "profile_and_physical_envelopes": 13.571102699999756,
-        "total_analysis": 14.189332599999943,
-        "solver_progress_boundaries": [
-          {
-            "percent": 30,
-            "message": "Assembling frame stiffness and member releases.",
-            "elapsed_seconds": 0.0031553999997413484
-          },
-          {
-            "percent": 40,
-            "message": "Generating member loads and panel tributaries.",
-            "elapsed_seconds": 0.03534430000036082
-          },
-          {
-            "percent": 50,
-            "message": "Solving primary load cases with a shared stiffness matrix.",
-            "elapsed_seconds": 0.21938180000051943
-          },
-          {
-            "percent": 60,
-            "message": "Recovering forces and displacements for load case 1.",
-            "elapsed_seconds": 0.3519863000001351
-          },
-          {
-            "percent": 67,
-            "message": "Recovering forces and displacements for load case 2.",
-            "elapsed_seconds": 0.3692335000005187
-          },
-          {
-            "percent": 78,
-            "message": "Structural solution complete; building result envelopes.",
-            "elapsed_seconds": 0.6081160000003365
-          }
-        ]
       }
     }
   }

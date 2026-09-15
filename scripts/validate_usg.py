@@ -3,6 +3,7 @@
 import hashlib
 import json
 import sys
+import time
 from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -48,9 +49,24 @@ def main():
                 ROOT / "validation/usg-baseline" / (path.stem + "-actual.json")
             ).read_text()
         )
+        started = time.perf_counter()
         model = parse_std(path)
-        result = solve(model)
+        parsed_at = time.perf_counter()
+        stages = []
+
+        def progress(percent, message, stages=stages, parsed_at=parsed_at):
+            stages.append(
+                {
+                    "percent": percent,
+                    "message": message,
+                    "elapsed_seconds": time.perf_counter() - parsed_at,
+                }
+            )
+
+        result = solve(model, progress=progress)
+        solved_at = time.perf_counter()
         actual = build_payload(result, make_config(path, "fully_unitized"))
+        enveloped_at = time.perf_counter()
         strict = compare(
             reference,
             actual,
@@ -145,6 +161,13 @@ def main():
             "standard": standard,
             "strict": strict,
             "classification": actual["analysis"]["profile_classification"],
+            "timings_seconds": {
+                "parse_and_validate": parsed_at - started,
+                "assembly_solve_and_recovery": solved_at - parsed_at,
+                "profile_and_physical_envelopes": enveloped_at - solved_at,
+                "total_analysis": enveloped_at - started,
+                "solver_progress_boundaries": stages,
+            },
         }
         (target / (path.stem + "-actual.json")).write_text(
             json.dumps(actual, indent=2, allow_nan=False)

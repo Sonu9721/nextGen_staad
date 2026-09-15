@@ -14,7 +14,14 @@ ROOT = Path(__file__).parents[1]
 
 
 def custom_unitized(
-    widths, panels, *, stiffness=1.0, individual_pris=False, stack_gap=0.14
+    widths,
+    panels,
+    *,
+    stiffness=1.0,
+    individual_pris=False,
+    stack_gap=0.14,
+    node_base=101,
+    member_base=301,
 ):
     """Independent test generator; no application topology is assumed in production."""
     xs = np.cumsum([0.0, *widths])
@@ -29,7 +36,7 @@ def custom_unitized(
         levels.append(levels[-1] + stack_gap)
 
     def node(c, r):
-        return 101 + c * len(levels) + r
+        return node_base + c * len(levels) + r
 
     nodes = [
         f"{node(c, r)} {x} {y} 0"
@@ -42,7 +49,7 @@ def custom_unitized(
     stacks = [levels[i + 1] for i in supports[:-1]]
     for c in range(len(xs)):
         for r in range(len(levels) - 1):
-            mid = 301 + len(members)
+            mid = member_base + len(members)
             members.append(f"{mid} {node(c, r)} {node(c, r + 1)}")
             roles["mullion"].append(mid)
             if levels[r] in stacks:
@@ -61,7 +68,7 @@ def custom_unitized(
             else "transom"
         )
         for c, w in enumerate(widths):
-            mid = 301 + len(members)
+            mid = member_base + len(members)
             members.append(f"{mid} {node(c, r)} {node(c + 1, r)}")
             roles[role].append(mid)
             if role != "sill":

@@ -196,6 +196,8 @@ def main():
                 )
                 if name == "sample4":
                     repeat_source, repeat_expected = content, data
+                if name == "usg1":
+                    unitized_source, unitized_expected = content, data
                 passed(
                     f"{name}: upload, progress, numerical analysis, geometry and result export"
                 )
@@ -208,6 +210,23 @@ def main():
             passed(
                 "Repeat analysis is deterministic; profile JSON and upload basename are handled"
             )
+            from engine.parser import parse_text
+            from engine.profiles import classify_unitized
+
+            mapping, _ = classify_unitized(parse_text(unitized_source.decode('utf-8')))
+            jid = submit(unitized_source, 'mapped.std', 'fully_unitized', json.dumps({'profile_member_ids': mapping}).encode())
+            wait(jid, 'succeeded')
+            mapped = client.get(f'/jobs/{jid}/result').json()['result']
+            assert mapped['analysis']['profile_classification']['method'] == 'explicit profile_member_ids'
+            for key in ['properties', 'profiles', 'physical_response']:
+                assert mapped[key] == unitized_expected[key], key
+            passed('USG explicit profile mapping preserves complete results through HTTP')
+            jid = submit(unitized_source, 'invalid-map.std', 'fully_unitized', b'{"profile_member_ids":{"mullion":[1]}}')
+            state = wait(jid, 'failed')
+            assert state['error']['error_code'] == 'INVALID_PROFILE_MAPPING'
+            assert state['attempts'] == 1 and not state['error']['retryable']
+            assert client.get(f'/jobs/{jid}/result').status_code == 500
+            passed('USG incomplete mapping fails explicitly without results or retries')
             for content, request, code in [
                 (
                     b"STAAD SPACE\nUNIT METER KN\nPDELTA ANALYSIS\nFINISH",

@@ -2,9 +2,11 @@
 
 Read the [complete implementation and industry user guide](docs/INDUSTRY_AND_USER_GUIDE.md), or download the [PDF manual](docs/Mini_STAAD_Implementation_and_Industry_Guide.pdf). It covers setup, a hand calculation tutorial, facade use cases, result interpretation, API integration, testing and adoption limits.
 
-Version 0.3.1 (USG-only update): standalone 3D frame analysis with concentrated member moments, continuous physical-response envelopes, the original job API, three extraction flows, seven original supplied models plus USG_1 and USG_2, a local model-review interface and quantitative reference reports. STAAD.Pro is optional.
+Version 0.3.2 (USG-only second audit): standalone 3D frame analysis with concentrated member moments, continuous physical-response envelopes, the original job API, three extraction flows, seven original supplied models plus USG_1 and USG_2, a local model-review interface and quantitative reference reports. STAAD.Pro is optional.
 
 **Validation build:** 156 of 164 evaluated reference values meet the unchanged tolerances, including all 40 from Sample 6. Eight entries from Samples 1–3 still differ. Sample 5 has no reference. Sample 7's 40 reference entries cannot be verified because its original model has a loaded vertical mechanism; it is attached unchanged with an actionable diagnostic. Read the [Sample 6/7 report](docs/SAMPLE_6_7_VALIDATION.md) and [validation results](docs/VALIDATION_RESULTS.md). This is not a certified STAAD replacement.
+
+The [second audit report](docs/USG_REAUDIT_REPORT.md) records three further fixes and the [complete 71-requirement matrix](docs/USG_REQUIREMENT_AUDIT.md). The available STD-to-result workflow is tested; the full production-generator and exact reference-equivalence requirements remain open.
 
 The [USG implementation and use guide](docs/USG_IMPLEMENTATION_REPORT.md) explains the new generic profile classification, all changes, setup and industry use. The [full before/after comparison](docs/USG_VALIDATION.md) includes every reference field and governing location. Both USG models pass 28/28 existing numerical checks; eight differences per model remain under the stricter investigation thresholds. The actual NextGen generator source is not supplied. Earlier September 15 changes, including CAD/MAAS and the Sample 7 revision, were reverted before this update.
 
@@ -36,7 +38,7 @@ Output: kN, mm, kN-m. In-house stations: metres. Analysis backend/version/valida
 
 ANALYSIS_BACKEND=inhouse is the default. For the legacy oracle, install requirements-openstaad.txt and set ANALYSIS_BACKEND=openstaad on a licensed Windows host. In-house mode does not launch, attach to or terminate Bentley processes. Deterministic analysis/input errors are not retried. Run one API process because jobs remain in memory.
 
-Automated verification: **258 tests passed, one licensed oracle test skipped; 16 HTTP workflow groups passed.** This covers analytical solutions, reference contracts, API workflows and rejection of unstable models. See the current [build verification](docs/BUILD_VERIFICATION.md) for test totals and HTTP evidence. The [v0.2 accuracy retest report](docs/ACCURACY_RETEST_REPORT.md) is retained as historical evidence.
+Automated verification: **279 tests passed, one licensed oracle test skipped; 18 HTTP workflow groups passed.** This covers analytical solutions, reference contracts, API workflows and rejection of unstable models. See the current [build verification](docs/BUILD_VERIFICATION.md) for test totals and HTTP evidence. The [v0.2 accuracy retest report](docs/ACCURACY_RETEST_REPORT.md) is retained as historical evidence.
 
 ## Verify
 

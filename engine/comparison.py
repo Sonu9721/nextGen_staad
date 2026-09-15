@@ -4,6 +4,29 @@ from dataclasses import dataclass
 
 import numpy as np
 
+from .units import ALIASES, LENGTH_M
+
+
+def station_in_metres(point, fallback_unit=None):
+    """Return unavailable for missing/malformed station metadata, never zero."""
+    station = point.get("station")
+    unit = point.get("station_unit") or fallback_unit
+    if station is None or isinstance(station, bool) or not isinstance(unit, str):
+        return None
+    unit = ALIASES.get(unit.upper(), unit.upper())
+    if unit not in LENGTH_M:
+        return None
+    try:
+        value = float(station) * LENGTH_M[unit]
+    except (TypeError, ValueError, OverflowError):
+        return None
+    return value if np.isfinite(value) else None
+
+
+def _metadata_value(value):
+    # Retain invalid metadata visibly as text, rather than emit invalid JSON NaN.
+    return str(value) if isinstance(value, float) and not np.isfinite(value) else value
+
 
 @dataclass(frozen=True)
 class Tolerances:
@@ -64,46 +87,43 @@ def reference_point_value(path, point, solver, source_length):
     )
     if location in {"start", "end"}:
         end = 0 if location == "start" else 1
-        index = ("FX", "FY", "FZ", "MX", "MY", "MZ").index(axis)
-        value = float(member.end_forces[6 * end + index] / 1000)
+        x = end * member.element.length
     else:
-        from .units import ALIASES, LENGTH_M
-
-        if point.get("station") is None:
-            return None
-        unit = str(point.get("station_unit") or source_length).upper()
-        unit = ALIASES.get(unit, unit)
-        if unit not in LENGTH_M:
-            return None
-        x = float(point["station"]) * LENGTH_M[unit]
-        if not np.isfinite(x):
+        x = station_in_metres(point, source_length)
+        if x is None:
             return None
         if x < -1e-8 or x > member.element.length + 1e-8:
             return None
         x = min(max(0, x), member.element.length)
-        if displacement:
-            value = float(
+    if displacement:
+        value = float(
+            np.linalg.norm(
+                member.translation(
+                    x, relative=path.startswith("casement."), legacy_section=True
+                )
+            )
+            * 1000
+        )
+        if "properties.transom." in path:
+            m = member.element.member
+            end_values = [
                 np.linalg.norm(
-                    member.translation(
-                        x, relative=path.startswith("casement."), legacy_section=True
-                    )
+                    case.displacement[
+                        6 * solver.node_indices[n] : 6 * solver.node_indices[n] + 3
+                    ]
                 )
                 * 1000
-            )
-            if "properties.transom." in path:
-                m = member.element.member
-                end_values = [
-                    np.linalg.norm(
-                        case.displacement[
-                            6 * solver.node_indices[n] : 6 * solver.node_indices[n] + 3
-                        ]
-                    )
-                    * 1000
-                    for n in (m.start, m.end)
-                ]
-                value -= min(end_values)
+                for n in (m.start, m.end)
+            ]
+            value -= min(end_values)
+    else:
+        force_axes = ("FX", "FY", "FZ", "MX", "MY", "MZ")
+        if axis not in force_axes:
+            return None
+        index = force_axes.index(axis)
+        if location in {"start", "end"}:
+            value = float(member.end_forces[6 * end + index] / 1000)
         else:
-            index = ("FX", "FY", "FZ", "MX", "MY", "MZ").index(axis)
             value = float(member.internal(x)[index] / 1000)
     return value if signed else abs(value)
 
@@ -140,7 +160,7 @@ def compare(reference, candidate, solver=None, tolerances=None):
                 tolerance=limit,
                 value_status="pass" if abs(difference) <= limit else "difference",
                 reference_location={
-                    k: v
+                    k: _metadata_value(v)
                     for k, v in expected.items()
                     if k
                     in {
@@ -159,7 +179,7 @@ def compare(reference, candidate, solver=None, tolerances=None):
                     }
                 },
                 candidate_location={
-                    k: v
+                    k: _metadata_value(v)
                     for k, v in got.items()
                     if k
                     in {
@@ -183,7 +203,10 @@ def compare(reference, candidate, solver=None, tolerances=None):
             row["location_status"] = "same_ids" if same else "different_ids"
             # Metadata equality and numerical equivalence are different checks.
             row["metadata_differences"] = {
-                key: {"reference": expected.get(key), "candidate": got.get(key)}
+                key: {
+                    "reference": _metadata_value(expected.get(key)),
+                    "candidate": _metadata_value(got.get(key)),
+                }
                 for key in (
                     "member_id",
                     "node_id",
@@ -197,20 +220,9 @@ def compare(reference, candidate, solver=None, tolerances=None):
                 )
                 if expected.get(key) != got.get(key)
             }
-            from .units import ALIASES, LENGTH_M
-
-            def station_m(point):
-                if point.get("station") is None or not point.get("station_unit"):
-                    return None  # Legacy endpoint stations may be end flags 0/1.
-                unit = point["station_unit"].upper()
-                unit = ALIASES.get(unit, unit)
-                return (
-                    float(point["station"]) * LENGTH_M[unit]
-                    if unit in LENGTH_M
-                    else None
-                )
-
-            reference_station, candidate_station = station_m(expected), station_m(got)
+            # No fallback here: unitless legacy endpoints may be flags 0/1.
+            reference_station = station_in_metres(expected)
+            candidate_station = station_in_metres(got)
             row["reference_station_m"] = reference_station
             row["candidate_station_m"] = candidate_station
             if reference_station is not None and candidate_station is not None:
@@ -218,6 +230,7 @@ def compare(reference, candidate, solver=None, tolerances=None):
             if solver is not None:
                 evaluated = reference_point_value(path, expected, solver, length)
                 row["candidate_at_reference_point"] = evaluated
+                row["reference_point_status"] = "unavailable"
                 if evaluated is not None:
                     row["reference_point_absolute_difference"] = abs(
                         evaluated - expected["value"]

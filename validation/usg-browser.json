@@ -1,44 +1,34 @@
 {
-  "version": "0.3.1",
+  "version": "0.3.2",
   "status": "pass",
   "examples": {
     "usg1": {
-      "completed_seconds": 13.87,
+      "completed_seconds": 13.23,
       "download_matches": [
         "properties",
         "profiles",
         "physical_response"
       ],
+      "download_sha256": "2b8d9423f6a27d8e750e1c562c385fb08a44ab07bd6997b77922de2728d65f0c",
       "nodes": 40,
       "members": 57,
-      "cases": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "supports": 16,
       "physical_displacement_mm": 32.18330684529381,
-      "legacy_displacement_mm": 32.030124,
-      "download_sha256": "d4a7046279bec62ccbfdf4d06941f2e3039b6dd16e2a4d3c5d9e3f8b9adcaaba"
+      "legacy_displacement_mm": 32.030124
     },
     "usg2": {
-      "completed_seconds": 15.24,
+      "completed_seconds": 14.99,
       "download_matches": [
         "properties",
         "profiles",
         "physical_response"
       ],
+      "download_sha256": "ad52746d96dfaceeccd3724f28dad0b98ebce162b60ccde6f9637ff424b8378d",
       "nodes": 44,
       "members": 64,
-      "cases": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "supports": 16,
       "physical_displacement_mm": 166.1689924704747,
-      "legacy_displacement_mm": 166.009154,
-      "download_sha256": "71fcd84ba5dc209c8c2cc59c4df81794c5df8ba78b1c34b4b1b7affa1a5ed381"
+      "legacy_displacement_mm": 166.009154
     }
   },
   "mobile": {
@@ -48,5 +38,5 @@
     "override_reset": true
   },
   "console_warning_error_logs": [],
-  "scope": "USG-only; no CAD or revised Sample 7 UI"
+  "scope": "USG-only; U1/U2 exports, result selectors, 3D and member labels verified"
 }

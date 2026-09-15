@@ -81,9 +81,10 @@ class MemberResult:
     def translation(self, x, relative=False, legacy_section=False):
         local = self.local_displacement(x)
         if legacy_section:
-            # OpenSTAAD section recovery uses moment-area flexure plus displaced
-            # endpoints; distributed-load shear curvature is omitted (Bentley
-            # KB0112641). Retain full Timoshenko translations in the raw solver.
+            # Compatibility recovery combines joint motion and flexural span
+            # deformation. Bentley KB0112641 motivates this distinction but
+            # does not establish this exact interpolation as OpenSTAAD's formula.
+            # Retain full Timoshenko translations in the raw solver.
             e = self.element
             l = e.length
             r = x / l
@@ -95,10 +96,9 @@ class MemberResult:
                     l * (-r * r + r**3),
                 ]
             )
-            # Endpoint rotation plus shear slope yields exact homogeneous
-            # Timoshenko translation. STAAD interpolates joint rotations without
-            # that slope; remove its Hermite contribution. The load particular
-            # solution is the fixed-end Euler-Bernoulli bubble.
+            # This legacy path interpolates joint rotations with Hermite shape
+            # functions and adds the fixed-end Euler-Bernoulli load bubble.
+            # Exact reference equivalence remains subject to independent checks.
             from .element import GAUSS_X, GAUSS_W
 
             def eb_shape(s):
@@ -173,8 +173,12 @@ class MemberResult:
                 probes = np.array([0.211324865405, 0.5, 0.788675134595])
                 values = [self.internal(a + r * (b - a))[shear] for r in probes]
                 co = np.polynomial.polynomial.polyfit(probes, values, 2)
-                scale = max(1.0, max(abs(v) for v in co))
-                while len(co) > 1 and abs(co[-1]) < 1e-10 * scale:
+                scale = max(abs(v) for v in co)
+                if scale == 0:
+                    continue
+                # Root locations must not depend on load magnitude or units.
+                co /= scale
+                while len(co) > 1 and abs(co[-1]) < 1e-10:
                     co = co[:-1]
                 for root in np.polynomial.polynomial.polyroots(co):
                     if abs(root.imag) < 1e-9 and 0 < root.real < 1:

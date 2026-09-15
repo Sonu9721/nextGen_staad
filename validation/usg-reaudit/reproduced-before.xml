@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="13" skipped="0" tests="20" time="0.627" timestamp="2026-09-15T13:23:52.342067+05:30" hostname="DESKTOP-FJ0CM4V"><testcase classname="tests.test_usg_reaudit" name="test_moment_extremum_is_independent_of_load_scale[1e-12-Y-MZ]" time="0.006"><failure message="assert 3.2311742677852644e-27 == 2e-12 ± 2.0e-23&#10;  &#10;  comparison failed&#10;  Obtained: 3.2311742677852644e-27&#10;  Expected: 2e-12 ± 2.0e-23">tests\test_usg_reaudit.py:20: in test_moment_extremum_is_independent_of_load_scale
+    assert value == pytest.approx(intensity * 4**2 / 8, rel=1e-11, abs=0)
+E   assert 3.2311742677852644e-27 == 2e-12 ± 2.0e-23
+E     
+E     comparison failed
+E     Obtained: 3.2311742677852644e-27
+E     Expected: 2e-12 ± 2.0e-23</failure></testcase><testcase classname="tests.test_usg_reaudit" name="test_moment_extremum_is_independent_of_load_scale[1e-12-Z-MY]" time="0.008"><failure message="assert 1.6155871338926322e-27 == 2e-12 ± 2.0e-23&#10;  &#10;  comparison failed&#10;  Obtained: 1.6155871338926322e-27&#10;  Expected: 2e-12 ± 2.0e-23">tests\test_usg_reaudit.py:20: in test_moment_extremum_is_independent_of_load_scale
+    assert value == pytest.approx(intensity * 4**2 / 8, rel=1e-11, abs=0)
+E   assert 1.6155871338926322e-27 == 2e-12 ± 2.0e-23
+E     
+E     comparison failed
+E     Obtained: 1.6155871338926322e-27
+E     Expected: 2e-12 ± 2.0e-23</failure></testcase><testcase classname="tests.test_usg_reaudit" name="test_moment_extremum_is_independent_of_load_scale[1e-06-Y-MZ]" time="0.006" /><testcase classname="tests.test_usg_reaudit" name="test_moment_extremum_is_independent_of_load_scale[1e-06-Z-MY]" time="0.005" /><testcase classname="tests.test_usg_reaudit" name="test_moment_extremum_is_independent_of_load_scale[1000.0-Y-MZ]" time="0.005" /><testcase classname="tests.test_usg_reaudit" name="test_moment_extremum_is_independent_of_load_scale[1000.0-Z-MY]" time="0.005" /><testcase classname="tests.test_usg_reaudit" name="test_moment_extremum_is_independent_of_load_scale[1000000000000.0-Y-MZ]" time="0.005" /><testcase classname="tests.test_usg_reaudit" name="test_moment_extremum_is_independent_of_load_scale[1000000000000.0-Z-MY]" time="0.005" /><testcase classname="tests.test_usg_reaudit" name="test_reference_member_endpoint_displacement_is_not_a_force[properties.global.displacement-start]" time="0.004"><failure message="ValueError: tuple.index(x): x not in tuple">tests\test_usg_reaudit.py:33: in test_reference_member_endpoint_displacement_is_not_a_force
+    assert reference_point_value(path, point, result, "METER") == pytest.approx(expected, abs=1e-11)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+engine\comparison.py:67: in reference_point_value
+    index = ("FX", "FY", "FZ", "MX", "MY", "MZ").index(axis)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: tuple.index(x): x not in tuple</failure></testcase><testcase classname="tests.test_usg_reaudit" name="test_reference_member_endpoint_displacement_is_not_a_force[properties.global.displacement-end]" time="0.003"><failure message="ValueError: tuple.index(x): x not in tuple">tests\test_usg_reaudit.py:33: in test_reference_member_endpoint_displacement_is_not_a_force
+    assert reference_point_value(path, point, result, "METER") == pytest.approx(expected, abs=1e-11)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+engine\comparison.py:67: in reference_point_value
+    index = ("FX", "FY", "FZ", "MX", "MY", "MZ").index(axis)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: tuple.index(x): x not in tuple</failure></testcase><testcase classname="tests.test_usg_reaudit" name="test_reference_member_endpoint_displacement_is_not_a_force[properties.transom.displacement-start]" time="0.004"><failure message="ValueError: tuple.index(x): x not in tuple">tests\test_usg_reaudit.py:33: in test_reference_member_endpoint_displacement_is_not_a_force
+    assert reference_point_value(path, point, result, "METER") == pytest.approx(expected, abs=1e-11)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+engine\comparison.py:67: in reference_point_value
+    index = ("FX", "FY", "FZ", "MX", "MY", "MZ").index(axis)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: tuple.index(x): x not in tuple</failure></testcase><testcase classname="tests.test_usg_reaudit" name="test_reference_member_endpoint_displacement_is_not_a_force[properties.transom.displacement-end]" time="0.004"><failure message="ValueError: tuple.index(x): x not in tuple">tests\test_usg_reaudit.py:33: in test_reference_member_endpoint_displacement_is_not_a_force
+    assert reference_point_value(path, point, result, "METER") == pytest.approx(expected, abs=1e-11)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+engine\comparison.py:67: in reference_point_value
+    index = ("FX", "FY", "FZ", "MX", "MY", "MZ").index(axis)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: tuple.index(x): x not in tuple</failure></testcase><testcase classname="tests.test_usg_reaudit" name="test_reference_member_endpoint_displacement_is_not_a_force[casement.df.all-start]" time="0.003"><failure message="ValueError: tuple.index(x): x not in tuple">tests\test_usg_reaudit.py:33: in test_reference_member_endpoint_displacement_is_not_a_force
+    assert reference_point_value(path, point, result, "METER") == pytest.approx(expected, abs=1e-11)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+engine\comparison.py:67: in reference_point_value
+    index = ("FX", "FY", "FZ", "MX", "MY", "MZ").index(axis)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: tuple.index(x): x not in tuple</failure></testcase><testcase classname="tests.test_usg_reaudit" name="test_reference_member_endpoint_displacement_is_not_a_force[casement.df.all-end]" time="0.003"><failure message="ValueError: tuple.index(x): x not in tuple">tests\test_usg_reaudit.py:33: in test_reference_member_endpoint_displacement_is_not_a_force
+    assert reference_point_value(path, point, result, "METER") == pytest.approx(expected, abs=1e-11)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+engine\comparison.py:67: in reference_point_value
+    index = ("FX", "FY", "FZ", "MX", "MY", "MZ").index(axis)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: tuple.index(x): x not in tuple</failure></testcase><testcase classname="tests.test_usg_reaudit" name="test_invalid_reference_station_remains_unavailable[nan]" time="0.004"><failure message="assert nan is None">tests\test_usg_reaudit.py:41: in test_invalid_reference_station_remains_unavailable
+    assert row["reference_station_m"] is None
+E   assert nan is None</failure></testcase><testcase classname="tests.test_usg_reaudit" name="test_invalid_reference_station_remains_unavailable[inf]" time="0.003"><failure message="assert inf is None">tests\test_usg_reaudit.py:41: in test_invalid_reference_station_remains_unavailable
+    assert row["reference_station_m"] is None
+E   assert inf is None</failure></testcase><testcase classname="tests.test_usg_reaudit" name="test_invalid_reference_station_remains_unavailable[not-a-distance]" time="0.003"><failure message="ValueError: could not convert string to float: 'not-a-distance'">tests\test_usg_reaudit.py:40: in test_invalid_reference_station_remains_unavailable
+    row = compare({"bending_moment": point}, {"bending_moment": {**point, "station": 1}}, result)["metrics"][0]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+engine\comparison.py:213: in compare
+    reference_station, candidate_station = station_m(expected), station_m(got)
+                                           ^^^^^^^^^^^^^^^^^^^
+engine\comparison.py:208: in station_m
+    float(point["station"]) * LENGTH_M[unit]
+    ^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: could not convert string to float: 'not-a-distance'</failure></testcase><testcase classname="tests.test_usg_reaudit" name="test_invalid_reference_station_remains_unavailable[True]" time="0.003"><failure message="assert 1.0 is None">tests\test_usg_reaudit.py:41: in test_invalid_reference_station_remains_unavailable
+    assert row["reference_station_m"] is None
+E   assert 1.0 is None</failure></testcase><testcase classname="tests.test_usg_reaudit" name="test_unknown_reference_force_axis_remains_unavailable" time="0.003"><failure message="ValueError: tuple.index(x): x not in tuple">tests\test_usg_reaudit.py:49: in test_unknown_reference_force_axis_remains_unavailable
+    assert reference_point_value("bending_moment.major", point, result, "METER") is None
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+engine\comparison.py:67: in reference_point_value
+    index = ("FX", "FY", "FZ", "MX", "MY", "MZ").index(axis)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ValueError: tuple.index(x): x not in tuple</failure></testcase><testcase classname="tests.test_usg_reaudit" name="test_nodal_reference_displacement_matches_the_closed_form" time="0.003" /></testsuite></testsuites>

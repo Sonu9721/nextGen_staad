@@ -11,7 +11,7 @@
     "moment_mode": "internal-envelope",
     "include_combinations": true,
     "backend": "inhouse",
-    "solver_version": "0.3.1",
+    "solver_version": "0.3.2",
     "validation_status": "reference_comparison_required",
     "diagnostics": {
       "nodes": 40,
@@ -99,7 +99,7 @@
           }
         ]
       },
-      "solve_seconds": 0.449621599999773,
+      "solve_seconds": 0.5096596999992471,
       "element_theory": "Timoshenko (Euler-Bernoulli when shear areas are absent)",
       "shear_area_rule": "Explicit AY/AZ; otherwise Cowper rectangular coefficient times AX when YD and ZD are supplied; no shear when neither is supplied."
     },

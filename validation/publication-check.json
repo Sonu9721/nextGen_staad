@@ -1,11 +1,11 @@
 {
-  "version": "0.3.1",
+  "version": "0.3.2",
   "repository": "https://github.com/Sonu9721/nextGen_staad",
   "branch": "main",
-  "rollback_commit": "37e95e804df51d79d5a6343977ac80b7abdd8fe0",
+  "publication_status": "local_only_pending_specific_public_sharing_approval",
+  "remote_rollback_commit": "37e95e804df51d79d5a6343977ac80b7abdd8fe0",
   "verification": "validation/usg-verification.json",
   "browser": "validation/usg-browser.json",
   "reference_comparison": "validation/usg/comparison.json",
-  "scope": "USG-only; all earlier September 15 changes reverted",
-  "note": "This manifest describes the verified publication contents; the containing Git commit identifies its exact revision."
+  "scope": "USG-only; previous CAD/MAAS and Sample 7 revision remain reverted"
 }

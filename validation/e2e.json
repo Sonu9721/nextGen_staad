@@ -1,6 +1,6 @@
 {
-  "solver_version": "0.3.1",
-  "started_at": "2026-09-15T07:35:37.029862+00:00",
+  "solver_version": "0.3.2",
+  "started_at": "2026-09-15T07:56:58.551581+00:00",
   "checks": [
     {
       "name": "Server, interface assets, documentation and UTF-8 encoding",
@@ -55,6 +55,14 @@
       "status": "pass"
     },
     {
+      "name": "USG explicit profile mapping preserves complete results through HTTP",
+      "status": "pass"
+    },
+    {
+      "name": "USG incomplete mapping fails explicitly without results or retries",
+      "status": "pass"
+    },
+    {
       "name": "Unsupported analysis and malformed profile requests fail without retries",
       "status": "pass"
     },
@@ -69,7 +77,7 @@
   ],
   "samples": {
     "sample1": {
-      "duration_seconds": 13.242733800000678,
+      "duration_seconds": 12.644904699999643,
       "nodes": 40,
       "members": 57,
       "physical_response": {
@@ -164,7 +172,7 @@
       }
     },
     "sample2": {
-      "duration_seconds": 27.31694400000015,
+      "duration_seconds": 26.561560300000565,
       "nodes": 70,
       "members": 105,
       "physical_response": {
@@ -259,7 +267,7 @@
       }
     },
     "sample3": {
-      "duration_seconds": 11.549401000000216,
+      "duration_seconds": 11.49981729999945,
       "nodes": 39,
       "members": 54,
       "physical_response": {
@@ -354,7 +362,7 @@
       }
     },
     "sample4": {
-      "duration_seconds": 8.094734100000096,
+      "duration_seconds": 8.578365200000007,
       "nodes": 52,
       "members": 57,
       "physical_response": {
@@ -449,7 +457,7 @@
       }
     },
     "sample5": {
-      "duration_seconds": 10.373303499999565,
+      "duration_seconds": 12.441251100000045,
       "nodes": 63,
       "members": 70,
       "physical_response": {
@@ -544,7 +552,7 @@
       }
     },
     "sample6": {
-      "duration_seconds": 13.339351700000407,
+      "duration_seconds": 15.131879599999593,
       "nodes": 44,
       "members": 61,
       "physical_response": {
@@ -645,7 +653,7 @@
       "members": 68
     },
     "usg1": {
-      "duration_seconds": 11.96244999999999,
+      "duration_seconds": 13.033608399999139,
       "nodes": 40,
       "members": 57,
       "physical_response": {
@@ -740,7 +748,7 @@
       }
     },
     "usg2": {
-      "duration_seconds": 14.155283400000371,
+      "duration_seconds": 15.04227340000034,
       "nodes": 44,
       "members": 64,
       "physical_response": {
@@ -836,5 +844,5 @@
     }
   },
   "status": "pass",
-  "finished_at": "2026-09-15T07:37:41.800217+00:00"
+  "finished_at": "2026-09-15T07:59:23.818944+00:00"
 }

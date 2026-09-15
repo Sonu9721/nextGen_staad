@@ -1,0 +1,129 @@
+{
+  "purpose": "Diagnostic hypotheses only; no production formula changed or empirical fit applied. Endpoint-closure reconstruction is not asserted to be OpenSTAAD behavior.",
+  "rows": [
+    {
+      "model": "USG_1",
+      "group": "global",
+      "source": "member-span",
+      "member_id": 17,
+      "load_case": 3,
+      "station_m": 0.8149983192,
+      "reference_mm": 31.987816,
+      "physical_mm": 32.05690610266844,
+      "legacy_mm": 32.030120863886296,
+      "curvature_with_linear_endpoint_closure_mm": 32.021985751491975
+    },
+    {
+      "model": "USG_1",
+      "group": "mullion",
+      "source": "member-span",
+      "member_id": 17,
+      "load_case": 3,
+      "station_m": 0.8149983192,
+      "reference_mm": 31.987816,
+      "physical_mm": 32.05690610266844,
+      "legacy_mm": 32.030120863886296,
+      "curvature_with_linear_endpoint_closure_mm": 32.021985751491975
+    },
+    {
+      "model": "USG_1",
+      "group": "stack",
+      "source": "node",
+      "reference_mm": 2.509251,
+      "physical_mm": 2.509179176381137
+    },
+    {
+      "model": "USG_1",
+      "group": "head",
+      "source": "node",
+      "reference_mm": 2.982192,
+      "physical_mm": 2.9820886659115065
+    },
+    {
+      "model": "USG_1",
+      "group": "sill",
+      "source": "member-span",
+      "member_id": 37,
+      "load_case": 3,
+      "station_m": 0.49999902539999996,
+      "reference_mm": 0.395347,
+      "physical_mm": 0.40321846304885356,
+      "legacy_mm": 0.39902967998943145,
+      "curvature_with_linear_endpoint_closure_mm": 0.39889289791241295
+    },
+    {
+      "model": "USG_1",
+      "group": "transom",
+      "source": "member-span",
+      "member_id": 53,
+      "load_case": 3,
+      "station_m": 0.5999988507999999,
+      "reference_mm": 0.39644,
+      "physical_mm": 0.4064670718748751,
+      "legacy_mm": 0.3981786110229564,
+      "curvature_with_linear_endpoint_closure_mm": 0.3981786110229599
+    },
+    {
+      "model": "USG_2",
+      "group": "global",
+      "source": "member-span",
+      "member_id": 18,
+      "load_case": 3,
+      "station_m": 1.5833303614,
+      "reference_mm": 165.864593,
+      "physical_mm": 166.10089387221547,
+      "legacy_mm": 166.009147288429,
+      "curvature_with_linear_endpoint_closure_mm": 166.00673832774706
+    },
+    {
+      "model": "USG_2",
+      "group": "mullion",
+      "source": "member-span",
+      "member_id": 18,
+      "load_case": 3,
+      "station_m": 1.5833303614,
+      "reference_mm": 165.864593,
+      "physical_mm": 166.10089387221547,
+      "legacy_mm": 166.009147288429,
+      "curvature_with_linear_endpoint_closure_mm": 166.00673832774706
+    },
+    {
+      "model": "USG_2",
+      "group": "stack",
+      "source": "node",
+      "reference_mm": 4.905264,
+      "physical_mm": 4.905086081841795
+    },
+    {
+      "model": "USG_2",
+      "group": "head",
+      "source": "node",
+      "reference_mm": 12.253715,
+      "physical_mm": 12.253554290843494
+    },
+    {
+      "model": "USG_2",
+      "group": "sill",
+      "source": "member-span",
+      "member_id": 41,
+      "load_case": 3,
+      "station_m": 0.5416655918000001,
+      "reference_mm": 0.261322,
+      "physical_mm": 0.2711443520444582,
+      "legacy_mm": 0.2665248025980313,
+      "curvature_with_linear_endpoint_closure_mm": 0.2663973621220636
+    },
+    {
+      "model": "USG_2",
+      "group": "transom",
+      "source": "member-span",
+      "member_id": 57,
+      "load_case": 3,
+      "station_m": 0.6499986999999999,
+      "reference_mm": 0.534239,
+      "physical_mm": 0.5534026992064867,
+      "legacy_mm": 0.5365812430200521,
+      "curvature_with_linear_endpoint_closure_mm": 0.5365812430200521
+    }
+  ]
+}
